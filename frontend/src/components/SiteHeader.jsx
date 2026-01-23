@@ -34,7 +34,7 @@ const SiteHeader = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`text-sm lg:text-base font-medium transition-all ${
+                className={`text-base font-medium transition-all ${
                   isActive(item.path)
                     ? 'text-white font-bold'
                     : 'text-white/90 hover:text-white'
@@ -45,8 +45,8 @@ const SiteHeader = () => {
             ))}
           </nav>
 
-          <Link to="/get-involved">
-            <Button className="hidden md:block bg-white text-[#EC167F] hover:bg-white/90 px-8 py-3 rounded-full font-bold shadow-lg">
+          <Link to="/get-involved" className="hidden md:block">
+            <Button className="bg-white text-[#EC167F] hover:bg-white/90 px-8 py-3 rounded-full font-bold shadow-lg">
               Donate Now
             </Button>
           </Link>
