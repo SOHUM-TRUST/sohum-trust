@@ -361,28 +361,72 @@ export default function Home() {
     </div>
   </div>
 </section>
-
       {/* ================= WHAT WE ENABLE ================= */}
-      <section className="bg-[#fff7ed] py-32">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-center tracking-[0.3em] text-xs font-semibold text-[#ea580c] mb-16">
-            WHAT WE ENABLE
-          </h2>
+<section className="py-16 bg-[#fff7ed]">
+  <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-start">
 
-          <div className="grid md:grid-cols-4 gap-10">
-            {enablement.map((e) => (
-              <div key={e.title} className="bg-white rounded-3xl p-8 shadow-lg">
-                <h3 className="font-heading text-xl font-bold text-[#431407] mb-4">
-                  {e.title}
-                </h3>
-                <p className="text-[15px] leading-[1.7] text-slate-600">
-                  {e.desc}
-                </p>
-              </div>
-            ))}
+    {/* LEFT CONTENT */}
+    <div>
+      <p className="tracking-[0.3em] text-xs font-semibold text-[#ea580c] mb-3">
+        WHAT WE ENABLE
+      </p>
+
+      <h2 className="font-heading text-3xl md:text-4xl font-semibold text-[#431407] mb-5 leading-tight">
+        Education that continues,<br />not ends
+      </h2>
+
+      <p className="text-[15px] leading-[1.7] text-slate-600 max-w-md">
+        Sohum Trust builds learning ecosystems that support students across
+        stages — academically, professionally, and culturally.
+      </p>
+    </div>
+
+    {/* RIGHT IMAGE POINTS */}
+    <div className="space-y-6">
+
+      {[
+        {
+          title: 'Access to Education',
+          desc: 'Structured learning opportunities for students from underserved backgrounds.',
+        },
+        {
+          title: 'Guided Learning Paths',
+          desc: 'Mentorship-driven academic and professional journeys beyond exams.',
+        },
+        {
+          title: 'Institutional Stability',
+          desc: 'Education systems designed to grow stronger over time.',
+        },
+        {
+          title: 'Cultural Continuity',
+          desc: 'Learning that preserves values, arts, and indigenous knowledge.',
+        },
+      ].map((item) => (
+        <div
+          key={item.title}
+          className="flex items-start gap-4"
+        >
+          {/* IMAGE / ICON HOLDER */}
+          <div className="w-12 h-12 rounded-xl bg-[#fef3e8] flex items-center justify-center shrink-0">
+            {/* replace img src later */}
+            <div className="w-6 h-6 bg-[#ea580c]/30 rounded-md" />
+          </div>
+
+          {/* TEXT */}
+          <div>
+            <h3 className="font-heading text-base font-semibold text-[#431407] mb-1">
+              {item.title}
+            </h3>
+            <p className="text-[14px] leading-[1.6] text-slate-600">
+              {item.desc}
+            </p>
           </div>
         </div>
-      </section>
+      ))}
+
+    </div>
+  </div>
+</section>
 
       {/* ================= VALUES IN ACTION ================= */}
       <section className="py-32 max-w-7xl mx-auto px-6">
@@ -439,49 +483,53 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      <section className="bg-[#fff7ed] py-32">
-  <div className="max-w-7xl mx-auto px-6">
-    <h2 className="text-center tracking-[0.3em] text-xs font-semibold text-[#ea580c] mb-6">
+      <section className="bg-[#fff7ed] py-20">
+  <div className="max-w-6xl mx-auto px-6">
+    
+    {/* Heading */}
+    <h2 className="text-center tracking-[0.28em] text-xs font-semibold text-[#ea580c] mb-4">
       HOW YOUR SUPPORT HELPS
     </h2>
 
-    <p className="text-center text-lg text-slate-600 max-w-3xl mx-auto mb-20">
+    <p className="text-center text-[16px] text-slate-600 max-w-2xl mx-auto mb-12">
       Every contribution strengthens institutions, educators, and learning
       systems — creating impact that lasts beyond individuals.
     </p>
 
-    <div className="grid md:grid-cols-4 gap-10 relative">
+    {/* Impact Grid */}
+    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {[
         {
           title: 'Learning Infrastructure',
-          desc: 'Classrooms, libraries, digital tools, and learning spaces that form the foundation.',
+          desc: 'Classrooms, libraries, digital tools, and learning spaces.',
         },
         {
           title: 'Mentorship Programs',
-          desc: 'Guided academic and career pathways for students at critical stages.',
+          desc: 'Guided academic and career pathways at critical stages.',
         },
         {
           title: 'Educator Development',
-          desc: 'Training, resources, and long-term support for teachers and mentors.',
+          desc: 'Long-term training and support for teachers and mentors.',
         },
         {
           title: 'Cultural & Community Initiatives',
-          desc: 'Preserving knowledge systems, values, and community-led learning.',
+          desc: 'Preserving knowledge systems and community-led learning.',
         },
       ].map((item) => (
         <div
           key={item.title}
-          className="bg-white rounded-3xl p-8 shadow-lg text-center"
+          className="bg-white rounded-2xl p-6 shadow-md text-center"
         >
-          <h3 className="font-heading text-xl font-bold text-[#431407] mb-4">
+          <h3 className="font-heading text-lg font-semibold text-[#431407] mb-2">
             {item.title}
           </h3>
-          <p className="text-[15px] leading-[1.7] text-slate-600">
+          <p className="text-[14.5px] leading-[1.65] text-slate-600">
             {item.desc}
           </p>
         </div>
       ))}
     </div>
+
   </div>
 </section>
 
