@@ -182,6 +182,10 @@ export default function Home() {
                 {s.text}
               </p>
 
+              <p className="text-sm uppercase tracking-widest text-[#ea580c] font-semibold mb-6">
+                Nurturing Minds, Illuminating Futures
+              </p>
+
               <Link to="/get-involved">
                 <button className="w-fit rounded-full px-10 py-3.5 bg-[#D2693E] hover:bg-[#bc5a32] text-white font-semibold transition-colors">
                   Support Education
