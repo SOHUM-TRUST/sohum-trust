@@ -20,12 +20,12 @@ const SiteHeader = () => {
   return (
     <header className="sticky top-0 z-50 bg-gradient-to-r from-[#EC167F] to-[#F5A044] border-b border-white/20 shadow-md">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-17 md:h-22">
+        <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center">
             <img
               src="/logo_sohum.png"
               alt="Sohum Trust Logo"
-              className="h-14 md:h-20 lg:h-24 w-auto object-contain"
+              className="h-14 w-auto object-contain"
             />
           </Link>
 
