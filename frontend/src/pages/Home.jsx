@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import SiteHeader from '../components/SiteHeader';
@@ -25,6 +25,7 @@ const scaleIn = {
 
 const slides = [
   {
+    id: 1,
     subtitle: 'Committed to',
     title: 'Education for All',
     text:
@@ -32,6 +33,7 @@ const slides = [
     image: '/children1.png',
   },
   {
+    id: 2,
     subtitle: 'Focused on',
     title: 'Institution Building',
     text:
@@ -39,6 +41,7 @@ const slides = [
     image: '/children2.png',
   },
   {
+    id: 3,
     subtitle: 'Driven by',
     title: 'Long-Term Impact',
     text:
@@ -140,108 +143,322 @@ export default function Home() {
       <FloatingDonateButton />
 
       {/* ================= HERO ================= */}
-      <section className="relative bg-[#F2EAE2] py-8 sm:py-10 md:py-14 min-h-[450px] sm:min-h-[500px] md:min-h-[550px] flex items-center overflow-hidden">
-  {/* VIEWPORT */}
-  <div className="relative w-full">
+      <section className="relative bg-gradient-to-br from-[#FFF8F3] via-[#FFF5ED] to-[#FFE8DB] py-20 min-h-[600px] flex items-center overflow-hidden">
+      
+      {/* Large Vibrant Gradient Orbs */}
+      <motion.div
+        className="absolute -top-20 -right-20 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[#FF6B9D]/30 via-[#FF8FAB]/25 to-[#FFB347]/30 blur-[80px]"
+        animate={{
+          scale: [1, 1.2, 1],
+          x: [0, 50, 0],
+          y: [0, -40, 0]
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      
+      <motion.div
+        className="absolute -bottom-32 -left-20 w-[700px] h-[700px] rounded-full bg-gradient-to-tr from-[#FF6347]/25 via-[#FF8C42]/30 to-[#FFA07A]/25 blur-[80px]"
+        animate={{
+          scale: [1.1, 1, 1.1],
+          x: [0, -40, 0],
+          y: [0, 30, 0]
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
 
-    {/* SLIDER TRACK */}
-    <motion.div
-      className="
-        flex items-center gap-6
-        [--slide-width:85vw] [--gap:24px] [--center-offset:7.5vw]
-        md:[--slide-width:70vw] md:[--center-offset:15vw]
-        lg:[--slide-width:1000px] lg:[--center-offset:calc(50vw-550px)]
-      "
-      animate={{
-        x: `calc(-${index} * (var(--slide-width) + var(--gap)) + var(--center-offset))`,
-      }}
-      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-    >
-      {slides.map((s, i) => (
-        <motion.div
-          key={i}
-          className="shrink-0 w-[var(--slide-width)]"
-          animate={{
-            scale: i === index ? 1 : 0.95,
-            opacity: i === index ? 1 : 0.5,
-          }}
-          transition={{ duration: 0.4 }}
+      <motion.div
+        className="absolute top-1/3 left-1/2 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-[#FF9A8B]/20 via-[#FF6A88]/25 to-[#FF99AC]/20 blur-[70px]"
+        animate={{
+          scale: [1, 1.15, 1],
+          x: [0, 30, 0],
+          y: [0, -25, 0]
+        }}
+        transition={{
+          duration: 18,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+
+      {/* Colorful Floating Geometric Shapes */}
+      <motion.div
+        className="absolute top-24 left-[15%] w-24 h-24 bg-gradient-to-br from-[#FF6B9D]/40 to-[#FFB347]/30 rounded-2xl rotate-45 shadow-lg"
+        animate={{
+          y: [0, -40, 0],
+          rotate: [45, 75, 45],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+
+      <motion.div
+        className="absolute bottom-32 right-[20%] w-20 h-20 bg-gradient-to-br from-[#FF8C42]/40 to-[#FF6347]/35 rounded-full shadow-lg"
+        animate={{
+          y: [0, 30, 0],
+          scale: [1, 1.15, 1],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+
+      <motion.div
+        className="absolute top-[40%] right-[15%] w-16 h-16 bg-gradient-to-br from-[#FF99AC]/45 to-[#FF6A88]/40 rounded-xl rotate-12 shadow-md"
+        animate={{
+          y: [0, -25, 0],
+          x: [0, 20, 0],
+          rotate: [12, 42, 12],
+        }}
+        transition={{
+          duration: 7,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+
+      <motion.div
+        className="absolute bottom-[45%] left-[20%] w-14 h-14 border-4 border-[#FF6B9D]/50 rounded-lg rotate-45 shadow-md"
+        animate={{
+          y: [0, 35, 0],
+          rotate: [45, 75, 45],
+        }}
+        transition={{
+          duration: 9,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+
+      <motion.div
+        className="absolute top-[60%] right-[35%] w-12 h-12 border-4 border-[#FF8C42]/55 rounded-full shadow-md"
+        animate={{
+          y: [0, -30, 0],
+          scale: [1, 1.2, 1],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+
+      {/* Decorative Sparkles */}
+      <motion.div
+        className="absolute top-[20%] left-[45%] w-3 h-3 bg-[#FFD700] rounded-full shadow-[0_0_20px_#FFD700]"
+        animate={{
+          opacity: [0.3, 1, 0.3],
+          scale: [0.8, 1.3, 0.8],
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+
+      <motion.div
+        className="absolute top-[75%] left-[60%] w-2 h-2 bg-[#FF6B9D] rounded-full shadow-[0_0_15px_#FF6B9D]"
+        animate={{
+          opacity: [0.4, 1, 0.4],
+          scale: [0.9, 1.4, 0.9],
+        }}
+        transition={{
+          duration: 2.5,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0.5
+        }}
+      />
+
+      <motion.div
+        className="absolute top-[35%] left-[70%] w-2.5 h-2.5 bg-[#FF8C42] rounded-full shadow-[0_0_18px_#FF8C42]"
+        animate={{
+          opacity: [0.3, 1, 0.3],
+          scale: [0.8, 1.5, 0.8],
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+      />
+
+      {/* VIEWPORT */}
+      <div className="relative w-full z-10">
+        
+        {/* 'Get Involved' Badge (Floating Top Left) */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="absolute top-[-60px] left-[7.5vw] lg:left-[calc(50vw-550px)] z-20 hidden md:flex"
         >
-          {/* CARD */}
-          <div className="bg-[#FAF7F4] rounded-[20px] sm:rounded-[30px] md:rounded-[40px] grid md:grid-cols-2 min-h-[350px] sm:min-h-[380px] md:min-h-[400px] shadow-2xl shadow-black/5 overflow-hidden">
-            
-            {/* TEXT */}
-            <div className="p-5 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-center">
-              <span className="tracking-[0.15em] sm:tracking-[0.2em] uppercase text-[11px] sm:text-[12px] md:text-[13px] font-bold text-[#D2693E] mb-3 sm:mb-4">
-                {s.subtitle}
-              </span>
-
-              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-medium text-[#431407] mb-4 sm:mb-5 leading-[1.1]">
-                {s.title}
-              </h2>
-
-              <p className="text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed text-slate-600 mb-5 sm:mb-6 max-w-sm">
-                {s.text}
-              </p>
-
-              <p className="text-xs sm:text-sm uppercase tracking-widest text-[#ea580c] font-semibold mb-5 sm:mb-6">
-                Nurturing Minds, Illuminating Futures
-              </p>
-
-              <Link to="/get-involved">
-                <button className="w-fit rounded-full px-6 sm:px-8 md:px-10 py-2.5 sm:py-3 md:py-3.5 text-sm sm:text-base bg-[#D2693E] hover:bg-[#bc5a32] text-white font-semibold transition-colors">
-                  Support Education
-                </button>
-              </Link>
-            </div>
-
-            {/* IMAGE */}
-            <div className="relative min-h-[200px] sm:min-h-[220px] md:min-h-full">
-              <img
-                src={s.image}
-                alt={s.title}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </div>
-
-          </div>
+             <div className="bg-white/90 backdrop-blur-md px-5 py-2 rounded-full shadow-lg border border-[#D2693E]/10 flex items-center gap-2">
+                <motion.div
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                >
+                  <Sparkles size={14} className="text-[#D2693E]" />
+                </motion.div>
+                <span className="text-xs font-bold tracking-widest text-[#431407] uppercase">Get Involved</span>
+             </div>
         </motion.div>
-      ))}
-    </motion.div>
 
-    {/* LEFT ARROW */}
-    <button
-      onClick={prev}
-      className="
-        hidden lg:flex absolute left-10 top-1/2 -translate-y-1/2 z-40
-        bg-white p-5 rounded-full shadow-xl
-        hover:scale-110 transition-transform
-      "
-    >
-      <ChevronLeft className="w-6 h-6 text-black" />
-    </button>
+        {/* SLIDER TRACK */}
+        <motion.div
+          className="
+            flex items-center gap-6
+            [--slide-width:85vw] [--gap:24px] [--center-offset:7.5vw]
+            md:[--slide-width:70vw] md:[--center-offset:15vw]
+            lg:[--slide-width:1000px] lg:[--center-offset:calc(50vw-500px)]
+          "
+          animate={{
+            x: `calc(-${index} * (var(--slide-width) + var(--gap)) + var(--center-offset))`,
+          }}
+          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+        >
+          {slides.map((s, i) => (
+            <motion.div
+              key={s.id}
+              className="shrink-0 w-[var(--slide-width)]"
+              animate={{
+                scale: i === index ? 1 : 0.92,
+                opacity: i === index ? 1 : 0.4,
+              }}
+              transition={{ duration: 0.4 }}
+            >
+              {/* CARD */}
+              <div className="bg-white/95 backdrop-blur-sm rounded-[32px] md:rounded-[40px] grid md:grid-cols-2 min-h-[450px] shadow-[0_20px_60px_-15px_rgba(67,20,7,0.15)] overflow-hidden border border-white relative group hover:shadow-[0_25px_70px_-15px_rgba(67,20,7,0.2)] transition-all duration-500">
+                
+                {/* TEXT SIDE */}
+                <div className="p-8 md:p-14 flex flex-col justify-center relative bg-gradient-to-br from-white/50 to-transparent">
+                  {/* Premium accent line */}
+                  <div className="absolute top-0 left-0 w-20 h-1 bg-gradient-to-r from-[#D2693E] via-[#EC167F] to-transparent rounded-r-full"></div>
 
-    {/* RIGHT ARROW */}
-    <button
-      onClick={next}
-      className="
-        hidden lg:flex absolute right-10 top-1/2 -translate-y-1/2 z-40
-        bg-white p-5 rounded-full shadow-xl
-        hover:scale-110 transition-transform
-      "
-    >
-      <ChevronRight className="w-6 h-6 text-black" />
-    </button>
+                  <span className="tracking-[0.25em] uppercase text-[11px] font-bold text-[#D2693E] mb-5 opacity-90">
+                    {s.subtitle}
+                  </span>
 
-  </div>
-</section>
+                  <h2 className="font-serif text-3xl md:text-5xl font-semibold text-[#431407] mb-6 leading-[1.08] tracking-tight">
+                    {s.title}
+                  </h2>
+
+                  <p className="text-[15px] md:text-[17px] leading-[1.7] text-slate-600 mb-8 max-w-md">
+                    {s.text}
+                  </p>
+
+                  <div className="mt-auto">
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-[#ea580c]/80 font-bold mb-6">
+                      Nurturing Minds, Illuminating Futures
+                    </p>
+
+                    <Link to="/get-involved">
+                      <motion.button 
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="group/btn relative overflow-hidden w-fit rounded-full px-8 py-3.5 bg-gradient-to-r from-[#D2693E] to-[#C5502A] text-white font-semibold transition-all duration-300 shadow-[0_8px_20px_-4px_rgba(210,105,62,0.4)] hover:shadow-[0_12px_30px_-4px_rgba(210,105,62,0.5)]"
+                      >
+                        <span className="relative z-10">Support Education</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#C5502A] to-[#B54525] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+                      </motion.button>
+                    </Link>
+                  </div>
+                </div>
+
+                {/* IMAGE SIDE */}
+                <div className="relative min-h-[300px] md:min-h-full overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#431407]/20 via-transparent to-transparent z-10 opacity-100 group-hover:opacity-50 transition-opacity duration-500" />
+                  <img
+                    src={s.image}
+                    alt={s.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
+
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* LEFT ARROW */}
+        <button
+          onClick={prev}
+          className="
+            hidden lg:flex absolute left-10 top-1/2 -translate-y-1/2 z-40
+            bg-white/95 backdrop-blur-md p-4 rounded-full shadow-[0_8px_25px_-5px_rgba(0,0,0,0.15)] border border-white/50
+            text-[#431407] hover:scale-110 hover:shadow-[0_12px_35px_-5px_rgba(0,0,0,0.2)] transition-all duration-300
+          "
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+
+        {/* RIGHT ARROW */}
+        <button
+          onClick={next}
+          className="
+            hidden lg:flex absolute right-10 top-1/2 -translate-y-1/2 z-40
+            bg-white/95 backdrop-blur-md p-4 rounded-full shadow-[0_8px_25px_-5px_rgba(0,0,0,0.15)] border border-white/50
+            text-[#431407] hover:scale-110 hover:shadow-[0_12px_35px_-5px_rgba(0,0,0,0.2)] transition-all duration-300
+          "
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
+
+        {/* SLIDE INDICATORS */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-40 flex gap-3">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              className="group relative"
+              aria-label={`Go to slide ${i + 1}`}
+            >
+              <motion.div
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  i === index
+                    ? 'bg-gradient-to-r from-[#D2693E] to-[#EC167F] scale-125 shadow-lg shadow-[#D2693E]/30'
+                    : 'bg-white/40 hover:bg-white/60 group-hover:scale-110'
+                }`}
+                animate={i === index ? {
+                  boxShadow: [
+                    '0 0 8px rgba(210, 105, 62, 0.3)',
+                    '0 0 15px rgba(236, 22, 127, 0.4)',
+                    '0 0 8px rgba(210, 105, 62, 0.3)'
+                  ]
+                } : {}}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+            </button>
+          ))}
+        </div>
+
+      </div>
+    </section>
       {/* ================= WHY WE EXIST ================= */}
       <motion.section
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 md:py-28 lg:py-32 grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-20 items-center relative"
+        className="max-w-7xl mx-auto px-6 py-32 grid md:grid-cols-2 gap-20 items-center relative"
       >
         {/* Decorative background elements */}
         <motion.div 
@@ -254,7 +471,7 @@ export default function Home() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="tracking-[0.2em] sm:tracking-[0.3em] text-[10px] sm:text-xs font-semibold text-[#ea580c] mb-4 sm:mb-6 uppercase"
+            className="tracking-[0.3em] text-xs font-semibold text-[#ea580c] mb-6 uppercase"
           >
             WHY WE EXIST
           </motion.h2>
@@ -263,40 +480,40 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#431407] to-[#6B2710] bg-clip-text text-transparent mb-5 sm:mb-6 md:mb-8"
+            className="font-heading text-5xl font-bold bg-gradient-to-r from-[#431407] to-[#6B2710] bg-clip-text text-transparent mb-8"
           >
             Addressing gaps education leaves behind
           </motion.h3>
-          <p className="text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] text-slate-700 mb-4 sm:mb-6 max-w-2xl">
+          <p className="text-[17px] leading-[1.75] text-slate-700 mb-6 max-w-2xl">
             Many learners begin education but lack continuity, guidance, and
             institutional support. Short-term interventions often fail to
             create lasting impact.
           </p>
-          <p className="text-[14px] sm:text-[15px] md:text-[16px] text-slate-600 max-w-2xl">
+          <p className="text-[16px] text-slate-600 max-w-2xl">
             Sohum Trust exists to build long-term educational ecosystems that
             support learners across academic, professional, and cultural stages.
           </p>
         </div>
         <img
           src="/why-exist.jpg"
-          className="rounded-2xl sm:rounded-3xl shadow-xl h-[250px] sm:h-[300px] md:h-[350px] lg:h-[380px] w-full object-cover"
+          className="rounded-3xl shadow-xl h-[380px] w-full object-cover"
         />
       </motion.section>
 
       {/* ================= CONTEXT STRIP ================= */}
-<section className="bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 py-8 sm:py-12 md:py-16 relative overflow-hidden">
+<section className="bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 py-16 relative overflow-hidden">
   <motion.div 
     className="absolute inset-0 opacity-10"
     style={{ backgroundImage: `radial-gradient(circle, #ea580c 1px, transparent 1px)`, backgroundSize: '20px 20px' }}
     animate={{ backgroundPosition: ['0px 0px', '20px 20px'] }}
     transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
   />
-  <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
+  <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
     <motion.p 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="text-base sm:text-lg md:text-xl leading-relaxed text-slate-700"
+      className="text-xl leading-relaxed text-slate-700"
     >
       Sohum Trust is an education-focused charitable trust dedicated to building
       <span className="font-bold bg-gradient-to-r from-[#431407] to-[#ea580c] bg-clip-text text-transparent"> long-term learning institutions </span>
@@ -306,18 +523,18 @@ export default function Home() {
 </section>
 
 {/* ================= WHY THIS MATTERS ================= */}
-<section className="bg-gradient-to-br from-[#1f2933] via-[#2a0d04] to-[#431407] py-12 sm:py-16 md:py-20 lg:py-28 text-white relative overflow-hidden">
+<section className="bg-gradient-to-br from-[#1f2933] via-[#2a0d04] to-[#431407] py-28 text-white relative overflow-hidden">
   <motion.div 
     className="absolute top-10 right-10 w-80 h-80 bg-[#fbbf24]/20 rounded-full blur-3xl"
     animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
     transition={{ duration: 6, repeat: Infinity }}
   />
-  <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
+  <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
     <motion.h2 
       initial={{ scale: 0 }}
       whileInView={{ scale: 1 }}
       viewport={{ once: true }}
-      className="tracking-[0.2em] sm:tracking-[0.3em] text-[10px] sm:text-xs font-semibold text-[#fbbf24] mb-4 sm:mb-6 uppercase"
+      className="tracking-[0.3em] text-xs font-semibold text-[#fbbf24] mb-6 uppercase"
     >
       WHY THIS MATTERS
     </motion.h2>
@@ -325,7 +542,7 @@ export default function Home() {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-5 sm:mb-6 md:mb-8 drop-shadow-lg"
+      className="font-heading text-4xl md:text-5xl font-bold mb-8 drop-shadow-lg"
     >
       Education without continuity fails learners
     </motion.h3>
@@ -334,7 +551,7 @@ export default function Home() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ delay: 0.3 }}
-      className="text-base sm:text-lg text-slate-300 leading-relaxed font-medium"
+      className="text-lg text-slate-300 leading-relaxed font-medium"
     >
       Millions of learners start their educational journey but are left without
       guidance, mentorship, or institutional support. Without stable systems,
@@ -344,21 +561,21 @@ export default function Home() {
 </section>
 
 {/* ================= WHO WE SERVE ================= */}
-<section className="bg-gradient-to-b from-white via-blue-50/30 to-white py-12 sm:py-20 md:py-28 lg:py-32 relative overflow-hidden">
+<section className="bg-gradient-to-b from-white via-blue-50/30 to-white py-32 relative overflow-hidden">
   <motion.div 
     className="absolute bottom-20 left-20 w-72 h-72 bg-gradient-to-br from-blue-300/20 to-indigo-300/20 rounded-full blur-3xl"
     animate={{ scale: [1, 1.2, 1], x: [-20, 20, -20] }}
     transition={{ duration: 8, repeat: Infinity }}
   />
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+  <div className="max-w-7xl mx-auto px-6 relative z-10">
 
     {/* Heading */}
-    <div className="text-center mb-10 sm:mb-14 md:mb-20">
+    <div className="text-center mb-20">
       <motion.h2 
         initial={{ scale: 0 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}
-        className="tracking-[0.2em] sm:tracking-[0.3em] text-[10px] sm:text-xs font-semibold bg-gradient-to-r from-[#ea580c] to-[#EC167F] bg-clip-text text-transparent mb-3 sm:mb-4 uppercase"
+        className="tracking-[0.3em] text-xs font-semibold bg-gradient-to-r from-[#ea580c] to-[#EC167F] bg-clip-text text-transparent mb-4 uppercase"
       >
         WHO WE SERVE
       </motion.h2>
@@ -366,14 +583,14 @@ export default function Home() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#431407] to-[#6B2710] bg-clip-text text-transparent"
+        className="font-heading text-5xl font-bold bg-gradient-to-r from-[#431407] to-[#6B2710] bg-clip-text text-transparent"
       >
         Supporting learners at every stage
       </motion.h3>
     </div>
 
     {/* Cards Grid */}
-    <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
+    <div className="grid md:grid-cols-2 gap-10">
 
       {[
         {
@@ -408,7 +625,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ delay: i * 0.15 }}
           whileHover={{ scale: 1.03, y: -5 }}
-          className="relative h-[240px] sm:h-[260px] md:h-[280px] rounded-[20px] sm:rounded-[24px] md:rounded-[28px] overflow-hidden shadow-2xl cursor-pointer"
+          className="relative h-[280px] rounded-[28px] overflow-hidden shadow-2xl cursor-pointer"
         >
           {/* Background Image */}
           <img
@@ -421,12 +638,12 @@ export default function Home() {
           <div className="absolute inset-0 bg-black/60" />
 
           {/* Content */}
-          <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-5 sm:px-8 md:px-10">
-            <h4 className="text-2xl sm:text-2xl md:text-3xl font-semibold text-white mb-3 sm:mb-4">
+          <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-10">
+            <h4 className="text-3xl font-semibold text-white mb-4">
               {item.title}
             </h4>
 
-            <p className="text-[14px] sm:text-[15px] md:text-[16px] leading-[1.6] sm:leading-[1.7] text-white/90 max-w-md">
+            <p className="text-[16px] leading-[1.7] text-white/90 max-w-md">
               {item.desc}
             </p>
           </div>
@@ -437,27 +654,27 @@ export default function Home() {
   </div>
 </section>
       {/* ================= WHAT WE ENABLE ================= */}
-<section className="py-8 sm:py-12 md:py-16 bg-[#fff7ed]">
-  <div className="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-14 items-start">
+<section className="py-16 bg-[#fff7ed]">
+  <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-start">
 
     {/* LEFT CONTENT */}
     <div>
-      <p className="tracking-[0.2em] sm:tracking-[0.3em] text-[10px] sm:text-xs font-semibold text-[#ea580c] mb-2 sm:mb-3">
+      <p className="tracking-[0.3em] text-xs font-semibold text-[#ea580c] mb-3">
         WHAT WE ENABLE
       </p>
 
-      <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-semibold text-[#431407] mb-4 sm:mb-5 leading-tight">
+      <h2 className="font-heading text-3xl md:text-4xl font-semibold text-[#431407] mb-5 leading-tight">
         Education that continues,<br />not ends
       </h2>
 
-      <p className="text-[14px] sm:text-[15px] leading-[1.7] text-slate-600 max-w-md">
+      <p className="text-[15px] leading-[1.7] text-slate-600 max-w-md">
         Sohum Trust builds learning ecosystems that support students across
         stages — academically, professionally, and culturally.
       </p>
     </div>
 
     {/* RIGHT IMAGE POINTS */}
-    <div className="space-y-5 sm:space-y-6">
+    <div className="space-y-6">
 
       {[
         {
@@ -479,20 +696,20 @@ export default function Home() {
       ].map((item) => (
         <div
           key={item.title}
-          className="flex items-start gap-3 sm:gap-4"
+          className="flex items-start gap-4"
         >
           {/* IMAGE / ICON HOLDER */}
-          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-[#fef3e8] flex items-center justify-center shrink-0">
+          <div className="w-12 h-12 rounded-xl bg-[#fef3e8] flex items-center justify-center shrink-0">
             {/* replace img src later */}
-            <div className="w-5 h-5 sm:w-6 sm:h-6 bg-[#ea580c]/30 rounded-md" />
+            <div className="w-6 h-6 bg-[#ea580c]/30 rounded-md" />
           </div>
 
           {/* TEXT */}
           <div>
-            <h3 className="font-heading text-[15px] sm:text-base font-semibold text-[#431407] mb-1">
+            <h3 className="font-heading text-base font-semibold text-[#431407] mb-1">
               {item.title}
             </h3>
-            <p className="text-[13px] sm:text-[14px] leading-[1.6] text-slate-600">
+            <p className="text-[14px] leading-[1.6] text-slate-600">
               {item.desc}
             </p>
           </div>
@@ -504,21 +721,21 @@ export default function Home() {
 </section>
 
       {/* ================= VALUES IN ACTION ================= */}
-      <section className="py-12 sm:py-20 md:py-28 lg:py-32 max-w-7xl mx-auto px-4 sm:px-6">
-        <h2 className="text-center tracking-[0.2em] sm:tracking-[0.3em] text-[10px] sm:text-xs font-semibold text-[#ea580c] mb-8 sm:mb-10 md:mb-14">
+      <section className="py-32 max-w-7xl mx-auto px-6">
+        <h2 className="text-center tracking-[0.3em] text-xs font-semibold text-[#ea580c] mb-14">
           VALUES IN ACTION
         </h2>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl gap-0.5 sm:gap-0">
+        <div className="grid md:grid-cols-3 rounded-3xl overflow-hidden shadow-2xl">
           {valuesInAction.map((v) => (
             <button
               key={v.title}
               onClick={() => setActiveValue(v)}
-              className="relative h-[200px] sm:h-[240px] md:h-[280px] lg:h-[340px]"
+              className="relative h-[260px] md:h-[340px]"
             >
               <img src={v.image} className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20 flex items-end p-4 sm:p-5 md:p-6">
-                <h3 className="text-white text-lg sm:text-xl font-semibold">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20 flex items-end p-6">
+                <h3 className="text-white text-xl font-semibold">
                   {v.title}
                 </h3>
               </div>
