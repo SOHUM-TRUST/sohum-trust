@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
+import FloatingDonateButton from '../components/FloatingDonateButton';
 
 /* =========================================================
    1. DATA CONFIGURATION
@@ -106,7 +107,7 @@ const backgroundImages = [
 ========================================================= */
 const MotionImageBackgroundHero = () => {
   return (
-    <section className="relative w-full min-h-[70vh] flex items-center justify-center overflow-hidden bg-[#fffbf2]">
+    <section className="relative w-full min-h-[400px] sm:min-h-[480px] md:min-h-[550px] flex items-center justify-center overflow-hidden bg-[#fffbf2]">
       
       {/* ========================================================
           1. BACKGROUND LAYERS & WARM GRADIENT BASE
@@ -169,14 +170,14 @@ const MotionImageBackgroundHero = () => {
       {/* ========================================================
           4. TYPOGRAPHY CONTENT
       ======================================================== */}
-      <div className="relative z-20 text-center max-w-4xl px-6">
+      <div className="relative z-20 text-center max-w-4xl px-4 sm:px-6">
         
         {/* Main Headline */}
         <motion.h1 
            initial={{ opacity: 0, y: 30 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.8, delay: 0.2 }}
-           className="font-serif text-4xl md:text-7xl font-bold text-[#431407] tracking-tight leading-[1.1] mb-6 drop-shadow-sm"
+           className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-[#431407] tracking-tight leading-[1.1] mb-5 sm:mb-6 drop-shadow-sm"
         >
           Measuring <br/>
           <span className="relative z-10">
@@ -190,7 +191,7 @@ const MotionImageBackgroundHero = () => {
 
         {/* Subtitle */}
         <motion.p 
-          className="text-lg md:text-xl text-[#78350f] font-medium max-w-2xl mx-auto leading-relaxed"
+          className="text-base sm:text-lg md:text-xl text-[#78350f] font-medium max-w-2xl mx-auto leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
@@ -211,17 +212,17 @@ const ImpactGallery = () => {
   const [selectedId, setSelectedId] = useState(null);
 
   return (
-    <section className="relative py-12 bg-white -mt-6 rounded-t-[2.5rem] z-20 shadow-[0_-10px_30px_rgba(0,0,0,0.03)]">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="relative py-8 sm:py-10 md:py-12 bg-white -mt-4 sm:-mt-5 md:-mt-6 rounded-t-[2rem] sm:rounded-t-[2.5rem] z-20 shadow-[0_-10px_30px_rgba(0,0,0,0.03)]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Compact Grid */}
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5">
           {impactData.map((item) => (
             <motion.div
               key={item.id}
               layoutId={`card-container-${item.id}`}
               onClick={() => setSelectedId(item.id)}
-              className="group relative h-[280px] cursor-pointer rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 bg-slate-100"
+              className="group relative h-[240px] sm:h-[260px] md:h-[280px] cursor-pointer rounded-xl sm:rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 bg-slate-100"
             >
               {/* Image Layer */}
               <motion.div layoutId={`card-image-${item.id}`} className="absolute inset-0">
@@ -234,20 +235,20 @@ const ImpactGallery = () => {
               </motion.div>
 
               {/* Text Layer */}
-              <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
+              <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-5 md:p-6 text-white">
                 <div className="flex justify-between items-end">
                    <div>
-                    <motion.h3 layoutId={`card-number-${item.id}`} className="font-serif text-4xl font-bold mb-1">
+                    <motion.h3 layoutId={`card-number-${item.id}`} className="font-serif text-3xl sm:text-4xl font-bold mb-1">
                       {item.number}
                     </motion.h3>
-                    <motion.p layoutId={`card-label-${item.id}`} className="text-orange-50 text-sm font-medium opacity-90">
+                    <motion.p layoutId={`card-label-${item.id}`} className="text-orange-50 text-xs sm:text-sm font-medium opacity-90">
                       {item.label}
                     </motion.p>
                    </div>
-                   <ArrowUpRight className="text-[#ea580c] opacity-0 group-hover:opacity-100 transition-opacity mb-2" size={20} />
+                   <ArrowUpRight className="text-[#ea580c] opacity-0 group-hover:opacity-100 transition-opacity mb-1 sm:mb-2" size={18} />
                 </div>
                 {/* Progress Bar visual */}
-                <div className="h-0.5 w-0 group-hover:w-full bg-[#ea580c] transition-all duration-500 mt-4" />
+                <div className="h-0.5 w-0 group-hover:w-full bg-[#ea580c] transition-all duration-500 mt-3 sm:mt-4" />
               </div>
             </motion.div>
           ))}
@@ -274,7 +275,7 @@ const ImpactGallery = () => {
                   return (
                     <>
                       {/* Modal Image */}
-                      <div className="relative h-48 md:h-auto">
+                      <div className="relative h-48 sm:h-56 md:h-auto">
                         <motion.div layoutId={`card-image-${item.id}`} className="w-full h-full">
                            <img src={item.image} className="w-full h-full object-cover" />
                         </motion.div>
@@ -287,10 +288,10 @@ const ImpactGallery = () => {
                       </div>
 
                       {/* Modal Content */}
-                      <div className="p-8 bg-[#fffbf7] flex flex-col justify-between">
+                      <div className="p-5 sm:p-6 md:p-8 bg-[#fffbf7] flex flex-col justify-between">
                         <div>
-                          <div className="flex justify-between items-start mb-4">
-                            <motion.h4 layoutId={`card-label-${item.id}`} className="font-bold text-[#431407] text-xl">
+                          <div className="flex justify-between items-start mb-3 sm:mb-4">
+                            <motion.h4 layoutId={`card-label-${item.id}`} className="font-bold text-[#431407] text-lg sm:text-xl">
                               {item.label}
                             </motion.h4>
                             <button onClick={() => setSelectedId(null)} className="p-1 bg-white rounded-full hover:bg-slate-100 transition">
@@ -785,17 +786,55 @@ const TrustSection = () => {
 ========================================================= */
 const CTASection = () => {
   return (
-    <section className="py-20 bg-gradient-to-r from-[#EC167F] to-[#F5A044] text-white text-center">
-      <h2 className="font-heading text-4xl font-semibold mb-6">
-        Be Part of This Educational Movement
-      </h2>
-      <p className="max-w-xl mx-auto mb-10 text-white/90">
-        Join us in building educational institutions that empower students beyond metropolitan areas
-      </p>
+    <section className="relative py-16 bg-gradient-to-br from-[#EC167F] via-[#ea580c] to-[#F5A044] text-white text-center overflow-hidden">
+      {/* Animated background patterns */}
+      <div 
+        className="absolute inset-0 opacity-20"
+        style={{
+          backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
+          backgroundSize: '30px 30px',
+          animation: 'moveBackground 10s linear infinite'
+        }}
+      />
+      
+      {/* Floating orbs */}
+      {[...Array(6)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute w-24 h-24 bg-white/10 rounded-full blur-2xl"
+          style={{
+            left: `${15 + i * 15}%`,
+            top: `${20 + (i % 3) * 25}%`,
+            animation: `float${i} ${6 + i}s ease-in-out infinite`
+          }}
+        />
+      ))}
+      
+      <div className="relative z-10">
+        <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6 drop-shadow-lg">
+          Be Part of This Educational Movement
+        </h2>
+        <p className="max-w-2xl mx-auto mb-10 text-lg text-white/95 font-medium leading-relaxed">
+          Join us in building educational institutions that empower students beyond metropolitan areas
+        </p>
 
-      <Link to="/get-involved" className="inline-block bg-white text-[#EC167F] px-12 py-5 rounded-full font-semibold shadow-lg">
-        Get Involved
-      </Link>
+        <Link to="/get-involved" className="inline-flex items-center gap-2 bg-white text-[#EC167F] px-10 py-4 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all hover:scale-105">
+          Get Involved
+        </Link>
+      </div>
+      
+      <style jsx>{`
+        @keyframes moveBackground {
+          0% { background-position: 0px 0px; }
+          100% { background-position: 30px 30px; }
+        }
+        @keyframes float0 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, -40px); } }
+        @keyframes float1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-20px, -30px); } }
+        @keyframes float2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(25px, -35px); } }
+        @keyframes float3 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-30px, -45px); } }
+        @keyframes float4 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(20px, -25px); } }
+        @keyframes float5 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-25px, -40px); } }
+      `}</style>
     </section>
   );
 };
@@ -808,6 +847,7 @@ const ImpactPage = () => {
   return (
     <div className="bg-[#fffdf9] min-h-screen font-sans selection:bg-[#ea580c] selection:text-white">
       <SiteHeader />
+      <FloatingDonateButton />
       
       <main>
         <MotionImageBackgroundHero />
