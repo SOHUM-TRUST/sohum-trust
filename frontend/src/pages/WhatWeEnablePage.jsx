@@ -212,7 +212,7 @@ const WhatWeEnable = () => {
               {
                 title: 'Foundational & Scholastic Education',
                 desc: 'Schools and colleges delivering strong academic foundations across sciences, arts, commerce, and humanities.',
-                image: '/children1.png',
+                image: '/children10.png',
                 gradient: 'from-indigo-600/90 via-[#431407]/70',
               },
               {
@@ -224,7 +224,7 @@ const WhatWeEnable = () => {
               {
                 title: 'Innovation & Lifelong Learning',
                 desc: 'Advanced academies, distance learning, hybrid education, and emerging skill ecosystems.',
-                image: '/children3.png',
+                image: '/children9.png',
                 gradient: 'from-[#ea580c]/90 via-[#431407]/70',
               },
               {
