@@ -3,6 +3,7 @@
 import React from 'react';
 import { Heart, Mail, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
 import FloatingDonateButton from '../components/FloatingDonateButton';
@@ -16,151 +17,552 @@ const AboutUs = () => {
       <FloatingDonateButton />
 
       {/* ================= HERO WITH LOGO BACKGROUND ================= */}
-      <section className="relative overflow-hidden min-h-[400px] sm:min-h-[480px] md:min-h-[550px] flex items-center bg-[radial-gradient(ellipse_at_top,_#fff1e6_0%,_#fff7ed_45%,_#fffdf9_100%)]">
+      <section className="relative overflow-hidden min-h-[400px] sm:min-h-[480px] md:min-h-[550px] flex items-center bg-gradient-to-br from-[#fff1e6] via-[#fff7ed] to-[#fffdf9]">
+
+  {/* Animated Grid Pattern */}
+  <div className="absolute inset-0 pointer-events-none opacity-20">
+    <div className="absolute inset-0" style={{
+      backgroundImage: `linear-gradient(to right, #ea580c 1px, transparent 1px),
+                       linear-gradient(to bottom, #ea580c 1px, transparent 1px)`,
+      backgroundSize: '60px 60px',
+    }}>
+      <motion.div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `linear-gradient(to right, #EC167F 1px, transparent 1px),
+                           linear-gradient(to bottom, #EC167F 1px, transparent 1px)`,
+          backgroundSize: '60px 60px',
+        }}
+        animate={{
+          backgroundPosition: ['0px 0px', '60px 60px']
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      />
+    </div>
+  </div>
+
+  {/* Animated Gradient Orbs */}
+  <motion.div
+    className="absolute top-20 left-[10%] w-[500px] h-[500px] rounded-full bg-gradient-to-br from-[#FF6B9D]/25 to-[#FFB347]/20 blur-3xl"
+    animate={{
+      scale: [1, 1.3, 1],
+      x: [0, 50, 0],
+      y: [0, -30, 0]
+    }}
+    transition={{
+      duration: 15,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  />
+  
+  <motion.div
+    className="absolute bottom-10 right-[10%] w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-[#EC167F]/20 to-[#F5A044]/25 blur-3xl"
+    animate={{
+      scale: [1.2, 1, 1.2],
+      x: [0, -40, 0],
+      y: [0, 30, 0]
+    }}
+    transition={{
+      duration: 18,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  />
+
+  {/* Floating Geometric Shapes */}
+  <motion.div
+    className="absolute top-[15%] left-[15%] w-20 h-20 border-2 border-[#ea580c]/30 rounded-xl"
+    animate={{
+      rotate: [0, 360],
+      y: [0, -20, 0]
+    }}
+    transition={{
+      rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+      y: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+    }}
+  />
+
+  <motion.div
+    className="absolute top-[25%] right-[20%] w-16 h-16 bg-gradient-to-br from-[#EC167F]/20 to-[#FF8C42]/20 rounded-full"
+    animate={{
+      scale: [1, 1.3, 1],
+      y: [0, 25, 0]
+    }}
+    transition={{
+      duration: 7,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  />
+
+  <motion.div
+    className="absolute bottom-[20%] left-[25%] w-12 h-12 border-2 border-[#F5A044]/40 rounded-lg"
+    animate={{
+      rotate: [45, 405],
+      scale: [1, 1.2, 1]
+    }}
+    transition={{
+      duration: 10,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  />
+
+  <motion.div
+    className="absolute bottom-[30%] right-[15%] w-14 h-14 bg-gradient-to-br from-[#FFB347]/25 to-[#ea580c]/25 rounded-2xl"
+    animate={{
+      rotate: [0, -360],
+      x: [0, 20, 0]
+    }}
+    transition={{
+      rotate: { duration: 15, repeat: Infinity, ease: "linear" },
+      x: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+    }}
+  />
 
   {/* Background Logo */}
   <div className="absolute inset-0 pointer-events-none">
     <div
-  className="
-    absolute left-1/2 top-1/2
-    -translate-x-1/2 -translate-y-1/2
+      className="
+        absolute left-1/2 top-1/2
+        -translate-x-1/2 -translate-y-1/2
 
-    w-[350px] sm:w-[450px] md:w-[550px] lg:w-[750px]
-    h-[350px] sm:h-[450px] md:h-[550px] lg:h-[750px]
+        w-[350px] sm:w-[450px] md:w-[550px] lg:w-[750px]
+        h-[350px] sm:h-[450px] md:h-[550px] lg:h-[750px]
 
-    bg-gradient-to-br
-    from-[#D4145A]
-    via-[#EC167F]
-    to-[#F39C3D]
+        bg-gradient-to-br
+        from-[#D4145A]
+        via-[#EC167F]
+        to-[#F39C3D]
 
-    opacity-[0.28]
-    blur-[0.5px]
+        opacity-[0.28]
+        blur-[0.5px]
 
-    drop-shadow-[0_0_70px_rgba(236,22,127,0.45)]
-    drop-shadow-[0_0_120px_rgba(243,156,61,0.25)]
+        drop-shadow-[0_0_70px_rgba(236,22,127,0.45)]
+        drop-shadow-[0_0_120px_rgba(243,156,61,0.25)]
 
-    mask-logo
-    -webkit-mask-logo
-  "
-/>
+        mask-logo
+        -webkit-mask-logo
+      "
+    />
   </div>
+
+  {/* Sparkle Effects */}
+  {[...Array(5)].map((_, i) => (
+    <motion.div
+      key={i}
+      className="absolute w-2 h-2 bg-gradient-to-br from-white to-[#FFB347] rounded-full"
+      style={{
+        left: `${20 + i * 15}%`,
+        top: `${30 + (i % 3) * 20}%`,
+      }}
+      animate={{
+        scale: [0, 1, 0],
+        opacity: [0, 1, 0]
+      }}
+      transition={{
+        duration: 3,
+        repeat: Infinity,
+        delay: i * 0.6,
+        ease: "easeInOut"
+      }}
+    />
+  ))}
 
   {/* Content */}
   <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center py-10 sm:py-12 md:py-16">
-    <p className="uppercase tracking-[0.2em] sm:tracking-[0.3em] md:tracking-[0.35em] text-[10px] sm:text-xs font-semibold text-[#ea580c] mb-4 sm:mb-5 md:mb-6">
+    <motion.p 
+      className="uppercase tracking-[0.2em] sm:tracking-[0.3em] md:tracking-[0.35em] text-[10px] sm:text-xs font-semibold text-[#ea580c] mb-4 sm:mb-5 md:mb-6"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
       ABOUT SOHUM TRUST
-    </p>
+    </motion.p>
 
-    <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#431407] leading-tight mb-4 sm:mb-5 md:mb-6">
+    <motion.h1 
+      className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#431407] leading-tight mb-4 sm:mb-5 md:mb-6"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+    >
       Building education that lasts generations
-    </h1>
+    </motion.h1>
 
-    <p className="max-w-3xl mx-auto text-[15px] sm:text-[16px] md:text-[17px] leading-[1.7] sm:leading-[1.8] text-slate-600">
+    <motion.p 
+      className="max-w-3xl mx-auto text-[15px] sm:text-[16px] md:text-[17px] leading-[1.7] sm:leading-[1.8] text-slate-600"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.4 }}
+    >
       Sohum Trust is committed to creating long-term educational institutions
       that empower individuals, preserve culture, and strengthen communities.
-    </p>
+    </motion.p>
   </div>
 
   {/* Bottom fade */}
   <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-b from-transparent to-[#fffdf9]" />
 </section>
 
-      <section className="py-8 sm:py-12 md:py-16 lg:py-20">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 sm:gap-14 md:gap-16 lg:gap-20">
-    <div>
-      <p className="uppercase tracking-[0.2em] sm:tracking-[0.3em] text-[10px] sm:text-xs font-semibold text-[#ea580c] mb-3 sm:mb-4">
-        Who We Are
-      </p>
-      <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-semibold text-[#431407] mb-5 sm:mb-6 md:mb-8">
-        A long-term institution builder in education
-      </h2>
+      <section className="relative py-16 sm:py-20 md:py-24 lg:py-28 overflow-hidden bg-gradient-to-br from-white via-[#FFFAF5] to-[#FFF5EB]">
+  {/* Multiple animated gradient orbs */}
+  <motion.div
+    className="absolute top-10 right-20 w-[400px] h-[400px] rounded-full bg-gradient-to-br from-[#FF6B9D]/20 to-[#FFB347]/15 blur-3xl"
+    animate={{
+      scale: [1, 1.2, 1],
+      x: [0, -40, 0],
+      y: [0, 30, 0]
+    }}
+    transition={{
+      duration: 12,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  />
+  
+  <motion.div
+    className="absolute bottom-20 left-10 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-[#FF8C42]/15 to-[#EC167F]/20 blur-3xl"
+    animate={{
+      scale: [1.1, 1, 1.1],
+      x: [0, 30, 0],
+      y: [0, -25, 0]
+    }}
+    transition={{
+      duration: 14,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  />
 
-      <div className="space-y-4 sm:space-y-5 md:space-y-6 text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] sm:leading-[1.85] md:leading-[1.9] text-slate-700">
-        <p>
-          Sohum Trust is a Karnataka-registered educational trust focused on
-          building institutions that endure beyond individuals, funding cycles,
-          and short-term initiatives.
-        </p>
-        <p>
-          We operate across academic, professional, vocational, cultural, and
-          research domains — creating structured ecosystems instead of isolated
-          programs.
-        </p>
-        <p>
-          Our work is designed for continuity, depth, and relevance throughout a
-          learner’s journey.
-        </p>
-      </div>
-    </div>
+  {/* Decorative floating elements */}
+  <motion.div
+    className="absolute top-32 left-20 w-20 h-20 border-2 border-[#FF6B9D]/30 rounded-xl rotate-45"
+    animate={{
+      y: [0, -20, 0],
+      rotate: [45, 65, 45]
+    }}
+    transition={{
+      duration: 6,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  />
 
-    <div className="space-y-4 sm:space-y-5 md:space-y-6">
-      {[
-        ['Registered & Accountable', 'Legally registered trust with transparent governance'],
-        ['Institution-First Approach', 'We build schools, academies & learning systems'],
-        ['Multi-Domain Education', 'Academic, vocational, cultural & research initiatives'],
-      ].map(([title, desc]) => (
-        <div key={title} className="bg-white p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl shadow-md border-l-4 border-[#ea580c]">
-          <h4 className="font-semibold text-base sm:text-lg text-[#431407] mb-1.5 sm:mb-2">{title}</h4>
-          <p className="text-[14px] sm:text-[15px] text-slate-600">{desc}</p>
+  <motion.div
+    className="absolute bottom-40 right-32 w-16 h-16 bg-gradient-to-br from-[#FFB347]/20 to-[#FF8C42]/20 rounded-full"
+    animate={{
+      y: [0, 25, 0],
+      scale: [1, 1.15, 1]
+    }}
+    transition={{
+      duration: 5,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  />
+  
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+    <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <motion.div
+          className="inline-block mb-4"
+          animate={{
+            backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        >
+          <p className="uppercase tracking-[0.3em] text-[11px] font-bold bg-gradient-to-r from-[#ea580c] via-[#EC167F] to-[#F5A044] bg-clip-text text-transparent bg-[length:200%_auto]">
+            Who We Are
+          </p>
+        </motion.div>
+        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-[#431407] mb-8 leading-tight">
+          A long-term institution builder in <span className="bg-gradient-to-r from-[#ea580c] to-[#EC167F] bg-clip-text text-transparent">education</span>
+        </h2>
+
+        <div className="space-y-6 text-[16px] sm:text-[17px] leading-[1.85] text-slate-700">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            Sohum Trust is a Karnataka-registered educational trust focused on
+            building institutions that endure beyond individuals, funding cycles,
+            and short-term initiatives.
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
+            We operate across academic, professional, vocational, cultural, and
+            research domains — creating structured ecosystems instead of isolated
+            programs.
+          </motion.p>
+          <motion.div
+            className="relative pl-6 border-l-4 border-gradient-to-b from-[#ea580c] to-[#EC167F]"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+          >
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#ea580c] via-[#EC167F] to-[#F5A044] rounded-r-full" />
+            <p className="font-semibold text-[#431407] text-lg">
+              Our work is designed for continuity, depth, and relevance throughout a
+              learner's journey.
+            </p>
+          </motion.div>
         </div>
+      </motion.div>
+
+      <motion.div 
+        className="space-y-6"
+        initial={{ opacity: 0, x: 30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+      {[
+        ['Registered & Accountable', 'Legally registered trust with transparent governance and clear accountability frameworks.', 'from-[#FFF0F0] to-white', 'from-[#ea580c] to-[#dc2626]'],
+        ['Institution-First Approach', 'We build schools, academies, and comprehensive learning systems that create lasting impact.', 'from-[#FFF8F0] to-white', 'from-[#EC167F] to-[#ea580c]'],
+        ['Multi-Domain Education', 'Academic, vocational, cultural, and research initiatives integrated into cohesive programs.', 'from-[#FFF5EB] to-white', 'from-[#F5A044] to-[#EC167F]'],
+      ].map(([title, desc, bgGradient, accentGradient], index) => (
+        <motion.div 
+          key={title} 
+          className={`group relative bg-gradient-to-br ${bgGradient} rounded-2xl p-8 shadow-[0_8px_30px_-8px_rgba(0,0,0,0.12)] hover:shadow-[0_20px_60px_-12px_rgba(234,88,12,0.3)] transition-all duration-500 border-2 border-white overflow-hidden`}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.15 }}
+          whileHover={{ y: -8, scale: 1.02 }}
+        >
+          {/* Animated gradient background on hover */}
+          <div className={`absolute inset-0 bg-gradient-to-br ${accentGradient} opacity-0 group-hover:opacity-[0.08] transition-opacity duration-500`} />
+          
+          {/* Side number badge */}
+          <div className={`absolute -left-4 top-6 w-12 h-12 rounded-full bg-gradient-to-br ${accentGradient} shadow-lg flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform duration-500`}>
+            {index + 1}
+          </div>
+          
+          {/* Animated corner decoration */}
+          <motion.div 
+            className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl ${accentGradient} opacity-10 rounded-bl-full`}
+            animate={{
+              scale: [1, 1.1, 1],
+              rotate: [0, 5, 0]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          {/* Content */}
+          <div className="relative z-10 ml-8">
+            <h4 className="font-bold text-xl text-[#431407] mb-3 group-hover:text-[#ea580c] transition-colors">
+              {title}
+            </h4>
+            <p className="text-[15px] leading-relaxed text-slate-700">
+              {desc}
+            </p>
+          </div>
+
+          {/* Bottom animated line */}
+          <motion.div 
+            className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${accentGradient} opacity-0 group-hover:opacity-100`}
+            initial={{ scaleX: 0 }}
+            whileHover={{ scaleX: 1 }}
+            transition={{ duration: 0.5 }}
+          />
+        </motion.div>
       ))}
+    </motion.div>
     </div>
   </div>
 </section>
 
-<section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-br from-orange-50 via-amber-50 to-white relative overflow-hidden">
-  <div className="absolute bottom-10 left-10 w-96 h-96 bg-gradient-to-tr from-orange-300/20 to-transparent rounded-full blur-3xl" />
+<section className="relative py-20 sm:py-24 md:py-28 bg-gradient-to-br from-[#FFF0F5] via-[#FFF8F0] to-[#FFFBF7] overflow-hidden">
+  {/* Multiple vibrant animated orbs */}
+  <motion.div
+    className="absolute top-10 right-10 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[#FF6B9D]/25 to-[#FFB347]/20 blur-3xl"
+    animate={{
+      scale: [1, 1.3, 1],
+      x: [0, -50, 0],
+      y: [0, 40, 0]
+    }}
+    transition={{
+      duration: 15,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  />
   
-  <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+  <motion.div
+    className="absolute bottom-0 left-0 w-[550px] h-[550px] rounded-full bg-gradient-to-tr from-[#FF8C42]/20 to-[#EC167F]/25 blur-3xl"
+    animate={{
+      scale: [1.2, 1, 1.2],
+      x: [0, 40, 0],
+      y: [0, -30, 0]
+    }}
+    transition={{
+      duration: 13,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  />
+
+  {/* Floating decorative shapes */}
+  <motion.div
+    className="absolute top-40 left-[15%] w-16 h-16 border-2 border-[#EC167F]/40 rounded-lg rotate-12"
+    animate={{
+      y: [0, -25, 0],
+      rotate: [12, 32, 12]
+    }}
+    transition={{
+      duration: 7,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  />
+
+  <motion.div
+    className="absolute bottom-32 right-[20%] w-14 h-14 bg-gradient-to-br from-[#FFB347]/30 to-[#FF8C42]/30 rounded-full"
+    animate={{
+      y: [0, 20, 0],
+      scale: [1, 1.2, 1]
+    }}
+    transition={{
+      duration: 5,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  />
+  
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
     
     {/* Title */}
-    <div className="mb-8 sm:mb-10 md:mb-14 text-center">
-      <p className="uppercase tracking-[0.2em] sm:tracking-[0.3em] text-[10px] sm:text-xs font-semibold bg-gradient-to-r from-[#ea580c] to-[#EC167F] bg-clip-text text-transparent mb-3 sm:mb-4">
-        Why We Exist
-      </p>
-      <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#431407] to-[#ea580c] bg-clip-text text-transparent">
-        Addressing the gaps in education
+    <motion.div 
+      className="mb-16 text-center"
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      <motion.div
+        className="inline-block mb-4"
+        animate={{
+          backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      >
+        <p className="uppercase tracking-[0.3em] text-[11px] font-bold bg-gradient-to-r from-[#ea580c] via-[#EC167F] to-[#F5A044] bg-clip-text text-transparent bg-[length:200%_auto]">
+          Why We Exist
+        </p>
+      </motion.div>
+      <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-[#431407] max-w-3xl mx-auto leading-tight">
+        Addressing the <span className="bg-gradient-to-r from-[#ea580c] to-[#EC167F] bg-clip-text text-transparent">gaps in education</span>
       </h2>
-    </div>
+    </motion.div>
 
     {/* Content Grid */}
-    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
+    <div className="grid md:grid-cols-3 gap-8">
       
-      {/* Problem */}
-      <div className="group bg-gradient-to-br from-red-50 to-orange-50 p-6 sm:p-7 md:p-8 rounded-xl sm:rounded-2xl shadow-lg border-2 border-red-100 hover:border-red-300 hover:shadow-xl transition-all cursor-pointer">
-        <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">⚠️</div>
-        <h4 className="font-bold text-lg sm:text-xl text-[#431407] mb-2 sm:mb-3">
-          The Challenge
-        </h4>
-        <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-          While access to education has improved, many learners still lack
-          continuity, mentorship, and institutional support.
-        </p>
-      </div>
-
-      {/* Gap */}
-      <div className="group bg-gradient-to-br from-amber-50 to-yellow-50 p-6 sm:p-7 md:p-8 rounded-xl sm:rounded-2xl shadow-lg border-2 border-amber-100 hover:border-amber-300 hover:shadow-xl transition-all cursor-pointer">
-        <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">🔍</div>
-        <h4 className="font-bold text-lg sm:text-xl text-[#431407] mb-2 sm:mb-3">
-          The Gap
-        </h4>
-        <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-          Short-term programs often fail to create lasting impact, leaving
-          students without clear learning or career pathways.
-        </p>
-      </div>
-
-      {/* Solution */}
-      <div className="group bg-gradient-to-br from-[#431407] to-[#6B2710] text-white p-8 rounded-2xl shadow-xl border-2 border-[#431407] hover:scale-105 transition-all cursor-pointer">
-        <div className="text-4xl mb-4">💡</div>
-        <h4 className="font-bold text-xl mb-3">
-          Our Purpose
-        </h4>
-        <p className="leading-relaxed text-white/95">
-          Sohum Trust exists to bridge this gap by building enduring educational
-          institutions that support learners over the long term.
-        </p>
-      </div>
+      {[
+        ['The Challenge', 'While access to education has improved, many learners still lack continuity, mentorship, and institutional support needed for long-term success.', 'from-[#FFF0F0] via-[#FFE8E8] to-[#FFE0E0]', 'from-[#dc2626] to-[#ea580c]'],
+        ['The Gap', 'Short-term programs often fail to create lasting impact, leaving students without clear learning pathways or career progression frameworks.', 'from-[#FFF8F0] via-[#FFF0E6] to-[#FFE8DB]', 'from-[#ea580c] to-[#EC167F]'],
+        ['Our Purpose', 'Sohum Trust exists to bridge this gap by building enduring educational institutions that support learners throughout their entire journey.', 'from-[#431407] via-[#6B2710] to-[#8B3513]', 'from-[#EC167F] to-[#F5A044]'],
+      ].map(([title, desc, gradient, accentGradient], index) => (
+        <motion.div
+          key={title}
+          className={`group relative ${index === 2 ? 'text-white' : ''}`}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: index * 0.15 }}
+          whileHover={{ y: -12, scale: 1.03 }}
+        >
+          <div className={`relative h-full bg-gradient-to-br ${gradient} rounded-3xl p-8 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)] group-hover:shadow-[0_25px_70px_-15px_rgba(234,88,12,0.4)] transition-all duration-500 border-2 ${index === 2 ? 'border-[#6B2710]' : 'border-white'} overflow-hidden`}>
+            
+            {/* Animated glow effect */}
+            <motion.div
+              className={`absolute inset-0 bg-gradient-to-br ${accentGradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}
+              animate={{
+                backgroundPosition: ['0% 0%', '100% 100%', '0% 0%']
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            />
+            
+            {/* Pulsing number badge */}
+            <motion.div
+              className={`absolute -top-3 -right-3 w-16 h-16 rounded-full flex items-center justify-center font-bold text-2xl ${index === 2 ? 'bg-gradient-to-br from-white/30 to-white/10 text-white' : `bg-gradient-to-br ${accentGradient} text-white`} shadow-xl`}
+              animate={{
+                scale: [1, 1.1, 1],
+                rotate: [0, 5, 0]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              {index + 1}
+            </motion.div>
+            
+            {/* Animated corner decoration */}
+            <motion.div
+              className={`absolute top-0 left-0 w-24 h-24 ${index === 2 ? 'bg-white/10' : `bg-gradient-to-br ${accentGradient} opacity-10`} rounded-br-full`}
+              animate={{
+                scale: [1, 1.15, 1]
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            
+            <h4 className={`font-bold text-xl mb-4 ${index === 2 ? 'text-white' : 'text-[#431407]'} relative z-10`}>
+              {title}
+            </h4>
+            <p className={`text-[15px] leading-relaxed ${index === 2 ? 'text-white/95' : 'text-slate-700'} relative z-10`}>
+              {desc}
+            </p>
+            
+            {/* Animated bottom accent line */}
+            <motion.div
+              className={`absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r ${accentGradient}`}
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: index * 0.2 }}
+            />
+          </div>
+        </motion.div>
+      ))}
 
     </div>
   </div>
@@ -223,24 +625,191 @@ const AboutUs = () => {
 </section>
 
 
-<section className="py-28 bg-[#fff7ed]">
-  <div className="max-w-6xl mx-auto px-6">
-    <h2 className="font-heading text-4xl text-center text-[#431407] mb-16">
-      Executive Trustees
-    </h2>
 
-    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+<section className="relative py-20 sm:py-24 md:py-28 bg-gradient-to-br from-[#FFF8F0] via-[#FFFBF7] to-[#FFF0EB] overflow-hidden">
+  {/* Vibrant animated orbs */}
+  <motion.div
+    className="absolute top-20 left-10 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-[#FF6B9D]/22 to-[#FFB347]/18 blur-3xl"
+    animate={{
+      scale: [1, 1.25, 1],
+      x: [0, 40, 0],
+      y: [0, -20, 0]
+    }}
+    transition={{
+      duration: 15,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  />
+  
+  <motion.div
+    className="absolute bottom-20 right-10 w-[550px] h-[550px] rounded-full bg-gradient-to-tr from-[#FF8C42]/20 to-[#EC167F]/22 blur-3xl"
+    animate={{
+      scale: [1.15, 1, 1.15],
+      x: [0, -40, 0],
+      y: [0, 25, 0]
+    }}
+    transition={{
+      duration: 13,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  />
+
+  {/* Floating decorative shapes */}
+  <motion.div
+    className="absolute top-40 right-[20%] w-18 h-18 border-2 border-[#FF6B9D]/35 rounded-xl rotate-12"
+    animate={{
+      y: [0, -22, 0],
+      rotate: [12, 32, 12]
+    }}
+    transition={{
+      duration: 7,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  />
+
+  <motion.div
+    className="absolute bottom-32 left-[25%] w-14 h-14 bg-gradient-to-br from-[#FFB347]/25 to-[#FF8C42]/25 rounded-full"
+    animate={{
+      y: [0, 20, 0],
+      scale: [1, 1.18, 1]
+    }}
+    transition={{
+      duration: 5,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  />
+
+  <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <motion.div
+      className="text-center mb-16"
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+    >
+      <motion.div
+        className="inline-block mb-4"
+        animate={{
+          backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      >
+        <p className="uppercase tracking-[0.3em] text-[11px] font-bold bg-gradient-to-r from-[#ea580c] via-[#EC167F] to-[#F5A044] bg-clip-text text-transparent bg-[length:200%_auto]">
+          Leadership
+        </p>
+      </motion.div>
+      <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-[#431407]">
+        Executive <span className="bg-gradient-to-r from-[#ea580c] to-[#EC167F] bg-clip-text text-transparent">Trustees</span>
+      </h2>
+    </motion.div>
+
+    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
       {[
-        ['Mr. Anup Kiran', 'President'],
-        ['Mr. Jayakumar D', 'Vice President'],
-        ['Mr. Kumaraswamy H V', 'Secretary'],
-        ['Mr. Raghuram H S', 'Treasurer'],
-      ].map(([name, role]) => (
-        <div key={name} className="bg-white p-8 rounded-3xl text-center shadow-md">
-          <div className="w-24 h-24 mx-auto bg-[#fef3e8] rounded-full mb-6" />
-          <h4 className="font-semibold text-[#431407]">{name}</h4>
-          <p className="text-sm text-slate-600">{role}</p>
-        </div>
+        ['Mr. Anup Kiran', 'President', 'from-[#FFF0F0] to-white', 'from-[#dc2626] to-[#ea580c]'],
+        ['Mr. Jayakumar D', 'Vice President', 'from-[#FFF5F0] to-white', 'from-[#ea580c] to-[#EC167F]'],
+        ['Mr. Kumaraswamy H V', 'Secretary', 'from-[#FFF8F0] to-white', 'from-[#EC167F] to-[#F5A044]'],
+        ['Mr. Raghuram H S', 'Treasurer', 'from-[#FFFBF0] to-white', 'from-[#F5A044] to-[#FFB347]'],
+      ].map(([name, role, bgGradient, accentGradient], index) => (
+        <motion.div 
+          key={name} 
+          className={`group relative bg-gradient-to-br ${bgGradient} rounded-2xl p-8 text-center shadow-[0_8px_30px_-8px_rgba(0,0,0,0.12)] hover:shadow-[0_20px_60px_-12px_rgba(234,88,12,0.3)] transition-all duration-500 border-2 border-white overflow-hidden`}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          whileHover={{ y: -10, scale: 1.05 }}
+        >
+          {/* Animated gradient overlay */}
+          <motion.div
+            className={`absolute inset-0 bg-gradient-to-br ${accentGradient} opacity-0 group-hover:opacity-[0.08] transition-opacity duration-500`}
+            animate={{
+              backgroundPosition: ['0% 0%', '100% 100%', '0% 0%']
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity
+            }}
+          />
+          
+          {/* Animated top gradient accent */}
+          <motion.div
+            className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${accentGradient}`}
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: index * 0.15 }}
+          />
+          
+          {/* Pulsing decorative corner */}
+          <motion.div
+            className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${accentGradient} opacity-10 rounded-bl-3xl`}
+            animate={{
+              scale: [1, 1.1, 1]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          {/* Avatar circle with gradient */}
+          <div className="relative w-28 h-28 mx-auto mb-6">
+            <motion.div
+              className={`absolute inset-0 rounded-full bg-gradient-to-br ${accentGradient} opacity-20`}
+              animate={{
+                rotate: [0, 360]
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            />
+            <div className="absolute inset-1 rounded-full bg-white" />
+            <div className="absolute inset-2 rounded-full bg-gradient-to-br from-[#FFF5ED] to-[#FFE8DB] group-hover:from-white group-hover:to-[#FFF5ED] transition-all duration-500" />
+            {/* Pulsing number badge */}
+            <motion.div
+              className={`absolute -top-2 -right-2 w-9 h-9 rounded-full bg-gradient-to-br ${accentGradient} text-white text-sm font-bold flex items-center justify-center shadow-lg`}
+              animate={{
+                scale: [1, 1.15, 1]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              {index + 1}
+            </motion.div>
+          </div>
+          
+          <div className="relative z-10">
+            <h4 className="font-bold text-[#431407] mb-2 group-hover:text-[#ea580c] transition-colors">
+              {name}
+            </h4>
+            <p className="text-sm text-slate-600 font-semibold uppercase tracking-wider">
+              {role}
+            </p>
+          </div>
+          
+          {/* Animated bottom accent line */}
+          <motion.div
+            className={`absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r ${accentGradient} opacity-0 group-hover:opacity-100`}
+            initial={{ scaleX: 0 }}
+            whileHover={{ scaleX: 1 }}
+            transition={{ duration: 0.5 }}
+          />
+        </motion.div>
       ))}
     </div>
   </div>
