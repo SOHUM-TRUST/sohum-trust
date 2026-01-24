@@ -143,7 +143,7 @@ export default function Home() {
       <FloatingDonateButton />
 
       {/* ================= HERO ================= */}
-      <section className="relative bg-gradient-to-br from-[#FFF8F3] via-[#FFF5ED] to-[#FFE8DB] py-20 min-h-[600px] flex items-center overflow-hidden">
+      <section className="relative bg-gradient-to-br from-[#FFF8F3] via-[#FFF5ED] to-[#FFE8DB] min-h-[400px] sm:min-h-[480px] md:min-h-[550px] flex items-center overflow-hidden">
       
       {/* Large Vibrant Gradient Orbs */}
       <motion.div
@@ -892,10 +892,10 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="font-heading text-4xl md:text-6xl font-bold mb-8 drop-shadow-lg">
-              Join us in shaping futures through education
+              Transform Lives Through Quality Education
             </h2>
             <p className="max-w-2xl mx-auto mb-12 text-xl text-white/95 font-medium">
-              Be part of a movement that transforms lives and builds sustainable educational institutions
+              Discover how you can support students, empower teachers, and build educational ecosystems that last
             </p>
             <div className="flex justify-center gap-6 flex-wrap">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
