@@ -797,6 +797,43 @@ const GetInvolvedPage = () => {
           />
         ))}
         
+        {/* Animated floating hearts - spread all over */}
+        {[...Array(8)].map((_, i) => {
+          const randomLeft = Math.random() * 100; // 0% to 100%
+          const randomTop = Math.random() * 100; // 0% to 100%
+          const randomSize = Math.random() * 12 + 18; // 18px to 30px
+          const randomDuration = Math.random() * 1.5 + 1.5; // 1.5s to 3s
+          const randomDelay = Math.random() * 3; // 0s to 3s
+          const randomYDistance = -(Math.random() * 50 + 40); // -40px to -90px
+          const randomRotation = Math.random() * 20 - 10; // -10deg to 10deg
+          
+          return (
+            <motion.div
+              key={`heart-${i}`}
+              className="absolute pointer-events-none"
+              style={{
+                left: `${randomLeft}%`,
+                top: `${randomTop}%`,
+              }}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{
+                opacity: [0, 0.7, 0.7, 0],
+                scale: [0, 1, 1.15, 0],
+                y: [0, randomYDistance / 2, randomYDistance],
+                rotate: [0, randomRotation, -randomRotation, 0],
+              }}
+              transition={{
+                duration: randomDuration,
+                repeat: Infinity,
+                delay: randomDelay,
+                ease: "easeOut"
+              }}
+            >
+              <Heart size={randomSize} className="text-white fill-white drop-shadow-lg" />
+            </motion.div>
+          );
+        })}
+        
         <div className="relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -804,50 +841,42 @@ const GetInvolvedPage = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <motion.div
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            className="inline-block mb-5"
-          >
-  </motion.div>
-            <Heart size={40} className="text-white fill-white drop-shadow-lg" />
-          </motion.div>
-          
-          <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6 drop-shadow-lg">
-            Make an Impact Today
-          </h2>
-          <p className="max-w-2xl mx-auto mb-10 text-lg text-white/95 font-medium leading-relaxed">
-            Every contribution helps us build stronger educational foundations for tomorrow's leaders
-          </p>
+            <h2 className="font-heading text-4xl md:text-6xl font-bold mb-8 drop-shadow-lg">
+              Make an Impact Today
+            </h2>
+            <p className="max-w-2xl mx-auto mb-12 text-xl text-white/95 font-medium">
+              Every contribution helps us build stronger educational foundations for tomorrow's leaders
+            </p>
 
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Link 
-              to="#donation-section" 
-              onClick={(e) => {
-                e.preventDefault();
-                const section = document.querySelector('#donation-section');
-                section?.scrollIntoView({ behavior: 'smooth' });
-              }} 
-              className="inline-flex items-center gap-2 bg-white text-[#EC167F] px-10 py-4 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all"
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <Sparkles size={20} />
-              Start Donating
-              <ArrowRight size={20} />
-            </Link>
-          </motion.div>
+              <Link 
+                to="#donation-section" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  const section = document.querySelector('#donation-section');
+                  section?.scrollIntoView({ behavior: 'smooth' });
+                }} 
+                className="inline-flex items-center gap-2 bg-white text-[#EC167F] px-12 py-5 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all"
+              >
+                <Sparkles size={20} />
+                Start Donating
+                <ArrowRight size={20} />
+              </Link>
+            </motion.div>
           
-          <motion.p 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
-            className="mt-8 text-white/80 text-sm"
-          >
-            ✓ 100% Secure Payments • ✓ Tax Benefits (80G) • ✓ Instant Receipt
-          </motion.p>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              className="mt-8 text-white/80 text-sm"
+            >
+              ✓ 100% Secure Payments • ✓ Tax Benefits (80G) • ✓ Instant Receipt
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
