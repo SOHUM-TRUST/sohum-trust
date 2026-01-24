@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
+import FloatingDonateButton from '../components/FloatingDonateButton';
 
 /* ================= ANIMATED BACKGROUND ================= */
 
@@ -113,21 +114,21 @@ const EcosystemBackground = () => {
 
 // Alternating Feature Section (Zig-Zag)
 const FeatureRow = ({ title, desc, img, reverse }) => (
-  <div className={`flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-10 md:gap-20 mb-20`}>
-    <div className="w-full md:w-1/2 overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transition-shadow duration-500 group border-4 border-white">
+  <div className={`flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-6 sm:gap-8 md:gap-12 lg:gap-20 mb-12 sm:mb-14 md:mb-16 lg:mb-20`}>
+    <div className="w-full md:w-1/2 overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl hover:shadow-2xl transition-shadow duration-500 group border-2 sm:border-4 border-white">
       <img 
         src={img} 
         alt={title} 
-        className="w-full h-[200px] md:h-[280px] object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out" 
+        className="w-full h-[180px] sm:h-[220px] md:h-[250px] lg:h-[280px] object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
       />
     </div>
     <div className="w-full md:w-1/2 text-left">
-      <h3 className="font-serif text-2xl md:text-3xl font-semibold text-[#431407] mb-4 relative inline-block">
+      <h3 className="font-serif text-xl sm:text-2xl md:text-3xl font-semibold text-[#431407] mb-3 sm:mb-4 relative inline-block">
         {title}
         {/* Underline accent with gradient */}
         <span className="absolute bottom-0 left-0 w-1/3 h-1 bg-gradient-to-r from-[#ea580c] to-[#ea580c]/30 rounded-full"></span>
       </h3>
-      <p className="text-base leading-[1.7] text-slate-600">
+      <p className="text-sm sm:text-base leading-[1.6] sm:leading-[1.7] text-slate-600">
         {desc}
       </p>
     </div>
@@ -138,15 +139,15 @@ const FeatureRow = ({ title, desc, img, reverse }) => (
 const ProcessStep = ({ number, title, desc }) => (
   <div className="relative flex flex-col items-center text-center group">
     {/* Circle Number with gradient border on hover */}
-    <div className="w-14 h-14 rounded-full bg-white border-2 border-[#ea580c] text-[#ea580c] flex items-center justify-center font-bold text-lg shadow-md z-10 group-hover:bg-gradient-to-br group-hover:from-[#ea580c] group-hover:to-[#d4580c] group-hover:text-white group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
+    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white border-2 border-[#ea580c] text-[#ea580c] flex items-center justify-center font-bold text-base sm:text-lg shadow-md z-10 group-hover:bg-gradient-to-br group-hover:from-[#ea580c] group-hover:to-[#d4580c] group-hover:text-white group-hover:shadow-lg group-hover:scale-110 transition-all duration-300">
       {number}
     </div>
     
-    <div className="mt-5 bg-white p-5 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 w-full min-h-[140px] border border-stone-100 group-hover:border-[#ea580c]/20 group-hover:-translate-y-1">
-      <h4 className="font-serif text-lg font-bold text-[#431407] mb-2">
+    <div className="mt-4 sm:mt-5 bg-white p-4 sm:p-5 rounded-xl sm:rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 w-full min-h-[120px] sm:min-h-[140px] border border-stone-100 group-hover:border-[#ea580c]/20 group-hover:-translate-y-1">
+      <h4 className="font-serif text-base sm:text-lg font-bold text-[#431407] mb-1.5 sm:mb-2">
         {title}
       </h4>
-      <p className="text-sm leading-relaxed text-slate-600">
+      <p className="text-xs sm:text-sm leading-relaxed text-slate-600">
         {desc}
       </p>
     </div>
@@ -159,24 +160,25 @@ const WhatWeEnable = () => {
   return (
     <div className="min-h-screen bg-[#fffdf9]">
       <SiteHeader />
+      <FloatingDonateButton />
 
       {/* ================= HERO ================= */}
-      <section className="relative py-24 bg-[radial-gradient(ellipse_at_top,_#fff1e6_0%,_#fff7ed_45%,_#fffdf9_100%)] overflow-hidden">
+      <section className="relative min-h-[400px] sm:min-h-[480px] md:min-h-[550px] flex items-center bg-[radial-gradient(ellipse_at_top,_#fff1e6_0%,_#fff7ed_45%,_#fffdf9_100%)] overflow-hidden">
         
         {/* Animated Background */}
         <EcosystemBackground />
 
         {/* Content */}
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          <p className="uppercase tracking-[0.35em] text-xs font-semibold text-[#ea580c] mb-6">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center py-10 sm:py-12 md:py-16">
+          <p className="uppercase tracking-[0.2em] sm:tracking-[0.3em] md:tracking-[0.35em] text-[10px] sm:text-xs font-semibold text-[#ea580c] mb-4 sm:mb-5 md:mb-6">
             WHAT WE ENABLE
           </p>
 
-          <h1 className="font-serif text-4xl md:text-6xl font-semibold text-[#431407] mb-8">
+          <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#431407] mb-4 sm:mb-5 md:mb-6">
             Enabling Sustainable Educational Ecosystems
           </h1>
 
-          <p className="max-w-3xl mx-auto text-[18px] leading-[1.8] text-slate-600">
+          <p className="max-w-3xl mx-auto text-[15px] sm:text-[16px] md:text-[17px] leading-[1.7] sm:leading-[1.8] text-slate-600">
             Sohum Trust enables long-term educational institutions that support
             learners, educators, and communities across academic, professional,
             cultural, and research domains.
@@ -185,19 +187,19 @@ const WhatWeEnable = () => {
       </section>
 
       {/* ================= EDUCATIONAL DOMAINS ================= */}
-      <section className="py-24 bg-gradient-to-b from-[#fffdf9] to-[#fff7ed] relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-[#fffdf9] to-[#fff7ed] relative overflow-hidden">
         {/* Decorative circles in background */}
         <div className="absolute top-10 right-10 w-96 h-96 bg-[#ea580c]/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-10 left-10 w-80 h-80 bg-[#431407]/5 rounded-full blur-3xl"></div>
         
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           
           {/* Header Section */}
-          <div className="text-center mb-16">
-            <p className="uppercase tracking-[0.35em] text-xs font-semibold text-[#ea580c] mb-4">
+          <div className="text-center mb-10 sm:mb-12 md:mb-16">
+            <p className="uppercase tracking-[0.2em] sm:tracking-[0.3em] md:tracking-[0.35em] text-[10px] sm:text-xs font-semibold text-[#ea580c] mb-3 sm:mb-4">
               OUR SCOPE
             </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-[#431407] mb-6">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#431407] mb-4 sm:mb-5 md:mb-6">
               Diverse Learning Pathways We Support
             </h2>
             {/* Decorative small divider */}
@@ -205,7 +207,7 @@ const WhatWeEnable = () => {
           </div>
 
           {/* Immersive Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fadeIn">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 md:gap-8 animate-fadeIn">
             {[
               {
                 title: 'Foundational & Scholastic Education',
@@ -234,7 +236,7 @@ const WhatWeEnable = () => {
             ].map((item) => (
               <div
                 key={item.title}
-                className="group relative h-[320px] w-full overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl cursor-pointer transition-shadow duration-500"
+                className="group relative h-[260px] sm:h-[280px] md:h-[300px] lg:h-[320px] w-full overflow-hidden rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl cursor-pointer transition-shadow duration-500"
               >
                 {/* Background Image with Zoom Effect */}
                 <div className="absolute inset-0">
@@ -585,17 +587,55 @@ const WhatWeEnable = () => {
       </section>
 
       {/* ================= CTA ================= */}
-      <section className="py-20 bg-gradient-to-r from-[#EC167F] to-[#F5A044] text-white text-center">
-        <h2 className="font-heading text-4xl font-semibold mb-6">
-          Be Part of This Educational Movement
-        </h2>
-        <p className="max-w-xl mx-auto mb-10 text-white/90">
-          Join us in building educational institutions that empower students beyond metropolitan areas
-        </p>
+      <section className="relative py-16 bg-gradient-to-br from-[#EC167F] via-[#ea580c] to-[#F5A044] text-white text-center overflow-hidden">
+        {/* Animated background patterns */}
+        <div 
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
+            backgroundSize: '30px 30px',
+            animation: 'moveBackground 10s linear infinite'
+          }}
+        />
+        
+        {/* Floating orbs */}
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-24 h-24 bg-white/10 rounded-full blur-2xl"
+            style={{
+              left: `${15 + i * 15}%`,
+              top: `${20 + (i % 3) * 25}%`,
+              animation: `float${i} ${6 + i}s ease-in-out infinite`
+            }}
+          />
+        ))}
+        
+        <div className="relative z-10">
+          <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6 drop-shadow-lg">
+            Be Part of This Educational Movement
+          </h2>
+          <p className="max-w-2xl mx-auto mb-10 text-lg text-white/95 font-medium leading-relaxed">
+            Join us in building educational institutions that empower students beyond metropolitan areas
+          </p>
 
-        <Link to="/get-involved" className="inline-block bg-white text-[#EC167F] px-12 py-5 rounded-full font-semibold shadow-lg">
-          Get Involved
-        </Link>
+          <Link to="/get-involved" className="inline-flex items-center gap-2 bg-white text-[#EC167F] px-10 py-4 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all hover:scale-105">
+            Get Involved
+          </Link>
+        </div>
+        
+        <style jsx>{`
+          @keyframes moveBackground {
+            0% { background-position: 0px 0px; }
+            100% { background-position: 30px 30px; }
+          }
+          @keyframes float0 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, -40px); } }
+          @keyframes float1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-20px, -30px); } }
+          @keyframes float2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(25px, -35px); } }
+          @keyframes float3 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-30px, -45px); } }
+          @keyframes float4 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(20px, -25px); } }
+          @keyframes float5 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-25px, -40px); } }
+        `}</style>
       </section>
 
       <SiteFooter />
