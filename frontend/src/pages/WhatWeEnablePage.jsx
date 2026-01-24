@@ -218,7 +218,7 @@ const WhatWeEnable = () => {
               {
                 title: 'Professional & Vocational Pathways',
                 desc: 'Institutions for engineering, medical, para-medical, vocational training, and skill development.',
-                image: '/children2.png',
+                image: '/children8.png',
                 gradient: 'from-emerald-600/90 via-[#431407]/70',
               },
               {
