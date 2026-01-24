@@ -8,10 +8,16 @@ const SiteFooter = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8">
           <div className="space-y-4">
-            <h3 className="text-xl font-bold flex items-center space-x-2">
-              <Heart className="w-5 h-5 text-[#f9c483]" />
-              <span>Sohum Trust</span>
-            </h3>
+            <Link to="/" className="flex items-center space-x-3">
+              <img
+                src="/cover.png"
+                alt="Sohum Trust Logo"
+                className="h-20 md:h-24 w-auto object-contain"
+              />
+              <h3 className="text-xl font-bold">
+                Sohum Trust
+              </h3>
+            </Link>
             <p className="text-slate-300 leading-relaxed">
               Sohum Trust champions comprehensive educational advancement,
               establishing and sustaining institutions that empower learners at
@@ -80,6 +86,9 @@ const SiteFooter = () => {
           <p>
             &copy; {new Date().getFullYear()} Sohum Trust. All rights reserved.
             Building futures through education.
+          </p>
+          <p className="mt-3 flex items-center justify-center gap-1 text-sm">
+            Made with <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" /> by Vishwak, Ashirwad and Deeksha
           </p>
         </div>
       </div>
