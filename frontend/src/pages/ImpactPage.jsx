@@ -812,14 +812,14 @@ const CTASection = () => {
       
       <div className="relative z-10">
         <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6 drop-shadow-lg">
-          Be Part of This Educational Movement
+          Help Us Reach More Students, Create Greater Impact
         </h2>
         <p className="max-w-2xl mx-auto mb-10 text-lg text-white/95 font-medium leading-relaxed">
-          Join us in building educational institutions that empower students beyond metropolitan areas
+          Your support directly enables quality education, structured learning, and life-changing opportunities for thousands of students.
         </p>
 
         <Link to="/get-involved" className="inline-flex items-center gap-2 bg-white text-[#EC167F] px-10 py-4 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all hover:scale-105">
-          Get Involved
+          Amplify Our Impact
         </Link>
       </div>
       
