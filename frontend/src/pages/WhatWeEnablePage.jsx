@@ -173,7 +173,7 @@ const WhatWeEnable = () => {
           </p>
 
           <h1 className="font-serif text-4xl md:text-6xl font-semibold text-[#431407] mb-8">
-            Building educational ecosystems, not isolated programs
+            Enabling Sustainable Educational Ecosystems
           </h1>
 
           <p className="max-w-3xl mx-auto text-[18px] leading-[1.8] text-slate-600">
@@ -198,7 +198,7 @@ const WhatWeEnable = () => {
               OUR SCOPE
             </p>
             <h2 className="font-serif text-3xl md:text-5xl font-semibold text-[#431407] mb-6">
-              Educational Domains We Enable
+              Diverse Learning Pathways We Support
             </h2>
             {/* Decorative small divider */}
             <div className="w-24 h-1 bg-[#ea580c]/30 mx-auto rounded-full"></div>
@@ -295,7 +295,7 @@ const WhatWeEnable = () => {
               OUR TARGETS
             </p>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#431407] mb-3 leading-tight">
-              What We Aim to Achieve
+              Our Vision for Educational Reach
             </h2>
             <p className="text-base text-slate-600 leading-relaxed">
               Building toward sustainable impact through ambitious yet achievable goals
@@ -379,7 +379,7 @@ const WhatWeEnable = () => {
               OUR METHODOLOGY
             </p>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#431407] mb-2 leading-tight">
-              How We Work
+              Our Enablement Process
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed">
               A systematic four-step approach to building educational institutions that last
@@ -490,7 +490,7 @@ const WhatWeEnable = () => {
               WHAT SETS US APART
             </p>
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#431407] mb-3 leading-tight">
-              Our Approach
+              What Makes Us Different
             </h2>
             <p className="text-base text-slate-600 leading-relaxed">
               Built on principles of continuity, depth, and cultural relevance
@@ -587,7 +587,7 @@ const WhatWeEnable = () => {
       {/* ================= CTA ================= */}
       <section className="py-20 bg-gradient-to-r from-[#EC167F] to-[#F5A044] text-white text-center">
         <h2 className="font-heading text-4xl font-semibold mb-6">
-          Support Education That Lasts
+          Be Part of This Educational Movement
         </h2>
         <p className="max-w-xl mx-auto mb-10 text-white/90">
           Join us in building educational institutions that empower students beyond metropolitan areas
