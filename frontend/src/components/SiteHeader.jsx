@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { Heart } from 'lucide-react';
 
 import { Button } from './ui/button';
 
@@ -20,12 +22,12 @@ const SiteHeader = () => {
   return (
     <header className="sticky top-0 z-50 bg-gradient-to-r from-[#EC167F] to-[#F5A044] border-b border-white/20 shadow-md">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-27">
           <Link to="/" className="flex items-center">
             <img
               src="/logo_sohum.png"
               alt="Sohum Trust Logo"
-              className="h-16 w-auto object-contain"
+              className="h-20 md:h-24 w-auto object-contain"
             />
           </Link>
 
@@ -46,9 +48,39 @@ const SiteHeader = () => {
           </nav>
 
           <Link to="/get-involved" className="hidden md:block">
-            <Button className="bg-white text-[#EC167F] hover:bg-white/90 px-8 py-3 rounded-full font-bold shadow-lg">
-              Donate Now
-            </Button>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="relative"
+            >
+              {/* Pulsing glow effect */}
+              <motion.div
+                className="absolute inset-0 bg-white rounded-full blur-lg opacity-50"
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.5, 0.8, 0.5]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+              <Button className="relative bg-white text-[#EC167F] hover:bg-white/95 px-8 py-3 rounded-full font-bold shadow-2xl flex items-center gap-2 border-2 border-white">
+                <motion.div
+                  animate={{
+                    scale: [1, 1.2, 1]
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity
+                  }}
+                >
+                  <Heart size={18} className="fill-[#EC167F]" />
+                </motion.div>
+                Donate Now
+              </Button>
+            </motion.div>
           </Link>
 
           <button
@@ -95,7 +127,8 @@ const SiteHeader = () => {
               ))}
 
               <Link to="/get-involved" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button className="w-full bg-white text-[#EC167F] font-bold rounded-full py-3">
+                <Button className="w-full bg-white text-[#EC167F] font-bold rounded-full py-3 shadow-lg flex items-center justify-center gap-2">
+                  <Heart size={18} className="fill-[#EC167F]" />
                   Donate Now
                 </Button>
               </Link>
