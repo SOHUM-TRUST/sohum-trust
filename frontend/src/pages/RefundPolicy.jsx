@@ -208,23 +208,6 @@ const RefundPolicy = () => {
                 ))}
               </div>
 
-              <div className="bg-green-50 border border-green-200 rounded-xl p-6">
-                <h3 className="font-bold text-green-900 mb-3">How to Request a Refund</h3>
-                <p className="text-green-800 leading-relaxed text-sm mb-4">
-                  If you believe your situation qualifies under one of the exceptions listed above, please contact 
-                  us within <strong>7 days</strong> of the transaction with the following information:
-                </p>
-                <ul className="text-green-800 text-sm space-y-2 list-disc list-inside">
-                  <li>Transaction reference number or receipt</li>
-                  <li>Date and amount of donation</li>
-                  <li>Detailed explanation of the exceptional circumstance</li>
-                  <li>Supporting documentation (if applicable)</li>
-                </ul>
-                <p className="text-green-800 text-sm mt-4">
-                  All refund requests are subject to review and approval by Sohum Trust management. We will 
-                  respond to your request within 10-15 business days.
-                </p>
-              </div>
             </motion.div>
 
             {/* Contact Section */}
