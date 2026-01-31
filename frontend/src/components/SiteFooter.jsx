@@ -60,6 +60,22 @@ const SiteFooter = () => {
                   Get Involved
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/terms"
+                  className="hover:text-[#f9c483] transition-colors duration-200"
+                >
+                  Terms & Conditions
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/refund-policy"
+                  className="hover:text-[#f9c483] transition-colors duration-200"
+                >
+                  Refund Policy
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -72,7 +88,7 @@ const SiteFooter = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-[#f9c483]" />
-                <span>+91 XXXX XXXXXX</span>
+                <a href="tel:+919482986952" className="hover:text-[#f9c483] transition-colors duration-200">+91 9482986952</a>
               </li>
               <li className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-[#f9c483]" />
