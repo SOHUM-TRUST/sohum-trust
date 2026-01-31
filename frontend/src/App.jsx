@@ -9,6 +9,7 @@ import ImpactPage from "./pages/ImpactPage";
 import GetInvolvedPage from "./pages/GetInvolvedPage";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import RefundPolicy from "./pages/RefundPolicy";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -46,6 +47,7 @@ const AnimatedRoutes = () => {
         <Route path="/get-involved" element={<PageWrapper><GetInvolvedPage /></PageWrapper>} />
         <Route path="/terms" element={<PageWrapper><TermsAndConditions /></PageWrapper>} />
         <Route path="/refund-policy" element={<PageWrapper><RefundPolicy /></PageWrapper>} />
+        <Route path="/privacy-policy" element={<PageWrapper><PrivacyPolicy /></PageWrapper>} />
       </Routes>
     </AnimatePresence>
   );

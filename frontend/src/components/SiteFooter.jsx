@@ -62,6 +62,14 @@ const SiteFooter = () => {
               </li>
               <li>
                 <Link
+                  to="/privacy-policy"
+                  className="hover:text-[#f9c483] transition-colors duration-200"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/terms"
                   className="hover:text-[#f9c483] transition-colors duration-200"
                 >
