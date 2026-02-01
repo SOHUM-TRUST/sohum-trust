@@ -53,7 +53,7 @@ const TermsAndConditions = () => {
     },
     {
       title: "12. Contact Information",
-      content: "If you have any questions, concerns, or feedback regarding these Terms and Conditions, please contact us at sohumtrust@zohomail.in or call us at +91 9482986952. We are committed to addressing your inquiries promptly."
+      content: "If you have any questions, concerns, or feedback regarding these Terms and Conditions, please contact us at info@sohumtrust.org or call us at +91 9482986952. We are committed to addressing your inquiries promptly."
     }
   ];
 

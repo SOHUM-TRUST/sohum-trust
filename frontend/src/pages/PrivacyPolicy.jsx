@@ -293,8 +293,8 @@ We are committed to maintaining the highest standards of data protection and pri
                   <Mail className="w-6 h-6 flex-shrink-0" />
                   <div>
                     <p className="text-sm text-white/80 mb-1">Email Us</p>
-                    <a href="mailto:sohumtrust@zohomail.in" className="font-semibold hover:text-white/90 transition-colors">
-                      sohumtrust@zohomail.in
+                    <a href="mailto:info@sohumtrust.org" className="font-semibold hover:text-white/90 transition-colors">
+                      info@sohumtrust.org
                     </a>
                   </div>
                 </div>

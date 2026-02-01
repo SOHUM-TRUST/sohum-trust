@@ -92,7 +92,7 @@ const SiteFooter = () => {
             <ul className="space-y-3 text-slate-300">
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-[#f9c483]" />
-                <span>sohumtrust@zohomail.in</span>
+                <span>info@sohumtrust.org</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-[#f9c483]" />
