@@ -1,5 +1,6 @@
 import React from 'react';
 import { Heart, Mail, MapPin, Phone } from 'lucide-react';
+import { FaFacebook, FaInstagram } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const SiteFooter = () => {
@@ -103,6 +104,29 @@ const SiteFooter = () => {
                 <span>Karnataka, India</span>
               </li>
             </ul>
+            <div className="mt-6">
+              <h4 className="text-lg font-semibold mb-3">Follow Us</h4>
+              <div className="flex space-x-4">
+                <a
+                  href="https://www.instagram.com/sohum_trust?igsh=MTRncjVmMG81aHR0eA=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-300 hover:text-[#f9c483] transition-colors duration-200"
+                  aria-label="Instagram"
+                >
+                  <FaInstagram className="w-7 h-7" />
+                </a>
+                <a
+                  href="https://www.facebook.com/share/17s2kskL9T/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-300 hover:text-[#f9c483] transition-colors duration-200"
+                  aria-label="Facebook"
+                >
+                  <FaFacebook className="w-7 h-7" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
