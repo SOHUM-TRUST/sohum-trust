@@ -89,7 +89,7 @@ const SiteFooter = () => {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-xl font-bold">Contact Us</h3>
+            <h3 className="text-xl font-bold">Contact & Bank Details</h3>
             <ul className="space-y-3 text-slate-300">
               <li className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-[#f9c483]" />
@@ -104,6 +104,15 @@ const SiteFooter = () => {
                 <span>Karnataka, India</span>
               </li>
             </ul>
+            <div className="mt-4 pt-4 border-t border-slate-700">
+              <h4 className="text-sm font-semibold text-[#f9c483] mb-2 uppercase">Direct Bank Transfer</h4>
+              <div className="text-xs text-slate-400 space-y-1">
+                <p><strong>Account:</strong> Sohum Trust</p>
+                <p><strong>Number:</strong> 0868102000016320</p>
+                <p><strong>IFSC:</strong> IBKL0000868</p>
+                <p><strong>Bank:</strong> IDBI BANK, Banashankari</p>
+              </div>
+            </div>
             <div className="mt-6">
               <h4 className="text-lg font-semibold mb-3">Follow Us</h4>
               <div className="flex space-x-4">

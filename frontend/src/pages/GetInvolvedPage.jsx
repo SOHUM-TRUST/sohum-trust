@@ -187,6 +187,16 @@ const GetInvolvedPage = () => {
   const handleSelectAmount = (amount) => {
     setSelectedAmount(amount);
     setCustomAmount(amount.toString());
+    // Redirect to donation page
+    window.open('https://pages.razorpay.com/pl_PlNSF1e11K7kB9/view', '_blank');
+  };
+
+  const handleCustomDonate = () => {
+    if (customAmount && parseFloat(customAmount) >= 1) {
+      window.open('https://pages.razorpay.com/pl_PlNSF1e11K7kB9/view', '_blank');
+    } else {
+      alert('Please enter a valid amount (minimum ₹1)');
+    }
   };
 
   return (
@@ -403,18 +413,15 @@ const GetInvolvedPage = () => {
           </motion.p>
 
           {/* Enhanced 3D Button with Glow */}
-          <motion.button 
+          <motion.a 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              const donationSection = document.querySelector('#donation-section');
-              if (donationSection) {
-                donationSection.scrollIntoView({ behavior: 'smooth' });
-              }
-            }}
+            href="https://pages.razorpay.com/pl_PlNSF1e11K7kB9/view"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-gradient-to-r from-[#ea580c] to-[#EC167F] text-white rounded-full font-bold text-sm sm:text-base shadow-[0_10px_30px_rgba(234,88,12,0.5),_0_0_20px_rgba(236,22,127,0.3)] hover:shadow-[0_15px_40px_rgba(234,88,12,0.6),_0_0_30px_rgba(236,22,127,0.4)] transition-all duration-300"
           >
             <span>Make a Donation</span>
@@ -424,14 +431,140 @@ const GetInvolvedPage = () => {
             >
               <Heart size={20} className="text-white group-hover:fill-white transition-all" />
             </motion.div>
-          </motion.button>
+          </motion.a>
 
         </div>
       </section>
 
-      {/* ================= DONATION ================= */}
-      <section id="donation-section" className="py-8 sm:py-12 md:py-16 bg-gradient-to-b from-white via-orange-50/30 to-white relative overflow-hidden">
+      {/* ================= BANK TRANSFER DETAILS ================= */}
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-blue-50 via-white to-blue-50 relative overflow-hidden">
         {/* Decorative elements */}
+        <motion.div 
+          className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-200/20 to-cyan-200/20 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 4, repeat: Infinity }}
+        />
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10 sm:mb-12 md:mb-14"
+          >
+            <div className="inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold tracking-widest uppercase mb-4 bg-blue-100 text-blue-700">
+              Direct Bank Transfer
+            </div>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#431407] to-[#6B2710] bg-clip-text text-transparent">
+              Bank Account Details
+            </h2>
+            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
+              You can also donate directly through bank transfer to support our educational initiatives.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+            {/* Bank Details Card */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border-2 border-blue-100 hover:shadow-xl transition-all"
+            >
+              <h3 className="font-bold text-xl sm:text-2xl text-[#431407] mb-6 flex items-center gap-3">
+                <Building2 className="text-blue-600 flex-shrink-0" size={28} />
+                Bank Details
+              </h3>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">Account Name</p>
+                  <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg">
+                    Sohum Trust
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">Account Number</p>
+                  <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg font-mono">
+                    0868102000016320
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">Bank Name</p>
+                  <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg">
+                    IDBI BANK, Banashankari Branch
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">Account Type</p>
+                  <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg">
+                    Current Account
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Additional Details Card */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border-2 border-blue-100 hover:shadow-xl transition-all"
+            >
+              <h3 className="font-bold text-xl sm:text-2xl text-[#431407] mb-6 flex items-center gap-3">
+                <Mail className="text-blue-600 flex-shrink-0" size={28} />
+                Additional Information
+              </h3>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">IFSC Code</p>
+                  <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg font-mono">
+                    IBKL0000868
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">Phone Number</p>
+                  <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg">
+                    <a href="tel:+919686953106" className="hover:text-blue-600 transition-colors">
+                      +91 9686953106
+                    </a>
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-blue-100">
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    <strong className="text-[#431407]">Note:</strong> All donations are eligible for 80G tax exemption under the Indian Income Tax Act. Please save your receipt for tax purposes.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Copy to Clipboard Helper */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mt-8 sm:mt-10 bg-gradient-to-r from-blue-100 to-cyan-100 rounded-2xl p-6 sm:p-8 border-2 border-blue-200"
+          >
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                <CheckCircle2 className="text-white" size={24} />
+              </div>
+              <div>
+                <h4 className="font-bold text-lg text-[#431407] mb-2">Easy Bank Transfer</h4>
+                <p className="text-slate-700 leading-relaxed">
+                  You can transfer any amount directly to the above bank account. Ensure you mention "Sohum Trust" in the payment reference for easy tracking and tax documentation.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ================= DONATION ================= COMMENTED OUT */}
+      {/* 
+      <section id="donation-section" className="py-8 sm:py-12 md:py-16 bg-gradient-to-b from-white via-orange-50/30 to-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#ea580c]/10 to-[#EC167F]/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-[#f59e0b]/10 to-transparent rounded-full blur-3xl"></div>
         
@@ -464,7 +597,6 @@ const GetInvolvedPage = () => {
             ))}
           </div>
 
-          {/* Custom Amount Input */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -495,6 +627,7 @@ const GetInvolvedPage = () => {
                   />
                 </div>
                 <motion.button 
+                  onClick={handleCustomDonate}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#ea580c] to-[#EC167F] text-white font-bold rounded-xl hover:shadow-xl transition-all flex items-center justify-center gap-2 shadow-lg text-sm sm:text-base"
@@ -513,6 +646,7 @@ const GetInvolvedPage = () => {
           </motion.div>
         </div>
       </section>
+      */}
 
       {/* ================= CSR ================= */}
       <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-[#431407] via-[#2a0d04] to-[#1a0502] text-white relative overflow-hidden">
@@ -797,15 +931,15 @@ const GetInvolvedPage = () => {
           />
         ))}
         
-        {/* Animated floating hearts - spread all over */}
+        {/* Animated floating hearts */}
         {[...Array(8)].map((_, i) => {
-          const randomLeft = Math.random() * 100; // 0% to 100%
-          const randomTop = Math.random() * 100; // 0% to 100%
-          const randomSize = Math.random() * 12 + 18; // 18px to 30px
-          const randomDuration = Math.random() * 1.5 + 1.5; // 1.5s to 3s
-          const randomDelay = Math.random() * 3; // 0s to 3s
-          const randomYDistance = -(Math.random() * 50 + 40); // -40px to -90px
-          const randomRotation = Math.random() * 20 - 10; // -10deg to 10deg
+          const randomLeft = Math.random() * 100;
+          const randomTop = Math.random() * 100;
+          const randomSize = Math.random() * 12 + 18;
+          const randomDuration = Math.random() * 1.5 + 1.5;
+          const randomDelay = Math.random() * 3;
+          const randomYDistance = -(Math.random() * 50 + 40);
+          const randomRotation = Math.random() * 20 - 10;
           
           return (
             <motion.div
@@ -852,19 +986,16 @@ const GetInvolvedPage = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Link 
-                to="#donation-section" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  const section = document.querySelector('#donation-section');
-                  section?.scrollIntoView({ behavior: 'smooth' });
-                }} 
+              <a 
+                href="https://pages.razorpay.com/pl_PlNSF1e11K7kB9/view"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-white text-[#EC167F] px-12 py-5 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all"
               >
                 <Sparkles size={20} />
                 Start Donating
                 <ArrowRight size={20} />
-              </Link>
+              </a>
             </motion.div>
           
             <motion.p 

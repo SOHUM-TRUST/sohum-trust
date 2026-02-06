@@ -815,56 +815,166 @@ const AboutUs = () => {
   </div>
 </section>
 
-<section className="relative py-16 bg-gradient-to-br from-[#EC167F] via-[#ea580c] to-[#F5A044] text-white text-center overflow-hidden">
-  {/* Animated background patterns */}
-  <div 
-    className="absolute inset-0 opacity-20"
-    style={{
-      backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
-      backgroundSize: '30px 30px',
-      animation: 'moveBackground 10s linear infinite'
-    }}
-  />
-  
-  {/* Floating orbs */}
-  {[...Array(6)].map((_, i) => (
-    <div
-      key={i}
-      className="absolute w-24 h-24 bg-white/10 rounded-full blur-2xl"
+{/* ================= BANK DETAILS ================= */}
+  <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-blue-50 via-white to-cyan-50 relative overflow-hidden">
+    {/* Decorative elements */}
+    <motion.div 
+      className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-200/20 to-cyan-200/20 rounded-full blur-3xl"
+      animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
+      transition={{ duration: 4, repeat: Infinity }}
+    />
+    
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center mb-12"
+      >
+        <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#431407] to-[#6B2710] bg-clip-text text-transparent">
+          Support Us Directly
+        </h2>
+        <p className="text-base sm:text-lg text-slate-600">
+          Bank transfer details for direct donations
+        </p>
+      </motion.div>
+
+      <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+        {/* Bank Details Card */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border-2 border-blue-100 hover:shadow-xl transition-all"
+        >
+          <h3 className="font-bold text-xl sm:text-2xl text-[#431407] mb-6 flex items-center gap-3">
+            <Mail className="text-blue-600 flex-shrink-0" size={28} />
+            Bank Details
+          </h3>
+          <div className="space-y-4">
+            <div>
+              <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">Account Name</p>
+              <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg">
+                Sohum Trust
+              </p>
+            </div>
+            <div>
+              <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">Account Number</p>
+              <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg font-mono">
+                0868102000016320
+              </p>
+            </div>
+            <div>
+              <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">IFSC Code</p>
+              <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg font-mono">
+                IBKL0000868
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Additional Info Card */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border-2 border-blue-100 hover:shadow-xl transition-all"
+        >
+          <h3 className="font-bold text-xl sm:text-2xl text-[#431407] mb-6 flex items-center gap-3">
+            <MapPin className="text-blue-600 flex-shrink-0" size={28} />
+            More Information
+          </h3>
+          <div className="space-y-4">
+            <div>
+              <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">Bank Name</p>
+              <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg">
+                IDBI BANK, Banashankari Branch
+              </p>
+            </div>
+            <div>
+              <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">Account Type</p>
+              <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg">
+                Current Account
+              </p>
+            </div>
+            <div>
+              <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">Phone</p>
+              <p className="text-base sm:text-lg font-bold text-[#431407]">
+                <a href="tel:+919686953106" className="hover:text-blue-600 transition-colors">
+                  +91 9686953106
+                </a>
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.2 }}
+        className="mt-8 bg-gradient-to-r from-blue-100 to-cyan-100 rounded-2xl p-6 sm:p-8 border-2 border-blue-200 text-center"
+      >
+        <p className="text-slate-700 font-semibold">
+          All donations are eligible for 80G tax exemption under the Indian Income Tax Act
+        </p>
+      </motion.div>
+    </div>
+  </section>
+
+  {/* ================= CTA ================= */}
+  <section className="relative py-16 bg-gradient-to-br from-[#EC167F] via-[#ea580c] to-[#F5A044] text-white text-center overflow-hidden">
+    {/* Animated background patterns */}
+    <div 
+      className="absolute inset-0 opacity-20"
       style={{
-        left: `${15 + i * 15}%`,
-        top: `${20 + (i % 3) * 25}%`,
-        animation: `float${i} ${6 + i}s ease-in-out infinite`
+        backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
+        backgroundSize: '30px 30px',
+        animation: 'moveBackground 10s linear infinite'
       }}
     />
-  ))}
-  
-  <div className="relative z-10">
-    <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6 drop-shadow-lg">
-      Bridging educational gaps across regions
-    </h2>
-    <p className="max-w-2xl mx-auto mb-10 text-lg text-white/95 font-medium leading-relaxed">
-      We work with students from underserved and emerging cities to provide long-term learning opportunities.
-    </p>
+    
+    {/* Floating orbs */}
+    {[...Array(6)].map((_, i) => (
+      <div
+        key={i}
+        className="absolute w-24 h-24 bg-white/10 rounded-full blur-2xl"
+        style={{
+          left: `${15 + i * 15}%`,
+          top: `${20 + (i % 3) * 25}%`,
+          animation: `float${i} ${6 + i}s ease-in-out infinite`
+        }}
+      />
+    ))}
+    
+    <div className="relative z-10">
+      <h2 className="font-heading text-3xl md:text-5xl font-bold mb-6 drop-shadow-lg">
+        Bridging educational gaps across regions
+      </h2>
+      <p className="max-w-2xl mx-auto mb-10 text-lg text-white/95 font-medium leading-relaxed">
+        We work with students from underserved and emerging cities to provide long-term learning opportunities.
+      </p>
 
-    <Link to="/get-involved" className="inline-flex items-center gap-2 bg-white text-[#EC167F] px-10 py-4 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all hover:scale-105">
-      Get Involved
-    </Link>
-  </div>
-  
-  <style jsx>{`
-    @keyframes moveBackground {
-      0% { background-position: 0px 0px; }
-      100% { background-position: 30px 30px; }
-    }
-    @keyframes float0 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, -40px); } }
-    @keyframes float1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-20px, -30px); } }
-    @keyframes float2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(25px, -35px); } }
-    @keyframes float3 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-30px, -45px); } }
-    @keyframes float4 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(20px, -25px); } }
-    @keyframes float5 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-25px, -40px); } }
-  `}</style>
-</section>
+      <Link to="/get-involved" className="inline-flex items-center gap-2 bg-white text-[#EC167F] px-10 py-4 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all hover:scale-105">
+        Get Involved
+      </Link>
+    </div>
+    
+    <style jsx>{`
+      @keyframes moveBackground {
+        0% { background-position: 0px 0px; }
+        100% { background-position: 30px 30px; }
+      }
+      @keyframes float0 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, -40px); } }
+      @keyframes float1 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-20px, -30px); } }
+      @keyframes float2 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(25px, -35px); } }
+      @keyframes float3 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-30px, -45px); } }
+      @keyframes float4 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(20px, -25px); } }
+      @keyframes float5 { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-25px, -40px); } }
+    `}</style>
+  </section>
 
       <SiteFooter />
     </div>
