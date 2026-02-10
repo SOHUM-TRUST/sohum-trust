@@ -59,10 +59,10 @@ const FloatingDonateButton = () => {
             />
 
             {/* Main button */}
-            <a href="https://pages.razorpay.com/pl_PlNSF1e11K7kB9/view" target="_blank" rel="noopener noreferrer">
+            <Link to="/get-involved">
               <motion.button
                 whileTap={{ scale: 0.95 }}
-                className="relative bg-gradient-to-r from-[#EC167F] to-[#F5A044] text-white px-4 py-3 sm:px-6 sm:py-3.5 md:px-8 md:py-4 rounded-full font-bold shadow-2xl flex items-center gap-2 sm:gap-2.5 md:gap-3 border-2 border-white hover:shadow-3xl transition-shadow text-sm sm:text-base md:text-lg"
+                className="relative bg-gradient-to-r from-[#EC167F] to-[#F5A044] text-white px-4 py-3 sm:px-6 sm:py-3.5 md:px-8 md:py-4 rounded-full font-bold shadow-2xl flex items-center gap-2 sm:gap-2.5 md:gap-3 border-2 border-white hover:shadow-3xl transition-shadow text-sm sm:text-base md:text-lg cursor-pointer"
               >
                 <motion.div
                   animate={{
@@ -79,7 +79,7 @@ const FloatingDonateButton = () => {
                 </motion.div>
                 <span>Donate Now</span>
               </motion.button>
-            </a>
+            </Link>
 
             {/* Minimize button */}
             <button

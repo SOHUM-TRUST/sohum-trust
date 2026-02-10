@@ -187,13 +187,13 @@ const GetInvolvedPage = () => {
   const handleSelectAmount = (amount) => {
     setSelectedAmount(amount);
     setCustomAmount(amount.toString());
-    // Redirect to donation page
-    window.open('https://pages.razorpay.com/pl_PlNSF1e11K7kB9/view', '_blank');
+    // Show under development message
+    alert('Online donation feature is still under development. Please use bank transfer details available below on this page.');
   };
 
   const handleCustomDonate = () => {
     if (customAmount && parseFloat(customAmount) >= 1) {
-      window.open('https://pages.razorpay.com/pl_PlNSF1e11K7kB9/view', '_blank');
+      alert('Online donation feature is still under development. Please use bank transfer details available below on this page.');
     } else {
       alert('Please enter a valid amount (minimum ₹1)');
     }
@@ -413,16 +413,14 @@ const GetInvolvedPage = () => {
           </motion.p>
 
           {/* Enhanced 3D Button with Glow */}
-          <motion.a 
+          <motion.button 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="https://pages.razorpay.com/pl_PlNSF1e11K7kB9/view"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-gradient-to-r from-[#ea580c] to-[#EC167F] text-white rounded-full font-bold text-sm sm:text-base shadow-[0_10px_30px_rgba(234,88,12,0.5),_0_0_20px_rgba(236,22,127,0.3)] hover:shadow-[0_15px_40px_rgba(234,88,12,0.6),_0_0_30px_rgba(236,22,127,0.4)] transition-all duration-300"
+            onClick={() => alert('Online donation feature is still under development. Please use bank transfer details available below on this page.')}
+            className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-gradient-to-r from-[#ea580c] to-[#EC167F] text-white rounded-full font-bold text-sm sm:text-base shadow-[0_10px_30px_rgba(234,88,12,0.5),_0_0_20px_rgba(236,22,127,0.3)] hover:shadow-[0_15px_40px_rgba(234,88,12,0.6),_0_0_30px_rgba(236,22,127,0.4)] transition-all duration-300 cursor-pointer"
           >
             <span>Make a Donation</span>
             <motion.div
@@ -431,7 +429,7 @@ const GetInvolvedPage = () => {
             >
               <Heart size={20} className="text-white group-hover:fill-white transition-all" />
             </motion.div>
-          </motion.a>
+          </motion.button>
 
         </div>
       </section>
@@ -563,7 +561,7 @@ const GetInvolvedPage = () => {
       </section>
 
       {/* ================= DONATION ================= COMMENTED OUT */}
-      {/* 
+      
       <section id="donation-section" className="py-8 sm:py-12 md:py-16 bg-gradient-to-b from-white via-orange-50/30 to-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#ea580c]/10 to-[#EC167F]/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-[#f59e0b]/10 to-transparent rounded-full blur-3xl"></div>
@@ -591,12 +589,13 @@ const GetInvolvedPage = () => {
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 max-w-5xl mx-auto px-4 sm:px-6 mb-6 sm:mb-8">
+          {/* 
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 max-w-5xl mx-auto px-4 sm:px-6 mb-6 sm:mb-8"> 
             {donationTiers.map((tier, i) => (
               <DonationCard key={tier.id} tier={tier} index={i} onSelect={handleSelectAmount} />
             ))}
           </div>
-
+*/}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -611,6 +610,7 @@ const GetInvolvedPage = () => {
                   transition={{ duration: 2, repeat: Infinity }}
                 >
                   <Sparkles className="text-[#ea580c]" size={24} />
+                   
                 </motion.div>
                 Or Enter Custom Amount
               </h3>
@@ -646,7 +646,7 @@ const GetInvolvedPage = () => {
           </motion.div>
         </div>
       </section>
-      */}
+      
 
       {/* ================= CSR ================= */}
       <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-[#431407] via-[#2a0d04] to-[#1a0502] text-white relative overflow-hidden">
@@ -986,16 +986,14 @@ const GetInvolvedPage = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <a 
-                href="https://pages.razorpay.com/pl_PlNSF1e11K7kB9/view"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white text-[#EC167F] px-12 py-5 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all"
+              <button 
+                onClick={() => alert('Online donation feature is still under development. Please use bank transfer details available on the Get Involved page.')}
+                className="inline-flex items-center gap-2 bg-white text-[#EC167F] px-12 py-5 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all cursor-pointer"
               >
                 <Sparkles size={20} />
                 Start Donating
                 <ArrowRight size={20} />
-              </a>
+              </button>
             </motion.div>
           
             <motion.p 
