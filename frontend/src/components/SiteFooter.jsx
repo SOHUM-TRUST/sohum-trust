@@ -106,7 +106,7 @@ const SiteFooter = () => {
             </ul>
             <div className="mt-4 pt-4 border-t border-slate-700">
               <h4 className="text-sm font-semibold text-[#f9c483] mb-2 uppercase">Direct Bank Transfer</h4>
-              <div className="text-xs text-slate-400 space-y-1">
+              <div className="text-sm text-slate-400 space-y-1">
                 <p><strong>Account:</strong> Sohum Trust</p>
                 <p><strong>Number:</strong> 0868102000016320</p>
                 <p><strong>IFSC:</strong> IBKL0000868</p>

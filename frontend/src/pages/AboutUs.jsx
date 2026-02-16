@@ -708,17 +708,18 @@ const AboutUs = () => {
         </p>
       </motion.div>
       <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-[#431407]">
-        Executive <span className="bg-gradient-to-r from-[#ea580c] to-[#EC167F] bg-clip-text text-transparent">Trustees</span>
+        Board of <span className="bg-gradient-to-r from-[#ea580c] to-[#EC167F] bg-clip-text text-transparent">Trustees</span>
       </h2>
     </motion.div>
 
     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
       {[
-        ['Mr. Anup Kiran', 'President', 'from-[#FFF0F0] to-white', 'from-[#dc2626] to-[#ea580c]'],
-        ['Mr. Jayakumar D', 'Vice President', 'from-[#FFF5F0] to-white', 'from-[#ea580c] to-[#EC167F]'],
-        ['Mr. Kumaraswamy H V', 'Secretary', 'from-[#FFF8F0] to-white', 'from-[#EC167F] to-[#F5A044]'],
-        ['Mr. Raghuram H S', 'Treasurer', 'from-[#FFFBF0] to-white', 'from-[#F5A044] to-[#FFB347]'],
-      ].map(([name, role, bgGradient, accentGradient], index) => (
+        ['Mr. Anup Kiran', 'President', 'from-[#FFF0F0] to-white', 'from-[#dc2626] to-[#ea580c]', '/anup.jpeg'],
+        ['Mr. Jayakumar D', 'Vice President', 'from-[#FFF5F0] to-white', 'from-[#ea580c] to-[#EC167F]', '/jayakumar.png'],
+        ['Mr. Kumaraswamy H V', 'Secretary', 'from-[#FFF8F0] to-white', 'from-[#EC167F] to-[#F5A044]', '/kumar.jpeg'],
+        ['Mr. Raghuram H S', 'Treasurer', 'from-[#FFFBF0] to-white', 'from-[#F5A044] to-[#FFB347]', 'raghuram.jpeg'],
+        ['Mr. Rajendra Kumar M.V.', 'Trustee', 'from-[#FFFBF0] to-white', 'from-[#F5A044] to-[#FFB347]', '/rajendra.jpeg'],
+      ].map(([name, role, bgGradient, accentGradient, photoPath], index) => (
         <motion.div 
           key={name} 
           className={`group relative bg-gradient-to-br ${bgGradient} rounded-2xl p-8 text-center shadow-[0_8px_30px_-8px_rgba(0,0,0,0.12)] hover:shadow-[0_20px_60px_-12px_rgba(234,88,12,0.3)] transition-all duration-500 border-2 border-white overflow-hidden`}
@@ -776,7 +777,14 @@ const AboutUs = () => {
               }}
             />
             <div className="absolute inset-1 rounded-full bg-white" />
-            <div className="absolute inset-2 rounded-full bg-gradient-to-br from-[#FFF5ED] to-[#FFE8DB] group-hover:from-white group-hover:to-[#FFF5ED] transition-all duration-500" />
+            <div className="absolute inset-2 rounded-full bg-gradient-to-br from-[#FFF5ED] to-[#FFE8DB] group-hover:from-white group-hover:to-[#FFF5ED] transition-all duration-500 overflow-hidden">
+              <img 
+                src={photoPath} 
+                alt={name}
+                className="w-full h-full object-cover rounded-full"
+                onError={(e) => { e.target.style.display = 'none'; }}
+              />
+            </div>
             {/* Pulsing number badge */}
             <motion.div
               className={`absolute -top-2 -right-2 w-9 h-9 rounded-full bg-gradient-to-br ${accentGradient} text-white text-sm font-bold flex items-center justify-center shadow-lg`}
@@ -810,6 +818,93 @@ const AboutUs = () => {
             transition={{ duration: 0.5 }}
           />
         </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* ================= TESTIMONIALS ================= */}
+<section className="relative py-20 bg-[#FDF8F4] overflow-hidden">
+  <div className="max-w-7xl mx-auto px-6">
+
+    {/* Heading */}
+    <div className="text-center mb-16">
+      <p className="uppercase tracking-[0.3em] text-[11px] font-bold text-[#ea580c]">
+        Donor Testimonials
+      </p>
+
+      <h2 className="font-serif text-4xl md:text-5xl font-semibold text-[#3b1d0f] mt-4">
+        Voices of{" "}
+        <span className="bg-gradient-to-r from-[#ea580c] to-[#EC167F] bg-clip-text text-transparent">
+          Impact
+        </span>
+      </h2>
+    </div>
+
+    {/* Cards */}
+    <div className="grid md:grid-cols-3 gap-8">
+      {[
+        {
+          name: "Mr. Manoj Patel",
+          role: "Associate Director at AECOM",
+          photo: "/manoj.jpeg",
+          testimonial:
+            "Sohum Trust's free IT education program delivers high-quality training in C, Java, Python, Cloud, AI, and Cyber Security, making advanced technology skills accessible to a wide range of learners. The multilingual learning approach ensures inclusivity, while AI-proctored assessments and IBM certifications help ensure learners are job-ready."
+        },
+        {
+          name: "Dr. Mahesh Chandargi",
+          role: "Medical Director at Lions Sightfirst Eye Hospital, Kenya",
+          photo: "/mahesh.jpeg",
+          testimonial:
+            "This trust has taken a great initiative to support unprivileged students and empower them through high-quality technology education. I wish the trust continues more such initiatives for the betterment of society."
+        },
+        {
+          name: "Mrs. Pavithra Murthy",
+          role: "Banking Consultant, Australia",
+          photo: "/pavithra.png",
+          testimonial:
+            "Supporting young minds to become future technology leaders gives immense satisfaction. I’m glad to support Sohum Trust in this meaningful mission."
+        }
+      ].map((testimonial, index) => (
+        <div
+          key={index}
+          className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300 flex flex-col"
+        >
+          {/* Decorative Quote */}
+          <span className="absolute top-6 right-6 text-6xl text-[#ea580c]/10 font-serif select-none">
+            “
+          </span>
+
+          {/* Profile Section */}
+          <div className="flex items-center mb-6">
+            
+            {/* PERFECT CIRCLE IMAGE */}
+            <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-[#FFE8DB] flex-shrink-0">
+              <img
+                src={testimonial.photo}
+                alt={testimonial.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            <div className="ml-4">
+              <h4 className="font-semibold text-lg text-[#3b1d0f]">
+                {testimonial.name}
+              </h4>
+              <p className="text-sm text-gray-500">
+                {testimonial.role}
+              </p>
+            </div>
+          </div>
+
+          {/* Testimonial Text */}
+          <p className="text-[15px] leading-relaxed text-gray-600 italic flex-grow">
+            “{testimonial.testimonial}”
+          </p>
+
+          {/* Bottom Accent Line */}
+          <div className="mt-6 h-1 w-full bg-gradient-to-r from-[#ea580c] to-[#EC167F] rounded-full" />
+        </div>
       ))}
     </div>
   </div>
