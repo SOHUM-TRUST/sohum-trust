@@ -419,7 +419,7 @@ const GetInvolvedPage = () => {
             transition={{ duration: 0.6, delay: 0.7 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => alert('Online donation feature is still under development. Please use bank transfer details available below on this page.')}
+            onClick={() => document.getElementById('qr-code-section')?.scrollIntoView({ behavior: 'smooth' })}
             className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-gradient-to-r from-[#ea580c] to-[#EC167F] text-white rounded-full font-bold text-sm sm:text-base shadow-[0_10px_30px_rgba(234,88,12,0.5),_0_0_20px_rgba(236,22,127,0.3)] hover:shadow-[0_15px_40px_rgba(234,88,12,0.6),_0_0_30px_rgba(236,22,127,0.4)] transition-all duration-300 cursor-pointer"
           >
             <span>Make a Donation</span>
@@ -566,7 +566,9 @@ const GetInvolvedPage = () => {
         <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#ea580c]/10 to-[#EC167F]/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-[#f59e0b]/10 to-transparent rounded-full blur-3xl"></div>
         
-        <div className="relative z-10">
+        <div
+        id="qr-code-section"
+        className="relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -574,6 +576,7 @@ const GetInvolvedPage = () => {
             className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-10 px-4 sm:px-6"
           >
             <motion.div 
+            
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
@@ -589,6 +592,25 @@ const GetInvolvedPage = () => {
             </p>
           </motion.div>
 
+          {/* QR Code Section */}
+          <motion.div
+            
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="flex justify-center mb-8 sm:mb-12"
+          >
+            <div className="bg-gradient-to-br from-white to-orange-50/50 rounded-xl sm:rounded-2xl shadow-xl border-2 border-[#ea580c]/20 p-4 sm:p-6 backdrop-blur-sm">
+              <p className="text-center text-sm sm:text-base font-semibold text-[#ea580c] mb-3 sm:mb-4">Pay through UPI</p>
+              <img 
+                src="/bank_qr.png" 
+                alt="Donation QR Code" 
+                className="w-48 sm:w-64 h-48 sm:h-64 object-cover rounded-lg shadow-md"
+              />
+            </div>
+          </motion.div>
+
           {/* 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 max-w-5xl mx-auto px-4 sm:px-6 mb-6 sm:mb-8"> 
             {donationTiers.map((tier, i) => (
@@ -596,7 +618,7 @@ const GetInvolvedPage = () => {
             ))}
           </div>
 */}
-          <motion.div 
+          {/* <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -643,7 +665,7 @@ const GetInvolvedPage = () => {
               </div>
               <p className="text-sm text-slate-600 mt-4 text-center font-medium">Minimum donation: ₹1 • 100% secure transaction</p>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
       
@@ -738,7 +760,7 @@ const GetInvolvedPage = () => {
             transition={{ delay: 0.5 }}
             className="mt-10 text-center"
           >
-            <motion.button
+            {/* <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#ea580c] to-[#EC167F] text-white font-bold rounded-full shadow-xl hover:shadow-2xl transition-all"
@@ -746,7 +768,7 @@ const GetInvolvedPage = () => {
               <Building2 size={20} />
               Schedule a Partnership Call
               <ArrowRight size={20} />
-            </motion.button>
+            </motion.button> */}
           </motion.div>
         </div>
       </section>
@@ -987,7 +1009,7 @@ const GetInvolvedPage = () => {
               whileTap={{ scale: 0.95 }}
             >
               <button 
-                onClick={() => alert('Online donation feature is still under development. Please use bank transfer details available on the Get Involved page.')}
+                onClick={() => document.getElementById('qr-code-section')?.scrollIntoView({ behavior: 'smooth' })}
                 className="inline-flex items-center gap-2 bg-white text-[#EC167F] px-12 py-5 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all cursor-pointer"
               >
                 <Sparkles size={20} />
