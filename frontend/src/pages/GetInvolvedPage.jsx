@@ -12,6 +12,10 @@ import {
   ChevronDown,
   Sparkles,
   IndianRupee,
+  Target,
+  BarChart3,
+  Trophy,
+  Shield,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SiteHeader from '../components/SiteHeader';
@@ -724,10 +728,10 @@ const GetInvolvedPage = () => {
 
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { text: 'Custom CSR-aligned education programs', icon: '🎯' },
-              { text: 'Employee mentorship & engagement', icon: '👥' },
-              { text: 'Transparent reporting & audits', icon: '📊' },
-              { text: 'Long-term institutional branding', icon: '🏆' },
+              { text: 'Custom CSR-aligned education programs', Icon: Target },
+              { text: 'Employee mentorship & engagement', Icon: Users },
+              { text: 'Transparent reporting & audits', Icon: BarChart3 },
+              { text: 'Long-term institutional branding', Icon: Trophy },
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -739,11 +743,11 @@ const GetInvolvedPage = () => {
                 className="group flex items-center gap-4 bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/15 hover:border-[#ea580c] transition-all cursor-pointer shadow-lg"
               >
                 <motion.div
-                  whileHover={{ rotate: [0, -10, 10, 0] }}
+                  whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
                   transition={{ duration: 0.5 }}
-                  className="text-3xl"
+                  className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ea580c] to-[#EC167F] flex items-center justify-center shadow-lg"
                 >
-                  {item.icon}
+                  <item.Icon className="text-white" size={24} />
                 </motion.div>
                 <div className="flex items-center gap-3 flex-1">
                   <CheckCircle2 className="text-[#ea580c] flex-shrink-0 group-hover:scale-110 transition-transform" size={24} />
@@ -1023,9 +1027,13 @@ const GetInvolvedPage = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
-              className="mt-8 text-white/80 text-sm"
+              className="mt-8 text-white/80 text-sm flex items-center justify-center gap-4"
             >
-              ✓ 100% Secure Payments • ✓ Tax Benefits (80G) • ✓ Instant Receipt
+              <span className="flex items-center gap-1.5"><Shield size={16} /> 100% Secure Payments</span>
+              <span>•</span>
+              <span className="flex items-center gap-1.5"><CheckCircle2 size={16} /> Tax Benefits (80G)</span>
+              <span>•</span>
+              <span className="flex items-center gap-1.5"><CheckCircle2 size={16} /> Instant Receipt</span>
             </motion.p>
           </motion.div>
         </div>

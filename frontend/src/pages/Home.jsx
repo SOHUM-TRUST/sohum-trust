@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Sparkles, School, UserCheck, BookOpen, Theater } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import SiteHeader from '../components/SiteHeader';
@@ -809,26 +809,30 @@ export default function Home() {
         {
           title: 'Learning Infrastructure',
           desc: 'Classrooms, libraries, digital tools, and learning spaces.',
-          icon: '🏫',
-          gradient: 'from-blue-50 to-cyan-50 border-blue-200'
+          Icon: School,
+          gradient: 'from-blue-50 to-cyan-50 border-blue-200',
+          iconColor: 'bg-gradient-to-br from-blue-500 to-cyan-600'
         },
         {
           title: 'Mentorship Programs',
           desc: 'Guided academic and career pathways at critical stages.',
-          icon: '👨‍🏫',
-          gradient: 'from-purple-50 to-pink-50 border-purple-200'
+          Icon: UserCheck,
+          gradient: 'from-purple-50 to-pink-50 border-purple-200',
+          iconColor: 'bg-gradient-to-br from-purple-500 to-pink-600'
         },
         {
           title: 'Educator Development',
           desc: 'Long-term training and support for teachers and mentors.',
-          icon: '📖',
-          gradient: 'from-emerald-50 to-teal-50 border-emerald-200'
+          Icon: BookOpen,
+          gradient: 'from-emerald-50 to-teal-50 border-emerald-200',
+          iconColor: 'bg-gradient-to-br from-emerald-500 to-teal-600'
         },
         {
           title: 'Cultural & Community Initiatives',
           desc: 'Preserving knowledge systems and community-led learning.',
-          icon: '🎭',
-          gradient: 'from-orange-50 to-amber-50 border-orange-200'
+          Icon: Theater,
+          gradient: 'from-orange-50 to-amber-50 border-orange-200',
+          iconColor: 'bg-gradient-to-br from-orange-500 to-amber-600'
         },
       ].map((item, i) => (
         <motion.div
@@ -841,11 +845,13 @@ export default function Home() {
           className={`bg-gradient-to-br ${item.gradient} border-2 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all text-center cursor-pointer`}
         >
           <motion.div
-            whileHover={{ rotate: [0, -10, 10, 0], scale: 1.2 }}
+            whileHover={{ rotate: [0, -10, 10, 0], scale: 1.15 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl mb-4"
+            className="mb-4"
           >
-            {item.icon}
+            <div className={`w-16 h-16 rounded-2xl ${item.iconColor} flex items-center justify-center shadow-lg mx-auto`}>
+              <item.Icon className="text-white" size={32} />
+            </div>
           </motion.div>
           <h3 className="font-heading text-lg font-bold text-[#431407] mb-3">
             {item.title}

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { GraduationCap, UserCheck } from 'lucide-react';
 import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
 import FloatingDonateButton from '../components/FloatingDonateButton';
@@ -340,12 +341,14 @@ const WhatWeEnable = () => {
               {
                 title: "For Students",
                 desc: "We envision a future where every student from Tier 2 and Tier 3 regions has access to quality education, continuous mentorship, and the resources needed to pursue higher learning opportunities.",
-                icon: "🎓"
+                Icon: GraduationCap,
+                iconColor: "bg-gradient-to-br from-[#ea580c] to-[#EC167F]"
               },
               {
                 title: "For Educators",
                 desc: "We aim to empower teachers with modern pedagogical training, ongoing professional development, and institutional support to create transformative learning experiences.",
-                icon: "👨‍🏫"
+                Icon: UserCheck,
+                iconColor: "bg-gradient-to-br from-[#EC167F] to-[#F5A044]"
               }
             ].map((vision, index) => (
               <div
@@ -353,8 +356,8 @@ const WhatWeEnable = () => {
                 className="group p-6 rounded-lg bg-slate-50 hover:bg-white border border-slate-100 hover:border-[#ea580c]/20 hover:shadow-lg transition-all duration-500"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-[#ea580c]/10 flex items-center justify-center flex-shrink-0 text-2xl">
-                    {vision.icon}
+                  <div className={`w-12 h-12 rounded-xl ${vision.iconColor} flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform`}>
+                    <vision.Icon className="text-white" size={24} />
                   </div>
                   <div className="flex-1">
                     <h3 className="font-serif text-lg font-bold text-[#431407] mb-2">{vision.title}</h3>

@@ -14,7 +14,14 @@ import {
   Users,
   Building2,
   HeartHandshake,
-  ArrowUpRight
+  ArrowUpRight,
+  Monitor,
+  BookOpen,
+  Target,
+  Leaf,
+  Globe2,
+  Handshake,
+  Star
 } from 'lucide-react';
 import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
@@ -374,83 +381,100 @@ const MetricsSection = () => {
 /* =========================================================
    5. GEOGRAPHIC IMPACT (Where We Work)
 ========================================================= */
+
 const GeographicImpact = () => {
   const regions = [
-    { name: "Karnataka", desc: "Rural and semi-urban districts", color: "bg-orange-500" },
-    { name: "Andhra Pradesh", desc: "Underserved educational regions", color: "bg-orange-600" },
-    { name: "Tamil Nadu", desc: "Remote village clusters", color: "bg-orange-700" },
-    { name: "Maharashtra", desc: "Tier-2 and Tier-3 cities", color: "bg-orange-800" },
-    { name: "Other Regions", desc: "Expanding to more states", color: "bg-orange-900" }
+    { name: "Karnataka", desc: "Rural and semi-urban districts", dot: "bg-orange-500" },
+    { name: "Andhra Pradesh", desc: "Underserved educational regions", dot: "bg-orange-600" },
+    { name: "Tamil Nadu", desc: "Remote village clusters", dot: "bg-orange-700" },
+    { name: "Maharashtra", desc: "Tier-2 and Tier-3 cities", dot: "bg-orange-800" },
+    { name: "Other Regions", desc: "Expanding to more states", dot: "bg-orange-900" }
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 rounded-full mb-4">
+    <section className="py-24 bg-[#F8F4EF]">
+      <div className="max-w-7xl mx-auto px-6">
+
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-5 py-2 bg-[#F2E6DB] rounded-full mb-6">
             <MapPin className="w-4 h-4 text-[#ea580c]" />
-            <span className="text-xs font-bold text-[#ea580c] uppercase tracking-wider">
+            <span className="text-xs font-semibold text-[#ea580c] uppercase tracking-[0.2em]">
               Geographic Reach
             </span>
           </div>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#431407] mb-4">
+
+          <h2 className="font-serif text-4xl md:text-5xl font-semibold text-[#3b1d0f] mb-6">
             Where We'll Create Impact
           </h2>
-          <p className="text-slate-600 max-w-2xl mx-auto">
-            Our planned presence across key states in India, bringing quality education to underserved communities
+
+          <p className="text-slate-600 max-w-2xl mx-auto text-[16px]">
+            Our planned presence across key states in India, bringing quality education 
+            to underserved communities.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Map Illustration */}
-          <div className="relative h-[400px] bg-gradient-to-br from-orange-50 to-orange-100/50 rounded-2xl overflow-hidden shadow-lg p-8 flex items-center justify-center">
-            <div className="text-center">
-              <MapPin className="w-20 h-20 text-[#ea580c]/30 mx-auto mb-4" />
-              <p className="font-serif text-2xl font-bold text-[#431407] mb-2">
-                5+ States
-              </p>
-              <p className="text-sm text-slate-600">Multiple Locations</p>
-            </div>
-            {/* Decorative pins */}
+        {/* Content */}
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+
+          {/* Left Map Card */}
+          <div className="relative h-[420px] bg-gradient-to-br from-[#EDE3D8] to-[#F6EFE7] rounded-3xl shadow-lg flex items-center justify-center overflow-hidden">
+
+            {/* Floating dots */}
             {[...Array(8)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute w-3 h-3 bg-[#ea580c] rounded-full"
+                className="absolute w-4 h-4 bg-[#ea580c]/70 rounded-full"
                 style={{
                   top: `${Math.random() * 80 + 10}%`,
                   left: `${Math.random() * 80 + 10}%`,
                 }}
-                animate={{ scale: [1, 1.5, 1], opacity: [0.5, 1, 0.5] }}
+                animate={{ scale: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
                 transition={{
-                  duration: 2,
+                  duration: 2.5,
                   repeat: Infinity,
-                  delay: i * 0.2,
+                  delay: i * 0.3,
                 }}
               />
             ))}
+
+            <div className="text-center relative z-10">
+              <MapPin className="w-20 h-20 text-[#ea580c]/30 mx-auto mb-6" />
+              <p className="font-serif text-3xl font-semibold text-[#3b1d0f] mb-2">
+                5+ States
+              </p>
+              <p className="text-slate-600 text-sm">
+                Multiple Locations
+              </p>
+            </div>
           </div>
 
-          {/* Regional List */}
+          {/* Right Regions List */}
           <div className="space-y-6">
             {regions.map((region, idx) => (
               <motion.div
                 key={region.name}
-                initial={{ opacity: 0, x: 20 }}
+                initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="group p-6 bg-gradient-to-br from-orange-50 to-white rounded-xl border border-orange-100 hover:border-[#ea580c] hover:shadow-lg transition-all duration-300"
+                className="group p-7 bg-[#EFE7DD] rounded-2xl border border-[#E5D6C6] hover:shadow-md transition-all duration-300"
               >
                 <div className="flex items-start gap-4">
-                  <div className={`w-3 h-3 ${region.color} rounded-full mt-2 group-hover:scale-125 transition-transform`}></div>
+                  <div className={`w-3 h-3 ${region.dot} rounded-full mt-2`} />
                   <div>
-                    <h3 className="font-bold text-lg text-[#431407] mb-1">{region.name}</h3>
-                    <p className="text-sm text-slate-600">{region.desc}</p>
+                    <h3 className="font-semibold text-lg text-[#3b1d0f] mb-1">
+                      {region.name}
+                    </h3>
+                    <p className="text-sm text-slate-600">
+                      {region.desc}
+                    </p>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
+
         </div>
       </div>
     </section>
@@ -465,26 +489,30 @@ const ProgramFocusSection = () => {
     {
       title: "Digital Literacy & Technology",
       desc: "Equipping students with essential computer skills, coding fundamentals, and digital tools to compete in the modern economy.",
-      icon: "💻",
-      color: "from-blue-50 to-blue-100"
+      Icon: Monitor,
+      color: "from-blue-50 to-blue-100",
+      iconColor: "bg-gradient-to-br from-blue-500 to-cyan-600"
     },
     {
       title: "Academic Excellence Support",
       desc: "Providing structured learning support, exam preparation, and mentorship to help students achieve their academic goals.",
-      icon: "📚",
-      color: "from-green-50 to-green-100"
+      Icon: BookOpen,
+      color: "from-green-50 to-green-100",
+      iconColor: "bg-gradient-to-br from-green-500 to-emerald-600"
     },
     {
       title: "Career Guidance & Skills",
       desc: "Offering vocational training, career counseling, and industry-aligned skill development for sustainable livelihoods.",
-      icon: "🎯",
-      color: "from-purple-50 to-purple-100"
+      Icon: Target,
+      color: "from-purple-50 to-purple-100",
+      iconColor: "bg-gradient-to-br from-purple-500 to-pink-600"
     },
     {
       title: "Holistic Development",
       desc: "Fostering critical thinking, communication skills, and values-based education rooted in cultural awareness.",
-      icon: "🌱",
-      color: "from-orange-50 to-orange-100"
+      Icon: Leaf,
+      color: "from-orange-50 to-orange-100",
+      iconColor: "bg-gradient-to-br from-orange-500 to-amber-600"
     }
   ];
 
@@ -510,7 +538,11 @@ const ProgramFocusSection = () => {
               transition={{ delay: idx * 0.15 }}
               className={`bg-gradient-to-br ${focus.color} p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-white`}
             >
-              <div className="text-4xl mb-4">{focus.icon}</div>
+              <div className="mb-4">
+                <div className={`w-14 h-14 rounded-xl ${focus.iconColor} flex items-center justify-center shadow-lg`}>
+                  <focus.Icon className="text-white" size={28} />
+                </div>
+              </div>
               <h3 className="font-bold text-xl text-[#431407] mb-3 leading-tight">
                 {focus.title}
               </h3>
@@ -533,17 +565,20 @@ const TransformationSection = () => {
     {
       before: "Limited digital access",
       after: "Smart classrooms with modern tools",
-      icon: "💻"
+      Icon: Monitor,
+      iconColor: "bg-gradient-to-br from-blue-500 to-cyan-600"
     },
     {
       before: "High dropout rates",
       after: "Sustained student engagement",
-      icon: "📚"
+      Icon: BookOpen,
+      iconColor: "bg-gradient-to-br from-green-500 to-emerald-600"
     },
     {
       before: "No career guidance",
       after: "1-on-1 mentorship programs",
-      icon: "🎯"
+      Icon: Target,
+      iconColor: "bg-gradient-to-br from-purple-500 to-pink-600"
     }
   ];
 
@@ -569,7 +604,11 @@ const TransformationSection = () => {
               transition={{ delay: idx * 0.1 }}
               className="relative bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-slate-200"
             >
-              <div className="text-3xl mb-4 text-center">{item.icon}</div>
+              <div className="mb-4 flex justify-center">
+                <div className={`w-12 h-12 rounded-xl ${item.iconColor} flex items-center justify-center shadow-md`}>
+                  <item.Icon className="text-white" size={24} />
+                </div>
+              </div>
               
               <div className="text-center">
                 <p className="text-sm text-slate-500 mb-2">{item.before}</p>
@@ -632,22 +671,26 @@ const RecognitionSection = () => {
     {
       title: "Quality Over Quantity",
       desc: "Deep, sustained impact in communities",
-      icon: "⭐"
+      Icon: Star,
+      iconColor: "bg-gradient-to-br from-[#FFB347] to-[#ea580c]"
     },
     {
       title: "Long-term Engagement",
       desc: "Building relationships that last",
-      icon: "🤝"
+      Icon: Handshake,
+      iconColor: "bg-gradient-to-br from-[#ea580c] to-[#EC167F]"
     },
     {
       title: "Cultural Sensitivity",
       desc: "Respecting local values and traditions",
-      icon: "🌏"
+      Icon: Globe2,
+      iconColor: "bg-gradient-to-br from-[#EC167F] to-[#F5A044]"
     },
     {
       title: "Measurable Outcomes",
       desc: "Transparent tracking of progress",
-      icon: "📊"
+      Icon: BarChart3,
+      iconColor: "bg-gradient-to-br from-[#F5A044] to-[#FFB347]"
     }
   ];
 
@@ -673,8 +716,10 @@ const RecognitionSection = () => {
               transition={{ delay: idx * 0.1 }}
               className="text-center p-6 bg-gradient-to-b from-orange-50 to-white rounded-xl hover:shadow-lg transition-all duration-300 group border border-orange-100"
             >
-              <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">
-                {item.icon}
+              <div className="mb-3 flex justify-center">
+                <div className={`w-12 h-12 rounded-xl ${item.iconColor} flex items-center justify-center shadow-md group-hover:scale-110 transition-transform`}>
+                  <item.Icon className="text-white" size={24} />
+                </div>
               </div>
               <h3 className="font-bold text-sm text-[#431407] mb-2 leading-tight">
                 {item.title}
