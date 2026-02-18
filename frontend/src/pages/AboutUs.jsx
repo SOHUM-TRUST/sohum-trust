@@ -1,9 +1,9 @@
 'use client';
 
-import React from 'react';
-import { Heart, Mail, MapPin, Phone } from 'lucide-react';
+import React, { useState } from 'react';
+import { Heart, Mail, MapPin, Phone, X, Briefcase, Award, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import SiteHeader from '../components/SiteHeader';
 import SiteFooter from '../components/SiteFooter';
 import FloatingDonateButton from '../components/FloatingDonateButton';
@@ -11,6 +11,102 @@ import FloatingDonateButton from '../components/FloatingDonateButton';
 /* ================= ABOUT PAGE ================= */
 
 const AboutUs = () => {
+  const [selectedTrustee, setSelectedTrustee] = useState(null);
+
+  const trusteesData = [
+    {
+      name: 'Mr. Anup Kiran',
+      role: 'President',
+      photo: '/anup.jpeg',
+      bgGradient: 'from-[#FFF0F0] to-white',
+      accentGradient: 'from-[#dc2626] to-[#ea580c]',
+      bio: {
+        description: 'Social entrepreneur having experience in handling several big size IT projects and education projects.',
+        achievements: [
+          'Founder and Chairman of 2 Pvt Ltd companies',
+          'Experience working in African region for half a decade',
+          'Expert in IT project management and education initiatives'
+        ]
+      }
+    },
+    {
+      name: 'Mr. D.M. Jaya Kumar',
+      role: 'Vice President',
+      photo: '/jayakumar.png',
+      bgGradient: 'from-[#FFF5F0] to-white',
+      accentGradient: 'from-[#ea580c] to-[#EC167F]',
+      bio: {
+        age: '49 Years',
+        location: 'Bejai, Mangaluru',
+        mobile: '9019159182',
+        profession: 'Builder',
+        description: 'Experienced builder and social service leader with over 30 years of organizational involvement.',
+        achievements: [
+          'Co-Convenor of Samarasya Vibhag of RSS, Mangaluru City (2012-15)',
+          'Chairman of Aiyappa Seva Trust (Reg) Jodukatte Maroli, Mangaluru (2015-2020)',
+          'Vice-President of Shabarimale Aiyappa Seva Samajam, Dakshina Kannada District (2020-present)',
+          'Founder Director of Spandana Co-Operative Society Limited, Mangaluru',
+          'Active in organizational roles since 1990'
+        ]
+      }
+    },
+    {
+      name: 'Mr. Kumaraswamy H.V.',
+      role: 'Secretary',
+      photo: '/kumar.jpeg',
+      bgGradient: 'from-[#FFF8F0] to-white',
+      accentGradient: 'from-[#EC167F] to-[#F5A044]',
+      bio: {
+        education: 'Business Management Graduate',
+        description: 'Business management professional with strong leadership in social service and cultural organizations.',
+        interests: [
+          'Music enthusiast',
+          'Social service volunteer',
+          'Past President, Rotary Club',
+          'Past President, Samskara Bharathi (Hassan District)'
+        ]
+      }
+    },
+    {
+      name: 'Mr. Raghuram H.S.',
+      role: 'Treasurer',
+      photo: '/raghuram.jpeg',
+      bgGradient: 'from-[#FFFBF0] to-white',
+      accentGradient: 'from-[#F5A044] to-[#FFB347]',
+      bio: {
+        location: 'Shivamogga',
+        description: 'Retired professional with 38 years of dedicated service.',
+        achievements: [
+          'Retired after 38 years of service at Peerlight Private Limited',
+          'Extensive experience in corporate management',
+          'Committed to social welfare initiatives'
+        ]
+      }
+    },
+    {
+      name: 'Mr. Rajendra Kumar M.V.',
+      role: 'Joint Secretary',
+      photo: '/rajendra.jpeg',
+      bgGradient: 'from-[#FFFBF0] to-white',
+      accentGradient: 'from-[#F5A044] to-[#FFB347]',
+      bio: {
+        age: '57 years',
+        father: 'Venkataram M.C.',
+        education: 'B.Com Graduate',
+        description: 'Multi-faceted professional with expertise in civil contracting, organic farming, and community service.',
+        experience: [
+          'Civil contractor with 20 years of pre-COVID experience',
+          'Organic farmer and agriculture advocate',
+          'Active volunteer in community development',
+          'Director, Gayatri Multipurpose Souharda Cooperative (10 years)',
+          'Chairman, School Development and Management Committee (SDMC) (10 years)',
+          'Director, Taluk Brahmin Mahasabha (past 20 years)',
+          'Trustee, Krishi Prayoga Parivara, Thirthahalli, Vishwasth'
+        ]
+      }
+    }
+  ];
+
   return (
     <div className="bg-[#fffdf9] min-h-screen">
       <SiteHeader />
@@ -713,16 +809,11 @@ const AboutUs = () => {
     </motion.div>
 
     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      {[
-        ['Mr. Anup Kiran', 'President', 'from-[#FFF0F0] to-white', 'from-[#dc2626] to-[#ea580c]', '/anup.jpeg'],
-        ['Mr. Jayakumar D', 'Vice President', 'from-[#FFF5F0] to-white', 'from-[#ea580c] to-[#EC167F]', '/jayakumar.png'],
-        ['Mr. Kumaraswamy H V', 'Secretary', 'from-[#FFF8F0] to-white', 'from-[#EC167F] to-[#F5A044]', '/kumar.jpeg'],
-        ['Mr. Raghuram H S', 'Treasurer', 'from-[#FFFBF0] to-white', 'from-[#F5A044] to-[#FFB347]', 'raghuram.jpeg'],
-        ['Mr. Rajendra Kumar M.V.', 'Joint Secretary', 'from-[#FFFBF0] to-white', 'from-[#F5A044] to-[#FFB347]', '/rajendra.jpeg'],
-      ].map(([name, role, bgGradient, accentGradient, photoPath], index) => (
+      {trusteesData.map((trustee, index) => (
         <motion.div 
-          key={name} 
-          className={`group relative bg-gradient-to-br ${bgGradient} rounded-2xl p-8 text-center shadow-[0_8px_30px_-8px_rgba(0,0,0,0.12)] hover:shadow-[0_20px_60px_-12px_rgba(234,88,12,0.3)] transition-all duration-500 border-2 border-white overflow-hidden`}
+          key={trustee.name} 
+          onClick={() => setSelectedTrustee(trustee)}
+          className={`group relative bg-gradient-to-br ${trustee.bgGradient} rounded-2xl p-8 text-center shadow-[0_8px_30px_-8px_rgba(0,0,0,0.12)] hover:shadow-[0_20px_60px_-12px_rgba(234,88,12,0.3)] transition-all duration-500 border-2 border-white overflow-hidden cursor-pointer`}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -731,7 +822,7 @@ const AboutUs = () => {
         >
           {/* Animated gradient overlay */}
           <motion.div
-            className={`absolute inset-0 bg-gradient-to-br ${accentGradient} opacity-0 group-hover:opacity-[0.08] transition-opacity duration-500`}
+            className={`absolute inset-0 bg-gradient-to-br ${trustee.accentGradient} opacity-0 group-hover:opacity-[0.08] transition-opacity duration-500`}
             animate={{
               backgroundPosition: ['0% 0%', '100% 100%', '0% 0%']
             }}
@@ -743,7 +834,7 @@ const AboutUs = () => {
           
           {/* Animated top gradient accent */}
           <motion.div
-            className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${accentGradient}`}
+            className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${trustee.accentGradient}`}
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
@@ -752,7 +843,7 @@ const AboutUs = () => {
           
           {/* Pulsing decorative corner */}
           <motion.div
-            className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${accentGradient} opacity-10 rounded-bl-3xl`}
+            className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl ${trustee.accentGradient} opacity-10 rounded-bl-3xl`}
             animate={{
               scale: [1, 1.1, 1]
             }}
@@ -766,7 +857,7 @@ const AboutUs = () => {
           {/* Avatar circle with gradient */}
           <div className="relative w-28 h-28 mx-auto mb-6">
             <motion.div
-              className={`absolute inset-0 rounded-full bg-gradient-to-br ${accentGradient} opacity-20`}
+              className={`absolute inset-0 rounded-full bg-gradient-to-br ${trustee.accentGradient} opacity-20`}
               animate={{
                 rotate: [0, 360]
               }}
@@ -779,15 +870,15 @@ const AboutUs = () => {
             <div className="absolute inset-1 rounded-full bg-white" />
             <div className="absolute inset-2 rounded-full bg-gradient-to-br from-[#FFF5ED] to-[#FFE8DB] group-hover:from-white group-hover:to-[#FFF5ED] transition-all duration-500 overflow-hidden">
               <img 
-                src={photoPath} 
-                alt={name}
+                src={trustee.photo} 
+                alt={trustee.name}
                 className="w-full h-full object-cover rounded-full"
                 onError={(e) => { e.target.style.display = 'none'; }}
               />
             </div>
             {/* Pulsing number badge */}
             <motion.div
-              className={`absolute -top-2 -right-2 w-9 h-9 rounded-full bg-gradient-to-br ${accentGradient} text-white text-sm font-bold flex items-center justify-center shadow-lg`}
+              className={`absolute -top-2 -right-2 w-9 h-9 rounded-full bg-gradient-to-br ${trustee.accentGradient} text-white text-sm font-bold flex items-center justify-center shadow-lg`}
               animate={{
                 scale: [1, 1.15, 1]
               }}
@@ -803,16 +894,17 @@ const AboutUs = () => {
           
           <div className="relative z-10">
             <h4 className="font-bold text-[#431407] mb-2 group-hover:text-[#ea580c] transition-colors">
-              {name}
+              {trustee.name}
             </h4>
             <p className="text-sm text-slate-600 font-semibold uppercase tracking-wider">
-              {role}
+              {trustee.role}
             </p>
+            <p className="text-xs text-[#ea580c] mt-2 font-medium">Click for details</p>
           </div>
           
           {/* Animated bottom accent line */}
           <motion.div
-            className={`absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r ${accentGradient} opacity-0 group-hover:opacity-100`}
+            className={`absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r ${trustee.accentGradient} opacity-0 group-hover:opacity-100`}
             initial={{ scaleX: 0 }}
             whileHover={{ scaleX: 1 }}
             transition={{ duration: 0.5 }}
@@ -822,6 +914,183 @@ const AboutUs = () => {
     </div>
   </div>
 </section>
+
+{/* ================= TRUSTEE DETAIL MODAL ================= */}
+<AnimatePresence>
+  {selectedTrustee && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+      onClick={() => setSelectedTrustee(null)}
+    >
+      <motion.div
+        initial={{ scale: 0.9, y: 20 }}
+        animate={{ scale: 1, y: 0 }}
+        exit={{ scale: 0.9, y: 20 }}
+        onClick={(e) => e.stopPropagation()}
+        className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative"
+      >
+        {/* Close button */}
+        <button
+          onClick={() => setSelectedTrustee(null)}
+          className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-gradient-to-br from-[#ea580c] to-[#EC167F] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
+        >
+          <X size={20} />
+        </button>
+
+        {/* Header with gradient */}
+        <div className={`bg-gradient-to-br ${selectedTrustee.bgGradient} p-8 rounded-t-3xl relative overflow-hidden`}>
+          <motion.div
+            className={`absolute inset-0 bg-gradient-to-br ${selectedTrustee.accentGradient} opacity-10`}
+            animate={{
+              backgroundPosition: ['0% 0%', '100% 100%', '0% 0%']
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity
+            }}
+          />
+          
+          <div className="relative flex items-center gap-6">
+            {/* Photo */}
+            <div className="relative w-32 h-32 flex-shrink-0">
+              <motion.div
+                className={`absolute inset-0 rounded-full bg-gradient-to-br ${selectedTrustee.accentGradient} opacity-30`}
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              />
+              <div className="absolute inset-1 rounded-full bg-white" />
+              <div className="absolute inset-2 rounded-full overflow-hidden bg-gradient-to-br from-[#FFF5ED] to-[#FFE8DB]">
+                <img 
+                  src={selectedTrustee.photo} 
+                  alt={selectedTrustee.name}
+                  className="w-full h-full object-cover rounded-full"
+                  onError={(e) => { e.target.style.display = 'none'; }}
+                />
+              </div>
+            </div>
+
+            {/* Name and Role */}
+            <div className="flex-1">
+              <h3 className="text-3xl font-bold text-[#431407] mb-2">{selectedTrustee.name}</h3>
+              <p className={`text-lg font-semibold bg-gradient-to-r ${selectedTrustee.accentGradient} bg-clip-text text-transparent uppercase tracking-wide`}>
+                {selectedTrustee.role}
+              </p>
+              {selectedTrustee.bio.education && (
+                <p className="text-sm text-slate-600 mt-2 flex items-center gap-2">
+                  <Award size={16} className="text-[#ea580c]" />
+                  {selectedTrustee.bio.education}
+                </p>
+              )}
+              {selectedTrustee.bio.profession && (
+                <p className="text-sm text-slate-600 mt-2 flex items-center gap-2">
+                  <Briefcase size={16} className="text-[#ea580c]" />
+                  {selectedTrustee.bio.profession}
+                </p>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-8">
+          {/* Basic Info */}
+          {(selectedTrustee.bio.age || selectedTrustee.bio.location || selectedTrustee.bio.mobile || selectedTrustee.bio.father) && (
+            <div className="mb-6 p-4 bg-gradient-to-br from-orange-50 to-pink-50 rounded-xl border border-orange-100">
+              <div className="grid grid-cols-2 gap-3 text-sm">
+                {selectedTrustee.bio.age && (
+                  <div>
+                    <span className="text-slate-500 font-medium">Age:</span>
+                    <span className="ml-2 text-[#431407] font-semibold">{selectedTrustee.bio.age}</span>
+                  </div>
+                )}
+                {selectedTrustee.bio.location && (
+                  <div>
+                    <span className="text-slate-500 font-medium">Location:</span>
+                    <span className="ml-2 text-[#431407] font-semibold">{selectedTrustee.bio.location}</span>
+                  </div>
+                )}
+                {selectedTrustee.bio.mobile && (
+                  <div>
+                    <span className="text-slate-500 font-medium">Mobile:</span>
+                    <span className="ml-2 text-[#431407] font-semibold">{selectedTrustee.bio.mobile}</span>
+                  </div>
+                )}
+                {selectedTrustee.bio.father && (
+                  <div>
+                    <span className="text-slate-500 font-medium">Father:</span>
+                    <span className="ml-2 text-[#431407] font-semibold">{selectedTrustee.bio.father}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Description */}
+          <div className="mb-6">
+            <p className="text-slate-700 leading-relaxed">
+              {selectedTrustee.bio.description}
+            </p>
+          </div>
+
+          {/* Achievements/Experience/Interests */}
+          {selectedTrustee.bio.achievements && (
+            <div className="mb-6">
+              <h4 className="font-bold text-lg text-[#431407] mb-3 flex items-center gap-2">
+                <Award className="text-[#ea580c]" size={20} />
+                Key Achievements
+              </h4>
+              <ul className="space-y-2">
+                {selectedTrustee.bio.achievements.map((achievement, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-slate-700">
+                    <span className={`w-2 h-2 rounded-full bg-gradient-to-br ${selectedTrustee.accentGradient} mt-2 flex-shrink-0`} />
+                    <span className="flex-1">{achievement}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {selectedTrustee.bio.experience && (
+            <div className="mb-6">
+              <h4 className="font-bold text-lg text-[#431407] mb-3 flex items-center gap-2">
+                <Briefcase className="text-[#ea580c]" size={20} />
+                Experience
+              </h4>
+              <ul className="space-y-2">
+                {selectedTrustee.bio.experience.map((exp, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-slate-700">
+                    <span className={`w-2 h-2 rounded-full bg-gradient-to-br ${selectedTrustee.accentGradient} mt-2 flex-shrink-0`} />
+                    <span className="flex-1">{exp}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {selectedTrustee.bio.interests && (
+            <div>
+              <h4 className="font-bold text-lg text-[#431407] mb-3 flex items-center gap-2">
+                <Users className="text-[#ea580c]" size={20} />
+                Interests & Leadership
+              </h4>
+              <ul className="space-y-2">
+                {selectedTrustee.bio.interests.map((interest, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-slate-700">
+                    <span className={`w-2 h-2 rounded-full bg-gradient-to-br ${selectedTrustee.accentGradient} mt-2 flex-shrink-0`} />
+                    <span className="flex-1">{interest}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
 
 {/* ================= TESTIMONIALS ================= */}
 <section className="relative py-20 bg-[#FDF8F4] overflow-hidden">
