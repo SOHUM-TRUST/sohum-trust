@@ -718,7 +718,7 @@ const AboutUs = () => {
         ['Mr. Jayakumar D', 'Vice President', 'from-[#FFF5F0] to-white', 'from-[#ea580c] to-[#EC167F]', '/jayakumar.png'],
         ['Mr. Kumaraswamy H V', 'Secretary', 'from-[#FFF8F0] to-white', 'from-[#EC167F] to-[#F5A044]', '/kumar.jpeg'],
         ['Mr. Raghuram H S', 'Treasurer', 'from-[#FFFBF0] to-white', 'from-[#F5A044] to-[#FFB347]', 'raghuram.jpeg'],
-        ['Mr. Rajendra Kumar M.V.', 'Trustee', 'from-[#FFFBF0] to-white', 'from-[#F5A044] to-[#FFB347]', '/rajendra.jpeg'],
+        ['Mr. Rajendra Kumar M.V.', 'Joint Secretary', 'from-[#FFFBF0] to-white', 'from-[#F5A044] to-[#FFB347]', '/rajendra.jpeg'],
       ].map(([name, role, bgGradient, accentGradient, photoPath], index) => (
         <motion.div 
           key={name} 
