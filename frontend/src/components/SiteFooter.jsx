@@ -109,7 +109,6 @@ const SiteFooter = () => {
               <div className="text-sm text-slate-400 space-y-1">
                 <p><strong>Account:</strong> Sohum Trust</p>
                 <p><strong>Number:</strong> 0868102000016320</p>
-                <p><strong>IFSC:</strong> IBKL0000868</p>
                 <p><strong>Bank:</strong> IDBI BANK, Banashankari</p>
               </div>
             </div>

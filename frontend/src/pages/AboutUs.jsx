@@ -21,8 +21,9 @@ const AboutUs = () => {
       bgGradient: 'from-[#FFF0F0] to-white',
       accentGradient: 'from-[#dc2626] to-[#ea580c]',
       bio: {
-        description: 'Social entrepreneur having experience in handling several big size IT projects and education projects.',
+          description: 'Social entrepreneur having experience in handling several big size IT projects and education projects.',
         achievements: [
+          'Qualifications: B.E, MBA',
           'Founder and Chairman of 2 Pvt Ltd companies',
           'Experience working in African region for half a decade',
           'Expert in IT project management and education initiatives'
@@ -38,7 +39,6 @@ const AboutUs = () => {
       bio: {
         age: '49 Years',
         location: 'Bejai, Mangaluru',
-        mobile: '9019159182',
         profession: 'Builder',
         description: 'Experienced builder and social service leader with over 30 years of organizational involvement.',
         achievements: [
@@ -91,7 +91,6 @@ const AboutUs = () => {
       accentGradient: 'from-[#F5A044] to-[#FFB347]',
       bio: {
         age: '57 years',
-        father: 'Venkataram M.C.',
         education: 'B.Com Graduate',
         description: 'Multi-faceted professional with expertise in civil contracting, organic farming, and community service.',
         experience: [
@@ -780,9 +779,9 @@ const AboutUs = () => {
     }}
   />
 
-  <div className="max-w-7xl mx-auto px-6 relative z-10">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
     <motion.div
-      className="text-center mb-16"
+      className="text-center mb-10 sm:mb-12 md:mb-16"
       initial={{ opacity: 0, y: -20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -808,17 +807,18 @@ const AboutUs = () => {
       </h2>
     </motion.div>
 
-    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
       {trusteesData.map((trustee, index) => (
         <motion.div 
           key={trustee.name} 
           onClick={() => setSelectedTrustee(trustee)}
-          className={`group relative bg-gradient-to-br ${trustee.bgGradient} rounded-2xl p-8 text-center shadow-[0_8px_30px_-8px_rgba(0,0,0,0.12)] hover:shadow-[0_20px_60px_-12px_rgba(234,88,12,0.3)] transition-all duration-500 border-2 border-white overflow-hidden cursor-pointer`}
+          className={`group relative bg-gradient-to-br ${trustee.bgGradient} rounded-2xl p-6 sm:p-8 text-center shadow-[0_8px_30px_-8px_rgba(0,0,0,0.12)] hover:shadow-[0_20px_60px_-12px_rgba(234,88,12,0.3)] transition-all duration-500 border-2 border-white overflow-hidden cursor-pointer`}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
-          whileHover={{ y: -10, scale: 1.05 }}
+          whileHover={{ y: -10, scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
         >
           {/* Animated gradient overlay */}
           <motion.div
@@ -855,7 +855,7 @@ const AboutUs = () => {
           />
           
           {/* Avatar circle with gradient */}
-          <div className="relative w-28 h-28 mx-auto mb-6">
+          <div className="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-4 sm:mb-6">
             <motion.div
               className={`absolute inset-0 rounded-full bg-gradient-to-br ${trustee.accentGradient} opacity-20`}
               animate={{
@@ -878,7 +878,7 @@ const AboutUs = () => {
             </div>
             {/* Pulsing number badge */}
             <motion.div
-              className={`absolute -top-2 -right-2 w-9 h-9 rounded-full bg-gradient-to-br ${trustee.accentGradient} text-white text-sm font-bold flex items-center justify-center shadow-lg`}
+              className={`absolute -top-1.5 -right-1.5 sm:-top-2 sm:-right-2 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-br ${trustee.accentGradient} text-white text-xs sm:text-sm font-bold flex items-center justify-center shadow-lg`}
               animate={{
                 scale: [1, 1.15, 1]
               }}
@@ -893,13 +893,13 @@ const AboutUs = () => {
           </div>
           
           <div className="relative z-10">
-            <h4 className="font-bold text-[#431407] mb-2 group-hover:text-[#ea580c] transition-colors">
+            <h4 className="font-bold text-base sm:text-lg text-[#431407] mb-1 sm:mb-2 group-hover:text-[#ea580c] transition-colors leading-tight">
               {trustee.name}
             </h4>
-            <p className="text-sm text-slate-600 font-semibold uppercase tracking-wider">
+            <p className="text-xs sm:text-sm text-slate-600 font-semibold uppercase tracking-wider">
               {trustee.role}
             </p>
-            <p className="text-xs text-[#ea580c] mt-2 font-medium">Click for details</p>
+            <p className="text-xs text-[#ea580c] mt-1.5 sm:mt-2 font-medium">Tap for details</p>
           </div>
           
           {/* Animated bottom accent line */}
@@ -922,7 +922,7 @@ const AboutUs = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm"
       onClick={() => setSelectedTrustee(null)}
     >
       <motion.div
@@ -930,18 +930,19 @@ const AboutUs = () => {
         animate={{ scale: 1, y: 0 }}
         exit={{ scale: 0.9, y: 20 }}
         onClick={(e) => e.stopPropagation()}
-        className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative"
+        className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl max-w-2xl w-full max-h-[92vh] sm:max-h-[90vh] overflow-y-auto relative"
       >
         {/* Close button */}
         <button
           onClick={() => setSelectedTrustee(null)}
-          className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-gradient-to-br from-[#ea580c] to-[#EC167F] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
+          className="sticky top-2 sm:top-4 right-2 sm:right-4 float-right z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-[#ea580c] to-[#EC167F] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
         >
-          <X size={20} />
+          <X size={18} className="sm:hidden" />
+          <X size={20} className="hidden sm:block" />
         </button>
 
         {/* Header with gradient */}
-        <div className={`bg-gradient-to-br ${selectedTrustee.bgGradient} p-8 rounded-t-3xl relative overflow-hidden`}>
+        <div className={`bg-gradient-to-br ${selectedTrustee.bgGradient} p-4 sm:p-6 md:p-8 rounded-t-2xl sm:rounded-t-3xl relative overflow-hidden`}>
           <motion.div
             className={`absolute inset-0 bg-gradient-to-br ${selectedTrustee.accentGradient} opacity-10`}
             animate={{
@@ -953,9 +954,9 @@ const AboutUs = () => {
             }}
           />
           
-          <div className="relative flex items-center gap-6">
+          <div className="relative flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6 pt-8 sm:pt-0">
             {/* Photo */}
-            <div className="relative w-32 h-32 flex-shrink-0">
+            <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 flex-shrink-0">
               <motion.div
                 className={`absolute inset-0 rounded-full bg-gradient-to-br ${selectedTrustee.accentGradient} opacity-30`}
                 animate={{ rotate: [0, 360] }}
@@ -973,21 +974,21 @@ const AboutUs = () => {
             </div>
 
             {/* Name and Role */}
-            <div className="flex-1">
-              <h3 className="text-3xl font-bold text-[#431407] mb-2">{selectedTrustee.name}</h3>
-              <p className={`text-lg font-semibold bg-gradient-to-r ${selectedTrustee.accentGradient} bg-clip-text text-transparent uppercase tracking-wide`}>
+            <div className="flex-1 text-center sm:text-left">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#431407] mb-1 sm:mb-2 px-2 sm:px-0">{selectedTrustee.name}</h3>
+              <p className={`text-base sm:text-lg font-semibold bg-gradient-to-r ${selectedTrustee.accentGradient} bg-clip-text text-transparent uppercase tracking-wide`}>
                 {selectedTrustee.role}
               </p>
               {selectedTrustee.bio.education && (
-                <p className="text-sm text-slate-600 mt-2 flex items-center gap-2">
-                  <Award size={16} className="text-[#ea580c]" />
-                  {selectedTrustee.bio.education}
+                <p className="text-xs sm:text-sm text-slate-600 mt-2 flex items-center justify-center sm:justify-start gap-2">
+                  <Award size={14} className="text-[#ea580c] sm:w-4 sm:h-4" />
+                  <span className="line-clamp-2">{selectedTrustee.bio.education}</span>
                 </p>
               )}
               {selectedTrustee.bio.profession && (
-                <p className="text-sm text-slate-600 mt-2 flex items-center gap-2">
-                  <Briefcase size={16} className="text-[#ea580c]" />
-                  {selectedTrustee.bio.profession}
+                <p className="text-xs sm:text-sm text-slate-600 mt-2 flex items-center justify-center sm:justify-start gap-2">
+                  <Briefcase size={14} className="text-[#ea580c] sm:w-4 sm:h-4" />
+                  <span className="line-clamp-2">{selectedTrustee.bio.profession}</span>
                 </p>
               )}
             </div>
@@ -995,33 +996,33 @@ const AboutUs = () => {
         </div>
 
         {/* Content */}
-        <div className="p-8">
+        <div className="p-4 sm:p-6 md:p-8">
           {/* Basic Info */}
           {(selectedTrustee.bio.age || selectedTrustee.bio.location || selectedTrustee.bio.mobile || selectedTrustee.bio.father) && (
-            <div className="mb-6 p-4 bg-gradient-to-br from-orange-50 to-pink-50 rounded-xl border border-orange-100">
-              <div className="grid grid-cols-2 gap-3 text-sm">
+            <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-gradient-to-br from-orange-50 to-pink-50 rounded-xl border border-orange-100">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 text-xs sm:text-sm">
                 {selectedTrustee.bio.age && (
-                  <div>
+                  <div className="flex flex-wrap">
                     <span className="text-slate-500 font-medium">Age:</span>
                     <span className="ml-2 text-[#431407] font-semibold">{selectedTrustee.bio.age}</span>
                   </div>
                 )}
                 {selectedTrustee.bio.location && (
-                  <div>
+                  <div className="flex flex-wrap">
                     <span className="text-slate-500 font-medium">Location:</span>
-                    <span className="ml-2 text-[#431407] font-semibold">{selectedTrustee.bio.location}</span>
+                    <span className="ml-2 text-[#431407] font-semibold break-words">{selectedTrustee.bio.location}</span>
                   </div>
                 )}
                 {selectedTrustee.bio.mobile && (
-                  <div>
+                  <div className="flex flex-wrap">
                     <span className="text-slate-500 font-medium">Mobile:</span>
                     <span className="ml-2 text-[#431407] font-semibold">{selectedTrustee.bio.mobile}</span>
                   </div>
                 )}
                 {selectedTrustee.bio.father && (
-                  <div>
+                  <div className="flex flex-wrap">
                     <span className="text-slate-500 font-medium">Father:</span>
-                    <span className="ml-2 text-[#431407] font-semibold">{selectedTrustee.bio.father}</span>
+                    <span className="ml-2 text-[#431407] font-semibold break-words">{selectedTrustee.bio.father}</span>
                   </div>
                 )}
               </div>
@@ -1029,24 +1030,24 @@ const AboutUs = () => {
           )}
 
           {/* Description */}
-          <div className="mb-6">
-            <p className="text-slate-700 leading-relaxed">
+          <div className="mb-4 sm:mb-6">
+            <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
               {selectedTrustee.bio.description}
             </p>
           </div>
 
           {/* Achievements/Experience/Interests */}
           {selectedTrustee.bio.achievements && (
-            <div className="mb-6">
-              <h4 className="font-bold text-lg text-[#431407] mb-3 flex items-center gap-2">
-                <Award className="text-[#ea580c]" size={20} />
+            <div className="mb-4 sm:mb-6">
+              <h4 className="font-bold text-base sm:text-lg text-[#431407] mb-2 sm:mb-3 flex items-center gap-2">
+                <Award className="text-[#ea580c]" size={18} />
                 Key Achievements
               </h4>
               <ul className="space-y-2">
                 {selectedTrustee.bio.achievements.map((achievement, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-slate-700">
-                    <span className={`w-2 h-2 rounded-full bg-gradient-to-br ${selectedTrustee.accentGradient} mt-2 flex-shrink-0`} />
-                    <span className="flex-1">{achievement}</span>
+                  <li key={idx} className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm text-slate-700">
+                    <span className={`w-2 h-2 rounded-full bg-gradient-to-br ${selectedTrustee.accentGradient} mt-1.5 sm:mt-2 flex-shrink-0`} />
+                    <span className="flex-1 leading-relaxed">{achievement}</span>
                   </li>
                 ))}
               </ul>
@@ -1054,16 +1055,16 @@ const AboutUs = () => {
           )}
 
           {selectedTrustee.bio.experience && (
-            <div className="mb-6">
-              <h4 className="font-bold text-lg text-[#431407] mb-3 flex items-center gap-2">
-                <Briefcase className="text-[#ea580c]" size={20} />
+            <div className="mb-4 sm:mb-6">
+              <h4 className="font-bold text-base sm:text-lg text-[#431407] mb-2 sm:mb-3 flex items-center gap-2">
+                <Briefcase className="text-[#ea580c]" size={18} />
                 Experience
               </h4>
               <ul className="space-y-2">
                 {selectedTrustee.bio.experience.map((exp, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-slate-700">
-                    <span className={`w-2 h-2 rounded-full bg-gradient-to-br ${selectedTrustee.accentGradient} mt-2 flex-shrink-0`} />
-                    <span className="flex-1">{exp}</span>
+                  <li key={idx} className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm text-slate-700">
+                    <span className={`w-2 h-2 rounded-full bg-gradient-to-br ${selectedTrustee.accentGradient} mt-1.5 sm:mt-2 flex-shrink-0`} />
+                    <span className="flex-1 leading-relaxed">{exp}</span>
                   </li>
                 ))}
               </ul>
@@ -1072,15 +1073,15 @@ const AboutUs = () => {
 
           {selectedTrustee.bio.interests && (
             <div>
-              <h4 className="font-bold text-lg text-[#431407] mb-3 flex items-center gap-2">
-                <Users className="text-[#ea580c]" size={20} />
+              <h4 className="font-bold text-base sm:text-lg text-[#431407] mb-2 sm:mb-3 flex items-center gap-2">
+                <Users className="text-[#ea580c]" size={18} />
                 Interests & Leadership
               </h4>
               <ul className="space-y-2">
                 {selectedTrustee.bio.interests.map((interest, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-slate-700">
-                    <span className={`w-2 h-2 rounded-full bg-gradient-to-br ${selectedTrustee.accentGradient} mt-2 flex-shrink-0`} />
-                    <span className="flex-1">{interest}</span>
+                  <li key={idx} className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm text-slate-700">
+                    <span className={`w-2 h-2 rounded-full bg-gradient-to-br ${selectedTrustee.accentGradient} mt-1.5 sm:mt-2 flex-shrink-0`} />
+                    <span className="flex-1 leading-relaxed">{interest}</span>
                   </li>
                 ))}
               </ul>
@@ -1093,16 +1094,16 @@ const AboutUs = () => {
 </AnimatePresence>
 
 {/* ================= TESTIMONIALS ================= */}
-<section className="relative py-20 bg-[#FDF8F4] overflow-hidden">
-  <div className="max-w-7xl mx-auto px-6">
+<section className="relative py-12 sm:py-16 md:py-20 bg-[#FDF8F4] overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
     {/* Heading */}
-    <div className="text-center mb-16">
-      <p className="uppercase tracking-[0.3em] text-[11px] font-bold text-[#ea580c]">
+    <div className="text-center mb-10 sm:mb-12 md:mb-16">
+      <p className="uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[10px] sm:text-[11px] font-bold text-[#ea580c]">
         Donor Testimonials
       </p>
 
-      <h2 className="font-serif text-4xl md:text-5xl font-semibold text-[#3b1d0f] mt-4">
+      <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#3b1d0f] mt-3 sm:mt-4 px-4">
         Voices of{" "}
         <span className="bg-gradient-to-r from-[#ea580c] to-[#EC167F] bg-clip-text text-transparent">
           Impact
@@ -1111,7 +1112,7 @@ const AboutUs = () => {
     </div>
 
     {/* Cards */}
-    <div className="grid md:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
       {[
         {
           name: "Mr. Manoj Patel",
@@ -1137,18 +1138,18 @@ const AboutUs = () => {
       ].map((testimonial, index) => (
         <div
           key={index}
-          className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition duration-300 flex flex-col"
+          className="relative bg-white rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition duration-300 flex flex-col"
         >
           {/* Decorative Quote */}
-          <span className="absolute top-6 right-6 text-6xl text-[#ea580c]/10 font-serif select-none">
+          <span className="absolute top-4 right-4 sm:top-6 sm:right-6 text-4xl sm:text-5xl md:text-6xl text-[#ea580c]/10 font-serif select-none">
             “
           </span>
 
           {/* Profile Section */}
-          <div className="flex items-center mb-6">
+          <div className="flex items-center mb-5 sm:mb-6">
             
             {/* PERFECT CIRCLE IMAGE */}
-            <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-[#FFE8DB] flex-shrink-0">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-3 sm:border-4 border-[#FFE8DB] flex-shrink-0">
               <img
                 src={testimonial.photo}
                 alt={testimonial.name}
@@ -1156,137 +1157,29 @@ const AboutUs = () => {
               />
             </div>
 
-            <div className="ml-4">
-              <h4 className="font-semibold text-lg text-[#3b1d0f]">
+            <div className="ml-3 sm:ml-4">
+              <h4 className="font-semibold text-base sm:text-lg text-[#3b1d0f] leading-tight">
                 {testimonial.name}
               </h4>
-              <p className="text-sm text-gray-500">
+              <p className="text-xs sm:text-sm text-gray-500 mt-0.5 leading-snug">
                 {testimonial.role}
               </p>
             </div>
           </div>
 
           {/* Testimonial Text */}
-          <p className="text-[15px] leading-relaxed text-gray-600 italic flex-grow">
+          <p className="text-sm sm:text-[15px] leading-relaxed text-gray-600 italic flex-grow">
             “{testimonial.testimonial}”
           </p>
 
           {/* Bottom Accent Line */}
-          <div className="mt-6 h-1 w-full bg-gradient-to-r from-[#ea580c] to-[#EC167F] rounded-full" />
+          <div className="mt-5 sm:mt-6 h-1 w-full bg-gradient-to-r from-[#ea580c] to-[#EC167F] rounded-full" />
         </div>
       ))}
     </div>
   </div>
 </section>
 
-{/* ================= BANK DETAILS ================= */}
-  <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-blue-50 via-white to-cyan-50 relative overflow-hidden">
-    {/* Decorative elements */}
-    <motion.div 
-      className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-200/20 to-cyan-200/20 rounded-full blur-3xl"
-      animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
-      transition={{ duration: 4, repeat: Infinity }}
-    />
-    
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-center mb-12"
-      >
-        <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#431407] to-[#6B2710] bg-clip-text text-transparent">
-          Support Us Directly
-        </h2>
-        <p className="text-base sm:text-lg text-slate-600">
-          Bank transfer details for direct donations
-        </p>
-      </motion.div>
-
-      <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-        {/* Bank Details Card */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border-2 border-blue-100 hover:shadow-xl transition-all"
-        >
-          <h3 className="font-bold text-xl sm:text-2xl text-[#431407] mb-6 flex items-center gap-3">
-            <Mail className="text-blue-600 flex-shrink-0" size={28} />
-            Bank Details
-          </h3>
-          <div className="space-y-4">
-            <div>
-              <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">Account Name</p>
-              <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg">
-                Sohum Trust
-              </p>
-            </div>
-            <div>
-              <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">Account Number</p>
-              <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg font-mono">
-                0868102000016320
-              </p>
-            </div>
-            <div>
-              <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">IFSC Code</p>
-              <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg font-mono">
-                IBKL0000868
-              </p>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Additional Info Card */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border-2 border-blue-100 hover:shadow-xl transition-all"
-        >
-          <h3 className="font-bold text-xl sm:text-2xl text-[#431407] mb-6 flex items-center gap-3">
-            <MapPin className="text-blue-600 flex-shrink-0" size={28} />
-            More Information
-          </h3>
-          <div className="space-y-4">
-            <div>
-              <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">Bank Name</p>
-              <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg">
-                IDBI BANK, Banashankari Branch
-              </p>
-            </div>
-            <div>
-              <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">Account Type</p>
-              <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg">
-                Current Account
-              </p>
-            </div>
-            <div>
-              <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">Phone</p>
-              <p className="text-base sm:text-lg font-bold text-[#431407]">
-                <a href="tel:+919686953106" className="hover:text-blue-600 transition-colors">
-                  +91 9686953106
-                </a>
-              </p>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-
-      <motion.div 
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2 }}
-        className="mt-8 bg-gradient-to-r from-blue-100 to-cyan-100 rounded-2xl p-6 sm:p-8 border-2 border-blue-200 text-center"
-      >
-        <p className="text-slate-700 font-semibold">
-          All donations are eligible for 80G tax exemption under the Indian Income Tax Act
-        </p>
-      </motion.div>
-    </div>
-  </section>
 
   {/* ================= CTA ================= */}
   <section className="relative py-16 bg-gradient-to-br from-[#EC167F] via-[#ea580c] to-[#F5A044] text-white text-center overflow-hidden">

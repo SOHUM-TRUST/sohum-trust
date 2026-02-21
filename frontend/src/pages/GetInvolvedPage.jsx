@@ -518,20 +518,6 @@ const GetInvolvedPage = () => {
                 Additional Information
               </h3>
               <div className="space-y-4">
-                <div>
-                  <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">IFSC Code</p>
-                  <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg font-mono">
-                    IBKL0000868
-                  </p>
-                </div>
-                <div>
-                  <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">Phone Number</p>
-                  <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg">
-                    <a href="tel:+919686953106" className="hover:text-blue-600 transition-colors">
-                      +91 9686953106
-                    </a>
-                  </p>
-                </div>
                 <div className="pt-4 border-t border-blue-100">
                   <p className="text-sm text-slate-600 leading-relaxed">
                     <strong className="text-[#431407]">Note:</strong> All donations are eligible for 80G tax exemption under the Indian Income Tax Act. Please save your receipt for tax purposes.
