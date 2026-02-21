@@ -11,7 +11,6 @@ import {
   HelpCircle,
   ChevronDown,
   Sparkles,
-  IndianRupee,
   Target,
   BarChart3,
   Trophy,
@@ -23,33 +22,6 @@ import SiteFooter from '../components/SiteFooter';
 import FloatingDonateButton from '../components/FloatingDonateButton';
 
 /* ================= MOCK DATA ================= */
-
-const donationTiers = [
-  {
-    id: 1,
-    amount: 1,
-    title: 'Any Amount',
-    description: 'Every rupee counts towards quality education.',
-    impact: 'Make a difference',
-    recommended: false,
-  },
-  {
-    id: 2,
-    amount: 200,
-    title: 'Books & Materials',
-    description: 'Support basic learning materials for students.',
-    impact: 'Learning essentials',
-    recommended: false,
-  },
-  {
-    id: 3,
-    amount: 2000,
-    title: 'Student Support',
-    description: 'Fund educational resources and mentorship.',
-    impact: 'Direct impact',
-    recommended: true,
-  },
-];
 
 const faqData = [
   {
@@ -94,58 +66,6 @@ const SectionHeader = ({ badge, title, subtitle, light = false }) => (
   </div>
 );
 
-/* ================= DONATION CARD ================= */
-
-const DonationCard = ({ tier, index, onSelect }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ delay: index * 0.08 }}
-    whileHover={{ y: -4 }}
-    className={`relative rounded-2xl overflow-hidden transition-all p-6 ${
-      tier.recommended
-        ? 'bg-gradient-to-br from-orange-50 to-white shadow-lg border-2 border-[#ea580c]'
-        : 'bg-white shadow-md border border-slate-200'
-    }`}
-  >
-    {tier.recommended && (
-      <div className="absolute top-0 inset-x-0 bg-[#ea580c] text-white text-[10px] font-bold text-center py-1 uppercase tracking-wider">
-        Recommended
-      </div>
-    )}
-
-    <div className={tier.recommended ? 'mt-4' : ''}>
-      <div className="flex items-center gap-3 mb-3">
-        <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
-          <IndianRupee className="text-[#ea580c]" size={20} />
-        </div>
-        <div>
-          <h3 className="font-bold text-lg text-[#431407]">{tier.title}</h3>
-          <p className="text-xs text-slate-500">{tier.impact}</p>
-        </div>
-      </div>
-
-      <div className="text-3xl font-bold text-[#ea580c] mb-3">₹{tier.amount.toLocaleString('en-IN')}</div>
-
-      <p className="text-slate-600 text-sm leading-relaxed mb-4">
-        {tier.description}
-      </p>
-
-      <button
-        onClick={() => onSelect(tier.amount)}
-        className={`w-full py-2.5 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-colors ${
-          tier.recommended
-            ? 'bg-[#ea580c] text-white hover:bg-[#d4580c]'
-            : 'bg-orange-50 text-[#ea580c] hover:bg-orange-100'
-        }`}
-      >
-        Select Amount <Heart size={16} />
-      </button>
-    </div>
-  </motion.div>
-);
-
 /* ================= FAQ ITEM ================= */
 
 const FAQItem = ({ q, a }) => {
@@ -185,24 +105,6 @@ const FAQItem = ({ q, a }) => {
 /* ================= PAGE ================= */
 
 const GetInvolvedPage = () => {
-  const [customAmount, setCustomAmount] = useState('');
-  const [selectedAmount, setSelectedAmount] = useState(null);
-
-  const handleSelectAmount = (amount) => {
-    setSelectedAmount(amount);
-    setCustomAmount(amount.toString());
-    // Show under development message
-    alert('Online donation feature is still under development. Please use bank transfer details available below on this page.');
-  };
-
-  const handleCustomDonate = () => {
-    if (customAmount && parseFloat(customAmount) >= 1) {
-      alert('Online donation feature is still under development. Please use bank transfer details available below on this page.');
-    } else {
-      alert('Please enter a valid amount (minimum ₹1)');
-    }
-  };
-
   return (
     <div className="min-h-screen bg-[#fffdf9] selection:bg-[#ea580c] selection:text-white">
       <SiteHeader />
@@ -423,10 +325,10 @@ const GetInvolvedPage = () => {
             transition={{ duration: 0.6, delay: 0.7 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => document.getElementById('qr-code-section')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('donation-cta-section')?.scrollIntoView({ behavior: 'smooth' })}
             className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-gradient-to-r from-[#ea580c] to-[#EC167F] text-white rounded-full font-bold text-sm sm:text-base shadow-[0_10px_30px_rgba(234,88,12,0.5),_0_0_20px_rgba(236,22,127,0.3)] hover:shadow-[0_15px_40px_rgba(234,88,12,0.6),_0_0_30px_rgba(236,22,127,0.4)] transition-all duration-300 cursor-pointer"
           >
-            <span>Make a Donation</span>
+            <span>Give a Child Hope, Give a Future</span>
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 1.5, repeat: Infinity }}
@@ -438,227 +340,105 @@ const GetInvolvedPage = () => {
         </div>
       </section>
 
-      {/* ================= BANK TRANSFER DETAILS ================= */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-blue-50 via-white to-blue-50 relative overflow-hidden">
-        {/* Decorative elements */}
+      {/* ================= DONATION CTA ================= */}
+      <section id="donation-cta-section" className="py-12 sm:py-16 md:py-24 bg-gradient-to-br from-gradient-to-r via-orange-50 to-pink-50 relative overflow-hidden">
+        {/* Decorative animated elements */}
         <motion.div 
-          className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-200/20 to-cyan-200/20 rounded-full blur-3xl"
-          animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 4, repeat: Infinity }}
+          className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#ea580c]/20 to-[#EC167F]/20 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.6, 0.4], rotate: [0, 180, 360] }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+        <motion.div 
+          className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-[#f59e0b]/20 to-transparent rounded-full blur-3xl"
+          animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 6, repeat: Infinity }}
         />
         
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-10 sm:mb-12 md:mb-14"
+            className="text-center mb-10 sm:mb-14 md:mb-16"
           >
-            <div className="inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold tracking-widest uppercase mb-4 bg-blue-100 text-blue-700">
-              Direct Bank Transfer
-            </div>
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#431407] to-[#6B2710] bg-clip-text text-transparent">
-              Bank Account Details
+            <motion.div 
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="inline-block px-4 py-2 rounded-full text-xs sm:text-sm font-semibold tracking-widest uppercase mb-4 bg-gradient-to-r from-[#ea580c] to-[#EC167F] text-white shadow-lg"
+            >
+              Make Your Impact Today
+            </motion.div>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#431407] via-[#6B2710] to-[#431407] bg-clip-text text-transparent">
+              Ready to Change Lives?
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
-              You can also donate directly through bank transfer to support our educational initiatives.
+            <p className="text-base sm:text-lg text-slate-700 max-w-xl mx-auto leading-relaxed font-medium mb-2">
+              Your donation directly supports quality education for students from Tier-2 and Tier-3 communities. Click below and make a difference today.
+            </p>
+            <p className="text-sm text-slate-600 italic">
+              All donations are eligible for 80G tax exemption under the Indian Income Tax Act.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-            {/* Bank Details Card */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+          {/* Main CTA Button */}
+          <div className="flex justify-center">
+            <motion.a
+              href="https://forms.gle/YJ6roCW6Kd5YFWur5"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border-2 border-blue-100 hover:shadow-xl transition-all"
+              whileHover={{ scale: 1.08, y: -4 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ delay: 0.2, duration: 0.3 }}
+              className="group relative inline-flex items-center gap-3 px-8 sm:px-12 py-4 sm:py-5 bg-gradient-to-r from-[#ea580c] via-[#EC167F] to-[#EA4C89] text-white rounded-full font-bold text-base sm:text-lg shadow-[0_15px_40px_rgba(234,88,12,0.4),_0_0_30px_rgba(236,22,127,0.3)] hover:shadow-[0_25px_50px_rgba(234,88,12,0.5),_0_0_40px_rgba(236,22,127,0.4)] transition-all duration-300 backdrop-blur-sm border border-white/20"
             >
-              <h3 className="font-bold text-xl sm:text-2xl text-[#431407] mb-6 flex items-center gap-3">
-                <Building2 className="text-blue-600 flex-shrink-0" size={28} />
-                Bank Details
-              </h3>
-              <div className="space-y-4">
-                <div>
-                  <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">Account Name</p>
-                  <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg">
-                    Sohum Trust
-                  </p>
-                </div>
-                <div>
-                  <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">Account Number</p>
-                  <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg font-mono">
-                    0868102000016320
-                  </p>
-                </div>
-                <div>
-                  <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">Bank Name</p>
-                  <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg">
-                    IDBI BANK, Banashankari Branch
-                  </p>
-                </div>
-                <div>
-                  <p className="text-sm text-slate-500 font-semibold uppercase tracking-wide mb-2">Account Type</p>
-                  <p className="text-base sm:text-lg font-bold text-[#431407] bg-blue-50 p-3 rounded-lg">
-                    Current Account
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Additional Details Card */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border-2 border-blue-100 hover:shadow-xl transition-all"
-            >
-              <h3 className="font-bold text-xl sm:text-2xl text-[#431407] mb-6 flex items-center gap-3">
-                <Mail className="text-blue-600 flex-shrink-0" size={28} />
-                Additional Information
-              </h3>
-              <div className="space-y-4">
-                <div className="pt-4 border-t border-blue-100">
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    <strong className="text-[#431407]">Note:</strong> All donations are eligible for 80G tax exemption under the Indian Income Tax Act. Please save your receipt for tax purposes.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                <Heart size={24} className="text-white group-hover:fill-white transition-all" />
+              </motion.div>
+              <span>Donate Now</span>
+              <motion.div
+                animate={{ x: [0, 6, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                <ArrowRight size={22} />
+              </motion.div>
+            </motion.a>
           </div>
 
-          {/* Copy to Clipboard Helper */}
+          {/* Supporting message */}
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="mt-8 sm:mt-10 bg-gradient-to-r from-blue-100 to-cyan-100 rounded-2xl p-6 sm:p-8 border-2 border-blue-200"
+            transition={{ delay: 0.4 }}
+            className="mt-12 sm:mt-14 bg-white/70 backdrop-blur-md rounded-2xl p-6 sm:p-8 shadow-lg border-2 border-white/80"
           >
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
-                <CheckCircle2 className="text-white" size={24} />
+            <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+              <div className="flex-shrink-0">
+                <motion.div
+                  animate={{ rotate: [0, 10, -10, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="w-14 h-14 bg-gradient-to-br from-[#ea580c] to-[#EC167F] rounded-full flex items-center justify-center shadow-lg"
+                >
+                  <Sparkles className="text-white" size={28} />
+                </motion.div>
               </div>
               <div>
-                <h4 className="font-bold text-lg text-[#431407] mb-2">Easy Bank Transfer</h4>
-                <p className="text-slate-700 leading-relaxed">
-                  You can transfer any amount directly to the above bank account. Ensure you mention "Sohum Trust" in the payment reference for easy tracking and tax documentation.
+                <h3 className="font-bold text-lg sm:text-xl text-[#431407] mb-2">Every contribution matters</h3>
+                <p className="text-slate-700 leading-relaxed text-sm sm:text-base">
+                  Whether it's ₹100 or ₹10,000, your generosity fuels quality education, mentorship, and opportunities for deserving students. Fill out the donation form above and join us in building a better future.
                 </p>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
-
-      {/* ================= DONATION ================= COMMENTED OUT */}
-      
-      <section id="donation-section" className="py-8 sm:py-12 md:py-16 bg-gradient-to-b from-white via-orange-50/30 to-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#ea580c]/10 to-[#EC167F]/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-[#f59e0b]/10 to-transparent rounded-full blur-3xl"></div>
-        
-        <div
-        id="qr-code-section"
-        className="relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 md:mb-10 px-4 sm:px-6"
-          >
-            <motion.div 
-            
-              initial={{ scale: 0 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs font-semibold tracking-widest uppercase mb-3 sm:mb-4 bg-gradient-to-r from-[#ea580c] to-[#EC167F] text-white shadow-lg"
-            >
-              Direct Impact
-            </motion.div>
-            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 bg-gradient-to-r from-[#431407] to-[#6B2710] bg-clip-text text-transparent">
-              Choose your contribution
-            </h2>
-            <p className="text-sm sm:text-base text-slate-700 font-medium">
-              Every donation strengthens long-term educational institutions.
-            </p>
-          </motion.div>
-
-          {/* QR Code Section */}
-          <motion.div
-            
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="flex justify-center mb-8 sm:mb-12"
-          >
-            <div className="bg-gradient-to-br from-white to-orange-50/50 rounded-xl sm:rounded-2xl shadow-xl border-2 border-[#ea580c]/20 p-4 sm:p-6 backdrop-blur-sm">
-              <p className="text-center text-sm sm:text-base font-semibold text-[#ea580c] mb-3 sm:mb-4">Pay through UPI</p>
-              <img 
-                src="/bank_qr.png" 
-                alt="Donation QR Code" 
-                className="w-48 sm:w-64 h-48 sm:h-64 object-cover rounded-lg shadow-md"
-              />
-            </div>
-          </motion.div>
-
-          {/* 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 max-w-5xl mx-auto px-4 sm:px-6 mb-6 sm:mb-8"> 
-            {donationTiers.map((tier, i) => (
-              <DonationCard key={tier.id} tier={tier} index={i} onSelect={handleSelectAmount} />
-            ))}
-          </div>
-*/}
-          {/* <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="max-w-2xl mx-auto px-4 sm:px-6"
-          >
-            <div className="bg-gradient-to-br from-white to-orange-50/50 rounded-xl sm:rounded-2xl shadow-xl border-2 border-[#ea580c]/20 p-5 sm:p-6 md:p-8 backdrop-blur-sm">
-              <h3 className="font-bold text-lg sm:text-xl text-[#431407] mb-4 sm:mb-5 text-center flex flex-col sm:flex-row items-center justify-center gap-2">
-                <motion.div
-                  animate={{ rotate: [0, 10, -10, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  <Sparkles className="text-[#ea580c]" size={24} />
-                   
-                </motion.div>
-                Or Enter Custom Amount
-              </h3>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <div className="flex-1 relative">
-                  <IndianRupee className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-[#ea580c]" size={20} />
-                  <input
-                    type="number"
-                    value={customAmount}
-                    onChange={(e) => setCustomAmount(e.target.value)}
-                    placeholder="Enter amount"
-                    className="w-full pl-10 sm:pl-14 pr-3 sm:pr-4 py-3 sm:py-4 border-2 border-[#ea580c]/30 rounded-xl focus:border-[#ea580c] focus:outline-none focus:ring-2 focus:ring-[#ea580c]/20 font-bold text-lg sm:text-xl bg-white/80 backdrop-blur-sm transition-all"
-                    min="1"
-                  />
-                </div>
-                <motion.button 
-                  onClick={handleCustomDonate}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#ea580c] to-[#EC167F] text-white font-bold rounded-xl hover:shadow-xl transition-all flex items-center justify-center gap-2 shadow-lg text-sm sm:text-base"
-                >
-                  Donate 
-                  <motion.div
-                    animate={{ scale: [1, 1.3, 1] }}
-                    transition={{ duration: 1, repeat: Infinity }}
-                  >
-                    <Heart size={20} className="fill-white" />
-                  </motion.div>
-                </motion.button>
-              </div>
-              <p className="text-sm text-slate-600 mt-4 text-center font-medium">Minimum donation: ₹1 • 100% secure transaction</p>
-            </div>
-          </motion.div> */}
-        </div>
-      </section>
-      
 
       {/* ================= CSR ================= */}
       <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-[#431407] via-[#2a0d04] to-[#1a0502] text-white relative overflow-hidden">

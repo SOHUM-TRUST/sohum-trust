@@ -143,9 +143,6 @@ const SiteFooter = () => {
             &copy; {new Date().getFullYear()} Sohum Trust. All rights reserved.
             Building futures through education.
           </p>
-          <p className="mt-3 flex items-center justify-center gap-1 text-sm">
-            Made with <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" /> by Vishwak, Ashirwad and Deeksha
-          </p>
         </div>
       </div>
     </footer>
