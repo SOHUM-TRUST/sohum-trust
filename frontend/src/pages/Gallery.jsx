@@ -118,7 +118,7 @@ const Gallery = () => {
     className="object-cover w-full h-1/2 grayscale"
   />
   <img 
-    src="/children3.png" 
+    src="/serve-institutions.png" 
     alt="Community kids" 
     className="object-cover w-full h-1/2 grayscale"
   />
