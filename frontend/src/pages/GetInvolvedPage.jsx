@@ -781,7 +781,7 @@ const GetInvolvedPage = () => {
               whileTap={{ scale: 0.95 }}
             >
               <button 
-                onClick={() => document.getElementById('qr-code-section')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => window.location.href = "https://forms.gle/YJ6roCW6Kd5YFWur5"}
                 className="inline-flex items-center gap-2 bg-white text-[#EC167F] px-12 py-5 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all cursor-pointer"
               >
                 <Sparkles size={20} />
