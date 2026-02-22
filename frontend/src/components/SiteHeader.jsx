@@ -14,6 +14,7 @@ const SiteHeader = () => {
     { label: 'About Us', path: '/about' },
     { label: 'What We Enable', path: '/what-we-enable' },
     { label: 'Impact', path: '/impact' },
+    { label: 'Gallery', path: '/gallery' },
     { label: 'Get Involved', path: '/get-involved' },
   ];
 
@@ -84,7 +85,7 @@ const SiteHeader = () => {
           </Link>
 
           <button
-            className="md:hidden p-2 text-white"
+            className="lg:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -111,27 +112,28 @@ const SiteHeader = () => {
         </div>
 
         {isMobileMenuOpen && (
-          <div className="md:hidden pb-6 border-t border-white/30 bg-gradient-to-r from-[#EC167F] to-[#F5A044]">
-            <nav className="flex flex-col space-y-4 pt-4">
+          <div className="lg:hidden pb-6 border-t border-white/30 bg-gradient-to-r from-[#EC167F] to-[#F5A044] mt-2">
+            <nav className="flex flex-col space-y-3 pt-4 px-4 sm:px-6">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   to={item.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`font-medium ${
-                    isActive(item.path) ? 'text-white font-bold' : 'text-white/90'
+                  className={`py-2 px-3 rounded-lg font-medium text-sm sm:text-base ${
+                    isActive(item.path) ? 'bg-white/20 text-white font-bold' : 'text-white/90 hover:bg-white/10'
                   }`}
                 >
                   {item.label}
                 </Link>
               ))}
 
-              <Link to="/get-involved" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button className="w-full bg-white text-[#EC167F] font-bold rounded-full py-3 shadow-lg flex items-center justify-center gap-2">
-                  <Heart size={18} className="fill-[#EC167F]" />
+              <a href="https://forms.gle/YJ6roCW6Kd5YFWur5" target="_blank" rel="noopener noreferrer" className="block pt-2" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button className="w-full bg-white text-[#EC167F] font-bold rounded-full py-2 sm:py-3 shadow-lg flex items-center justify-center gap-2 cursor-pointer text-sm sm:text-base">
+                  <Heart size={16} className="fill-[#EC167F] sm:hidden" />
+                  <Heart size={18} className="fill-[#EC167F] hidden sm:block" />
                   Donate Now
                 </Button>
-              </Link>
+              </a>
             </nav>
           </div>
         )}

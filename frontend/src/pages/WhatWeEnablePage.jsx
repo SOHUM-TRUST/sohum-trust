@@ -291,7 +291,7 @@ const WhatWeEnable = () => {
         <div className="absolute top-10 right-10 w-96 h-96 bg-orange-200/40 rounded-full blur-3xl z-0"></div>
         <div className="absolute bottom-10 left-10 w-80 h-80 bg-[#ea580c]/20 rounded-full blur-3xl z-0"></div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           {/* Header */}
           <div className="max-w-3xl mx-auto text-center mb-12">
             <p className="text-xs font-medium text-[#ea580c] mb-2 tracking-wide">
@@ -306,7 +306,7 @@ const WhatWeEnable = () => {
           </div>
 
           {/* Vision Grid */}
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
             {[
               {
                 number: "5,000+",
@@ -336,7 +336,7 @@ const WhatWeEnable = () => {
           </div>
 
           {/* Vision Statements */}
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {[
               {
                 title: "For Students",
@@ -377,7 +377,7 @@ const WhatWeEnable = () => {
         {/* Background decoration */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-transparent via-[#ea580c]/20 to-transparent"></div>
         
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           {/* Header */}
           <div className="max-w-3xl mx-auto text-center mb-10">
             <p className="text-xs font-medium text-[#ea580c] mb-2 tracking-wide">
@@ -488,7 +488,7 @@ const WhatWeEnable = () => {
 
       {/* ================= DIFFERENTIATORS (Professional Flowchart) ================= */}
       <section className="py-16 bg-gradient-to-b from-white to-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Header */}
           <div className="max-w-3xl mx-auto text-center mb-16">
             <p className="text-xs font-medium text-[#ea580c] mb-2 tracking-wide">
@@ -508,7 +508,7 @@ const WhatWeEnable = () => {
             <div className="hidden lg:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#ea580c]/40 via-50% to-transparent"></div>
 
             {/* Cards Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 relative">
               {[
                 {
                   title: 'Institution Building',
@@ -547,7 +547,7 @@ const WhatWeEnable = () => {
                     </div>
 
                     {/* Main Card */}
-                    <div className="mt-12 p-6 bg-white rounded-xl border-2 border-slate-200 hover:border-[#ea580c] shadow-sm hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1">
+                    <div className="mt-12 p-4 sm:p-6 bg-white rounded-xl border-2 border-slate-200 hover:border-[#ea580c] shadow-sm hover:shadow-xl transition-all duration-300 group-hover:-translate-y-1">
                       {/* Large Number Background */}
                       <div className="absolute top-4 right-4 text-6xl font-bold text-[#ea580c]/5">
                         {item.number}

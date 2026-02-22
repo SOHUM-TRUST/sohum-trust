@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, X } from 'lucide-react';
 
@@ -59,7 +58,7 @@ const FloatingDonateButton = () => {
             />
 
             {/* Main button */}
-            <Link to="/get-involved">
+            <a href="https://forms.gle/YJ6roCW6Kd5YFWur5" target="_blank" rel="noopener noreferrer">
               <motion.button
                 whileTap={{ scale: 0.95 }}
                 className="relative bg-gradient-to-r from-[#EC167F] to-[#F5A044] text-white px-4 py-3 sm:px-6 sm:py-3.5 md:px-8 md:py-4 rounded-full font-bold shadow-2xl flex items-center gap-2 sm:gap-2.5 md:gap-3 border-2 border-white hover:shadow-3xl transition-shadow text-sm sm:text-base md:text-lg cursor-pointer"
@@ -79,7 +78,7 @@ const FloatingDonateButton = () => {
                 </motion.div>
                 <span>Donate Now</span>
               </motion.button>
-            </Link>
+            </a>
 
             {/* Minimize button */}
             <button

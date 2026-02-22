@@ -290,7 +290,7 @@ const AboutUs = () => {
     </motion.h1>
 
     <motion.p 
-      className="max-w-3xl mx-auto text-[15px] sm:text-[16px] md:text-[17px] leading-[1.7] sm:leading-[1.8] text-slate-600"
+      className="max-w-3xl mx-auto text-sm sm:text-base md:text-lg leading-[1.7] sm:leading-[1.8] text-slate-600"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.4 }}
@@ -380,7 +380,7 @@ const AboutUs = () => {
             ease: "linear"
           }}
         >
-          <p className="uppercase tracking-[0.3em] text-[11px] font-bold bg-gradient-to-r from-[#ea580c] via-[#EC167F] to-[#F5A044] bg-clip-text text-transparent bg-[length:200%_auto]">
+          <p className="uppercase tracking-[0.3em] text-xs font-bold bg-gradient-to-r from-[#ea580c] via-[#EC167F] to-[#F5A044] bg-clip-text text-transparent bg-[length:200%_auto]">
             Who We Are
           </p>
         </motion.div>
@@ -388,7 +388,7 @@ const AboutUs = () => {
           A long-term institution builder in <span className="bg-gradient-to-r from-[#ea580c] to-[#EC167F] bg-clip-text text-transparent">education</span>
         </h2>
 
-        <div className="space-y-6 text-[16px] sm:text-[17px] leading-[1.85] text-slate-700">
+        <div className="space-y-6 text-sm sm:text-base md:text-lg leading-[1.85] text-slate-700">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -473,7 +473,7 @@ const AboutUs = () => {
             <h4 className="font-bold text-xl text-[#431407] mb-3 group-hover:text-[#ea580c] transition-colors">
               {title}
             </h4>
-            <p className="text-[15px] leading-relaxed text-slate-700">
+            <p className="text-sm sm:text-base leading-relaxed text-slate-700">
               {desc}
             </p>
           </div>
@@ -580,7 +580,7 @@ const AboutUs = () => {
     </motion.div>
 
     {/* Content Grid */}
-    <div className="grid md:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
       
       {[
         ['The Challenge', 'While access to education has improved, many learners still lack continuity, mentorship, and institutional support needed for long-term success.', 'from-[#FFF0F0] via-[#FFE8E8] to-[#FFE0E0]', 'from-[#dc2626] to-[#ea580c]'],
@@ -643,7 +643,7 @@ const AboutUs = () => {
             <h4 className={`font-bold text-xl mb-4 ${index === 2 ? 'text-white' : 'text-[#431407]'} relative z-10`}>
               {title}
             </h4>
-            <p className={`text-[15px] leading-relaxed ${index === 2 ? 'text-white/95' : 'text-slate-700'} relative z-10`}>
+            <p className={`text-sm sm:text-base leading-relaxed ${index === 2 ? 'text-white/95' : 'text-slate-700'} relative z-10`}>
               {desc}
             </p>
             
@@ -689,14 +689,14 @@ const AboutUs = () => {
       Vision & Mission
     </h2>
 
-    <div className="grid md:grid-cols-2 gap-12">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12">
       
       {/* Vision */}
       <div>
         <h3 className="font-serif text-2xl font-semibold text-[#431407] mb-4">
           Our Vision
         </h3>
-        <p className="text-[17px] leading-[1.8] text-slate-700">
+        <p className="text-base sm:text-lg leading-[1.8] text-slate-700">
           An India where every individual has access to transformative education
           rooted in culture, capability, and aspiration—regardless of geography
           or socio-economic background.
@@ -708,7 +708,7 @@ const AboutUs = () => {
         <h3 className="font-serif text-2xl font-semibold text-[#431407] mb-4">
           Our Mission
         </h3>
-        <p className="text-[17px] leading-[1.8] text-slate-700">
+        <p className="text-base sm:text-lg leading-[1.8] text-slate-700">
           To build, operate, and sustain long-term educational institutions that
           empower students from Tier-2, Tier-3, and underserved communities
           through structured learning, mentorship, and continuity.
@@ -1099,7 +1099,7 @@ const AboutUs = () => {
 
     {/* Heading */}
     <div className="text-center mb-10 sm:mb-12 md:mb-16">
-      <p className="uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[10px] sm:text-[11px] font-bold text-[#ea580c]">
+      <p className="uppercase tracking-[0.25em] sm:tracking-[0.3em] text-xs sm:text-sm font-bold text-[#ea580c]">
         Donor Testimonials
       </p>
 

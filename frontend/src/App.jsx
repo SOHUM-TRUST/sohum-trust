@@ -7,6 +7,7 @@ import AboutUs from "./pages/AboutUs";
 import WhatWeEnablePage from "./pages/WhatWeEnablePage";
 import ImpactPage from "./pages/ImpactPage";
 import GetInvolvedPage from "./pages/GetInvolvedPage";
+import Gallery from "./pages/Gallery";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import RefundPolicy from "./pages/RefundPolicy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -45,6 +46,7 @@ const AnimatedRoutes = () => {
         <Route path="/what-we-enable" element={<PageWrapper><WhatWeEnablePage /></PageWrapper>} />
         <Route path="/impact" element={<PageWrapper><ImpactPage /></PageWrapper>} />
         <Route path="/get-involved" element={<PageWrapper><GetInvolvedPage /></PageWrapper>} />
+        <Route path="/gallery" element={<PageWrapper><Gallery /></PageWrapper>} />
         <Route path="/terms" element={<PageWrapper><TermsAndConditions /></PageWrapper>} />
         <Route path="/refund-policy" element={<PageWrapper><RefundPolicy /></PageWrapper>} />
         <Route path="/privacy-policy" element={<PageWrapper><PrivacyPolicy /></PageWrapper>} />

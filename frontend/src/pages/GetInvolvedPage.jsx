@@ -319,13 +319,15 @@ const GetInvolvedPage = () => {
           </motion.p>
 
           {/* Enhanced 3D Button with Glow */}
-          <motion.button 
+          <motion.a 
+            href="https://forms.gle/YJ6roCW6Kd5YFWur5"
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => document.getElementById('donation-cta-section')?.scrollIntoView({ behavior: 'smooth' })}
             className="group relative inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-gradient-to-r from-[#ea580c] to-[#EC167F] text-white rounded-full font-bold text-sm sm:text-base shadow-[0_10px_30px_rgba(234,88,12,0.5),_0_0_20px_rgba(236,22,127,0.3)] hover:shadow-[0_15px_40px_rgba(234,88,12,0.6),_0_0_30px_rgba(236,22,127,0.4)] transition-all duration-300 cursor-pointer"
           >
             <span>Give a Child Hope, Give a Future</span>
@@ -335,7 +337,7 @@ const GetInvolvedPage = () => {
             >
               <Heart size={20} className="text-white group-hover:fill-white transition-all" />
             </motion.div>
-          </motion.button>
+          </motion.a>
 
         </div>
       </section>
@@ -492,7 +494,7 @@ const GetInvolvedPage = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               { text: 'Custom CSR-aligned education programs', Icon: Target },
               { text: 'Employee mentorship & engagement', Icon: Users },
@@ -562,7 +564,7 @@ const GetInvolvedPage = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center max-w-2xl mx-auto mb-12 px-6"
+            className="text-center max-w-2xl mx-auto mb-12 px-4 sm:px-6"
           >
             <motion.div 
               initial={{ scale: 0 }}
@@ -580,7 +582,7 @@ const GetInvolvedPage = () => {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 max-w-4xl mx-auto px-4 sm:px-6">
             <motion.div
               initial={{ opacity: 0, y: 30, rotateY: -20 }}
               whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
@@ -656,7 +658,7 @@ const GetInvolvedPage = () => {
 
       {/* ================= FAQ ================= */}
       <section className="py-20 bg-gradient-to-b from-slate-50 via-white to-slate-50">
-        <div className="max-w-3xl mx-auto px-6">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

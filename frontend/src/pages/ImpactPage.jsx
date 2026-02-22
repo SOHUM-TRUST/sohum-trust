@@ -274,7 +274,7 @@ const ImpactGallery = () => {
               />
               <motion.div
                 layoutId={`card-container-${selectedId}`}
-                className="relative bg-white w-full max-w-2xl overflow-hidden rounded-2xl shadow-2xl grid md:grid-cols-2"
+                className="relative bg-white w-full max-w-2xl overflow-hidden rounded-2xl shadow-2xl grid grid-cols-1 md:grid-cols-2"
               >
                 {(() => {
                   const item = impactData.find((i) => i.id === selectedId);
@@ -343,7 +343,7 @@ const MetricsSection = () => {
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#ea580c]/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#ea580c]/10 rounded-full blur-3xl"></div>
       
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-12">
           <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
             Our Impact Goals
@@ -353,7 +353,7 @@ const MetricsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
           {metrics.map((metric, idx) => (
             <motion.div
               key={metric.label}
@@ -393,7 +393,7 @@ const GeographicImpact = () => {
 
   return (
     <section className="py-24 bg-[#F8F4EF]">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Header */}
         <div className="text-center mb-16">
@@ -408,14 +408,14 @@ const GeographicImpact = () => {
             Where We'll Create Impact
           </h2>
 
-          <p className="text-slate-600 max-w-2xl mx-auto text-[16px]">
+          <p className="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base">
             Our planned presence across key states in India, bringing quality education 
             to underserved communities.
           </p>
         </div>
 
         {/* Content */}
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 items-center">
 
           {/* Left Map Card */}
           <div className="relative h-[420px] bg-gradient-to-br from-[#EDE3D8] to-[#F6EFE7] rounded-3xl shadow-lg flex items-center justify-center overflow-hidden">
@@ -528,7 +528,7 @@ const ProgramFocusSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {focuses.map((focus, idx) => (
             <motion.div
               key={focus.title}
@@ -594,7 +594,7 @@ const TransformationSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           {transformations.map((item, idx) => (
             <motion.div
               key={idx}
@@ -637,7 +637,7 @@ const TimelineSection = () => {
           <h2 className="font-serif text-2xl font-semibold text-[#431407]">Our Journey</h2>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 relative">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 relative">
           {/* Connector Line (Desktop) */}
           <div className="hidden md:block absolute top-[15px] left-0 w-full h-[2px] bg-gradient-to-r from-orange-200 to-transparent -z-10" />
 
@@ -706,7 +706,7 @@ const RecognitionSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
           {commitments.map((item, idx) => (
             <motion.div
               key={idx}
@@ -739,11 +739,11 @@ const RecognitionSection = () => {
 const StorySection = () => {
   return (
     <section className="py-20 bg-white border-y border-stone-100">
-      <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 items-center">
         
         {/* Left: Content */}
         <div className="order-2 md:order-1">
-          <div className="inline-block px-3 py-1 bg-orange-50 text-[#ea580c] text-[10px] font-bold tracking-widest uppercase mb-4 rounded-md">
+                <div className="inline-block px-3 py-1 bg-orange-50 text-[#ea580c] text-xs sm:text-xs font-bold tracking-widest uppercase mb-4 rounded-md">
             Our Vision
           </div>
           <h2 className="font-serif text-3xl md:text-4xl font-semibold text-[#431407] mb-5">
@@ -789,7 +789,7 @@ const StorySection = () => {
 const TrustSection = () => {
   return (
     <section className="py-20 bg-[#fffdf9]">
-      <div className="max-w-4xl mx-auto px-6 text-center">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
         
         {/* Testimonial */}
         <div className="mb-16">
@@ -808,7 +808,7 @@ const TrustSection = () => {
 
         {/* Partners */}
         <div>
-          <p className="text-[10px] font-bold tracking-widest text-slate-400 uppercase mb-8">
+          <p className="text-xs sm:text-xs font-bold tracking-widest text-slate-400 uppercase mb-8">
             Supported by visionaries
           </p>
           <div className="flex flex-wrap justify-center gap-10 md:gap-20 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">

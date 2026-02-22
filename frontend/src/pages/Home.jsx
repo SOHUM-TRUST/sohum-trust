@@ -345,24 +345,24 @@ export default function Home() {
               <div className="bg-white/95 backdrop-blur-sm rounded-[32px] md:rounded-[40px] grid md:grid-cols-2 min-h-[450px] shadow-[0_20px_60px_-15px_rgba(67,20,7,0.15)] overflow-hidden border border-white relative group hover:shadow-[0_25px_70px_-15px_rgba(67,20,7,0.2)] transition-all duration-500">
                 
                 {/* TEXT SIDE */}
-                <div className="p-8 md:p-14 flex flex-col justify-center relative bg-gradient-to-br from-white/50 to-transparent">
+                <div className="p-4 sm:p-8 md:p-14 flex flex-col justify-center relative bg-gradient-to-br from-white/50 to-transparent">
                   {/* Premium accent line */}
                   <div className="absolute top-0 left-0 w-20 h-1 bg-gradient-to-r from-[#D2693E] via-[#EC167F] to-transparent rounded-r-full"></div>
 
-                  <span className="tracking-[0.25em] uppercase text-[11px] font-bold text-[#D2693E] mb-5 opacity-90">
+                  <span className="tracking-[0.25em] uppercase text-xs sm:text-sm font-bold text-[#D2693E] mb-5 opacity-90">
                     {s.subtitle}
                   </span>
 
-                  <h2 className="font-serif text-3xl md:text-5xl font-semibold text-[#431407] mb-6 leading-[1.08] tracking-tight">
+                  <h2 className="font-serif text-2xl sm:text-3xl md:text-5xl font-semibold text-[#431407] mb-6 leading-[1.08] tracking-tight">
                     {s.title}
                   </h2>
 
-                  <p className="text-[15px] md:text-[17px] leading-[1.7] text-slate-600 mb-8 max-w-md">
+                  <p className="text-sm sm:text-base md:text-lg leading-[1.7] text-slate-600 mb-8 max-w-md">
                     {s.text}
                   </p>
 
                   <div className="mt-auto">
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-[#ea580c]/80 font-bold mb-6">
+                    <p className="text-xs uppercase tracking-[0.2em] text-[#ea580c]/80 font-bold mb-6">
                       Nurturing Minds, Illuminating Futures
                     </p>
 
@@ -480,16 +480,16 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="font-heading text-5xl font-bold bg-gradient-to-r from-[#431407] to-[#6B2710] bg-clip-text text-transparent mb-8"
+            className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#431407] to-[#6B2710] bg-clip-text text-transparent mb-8"
           >
             Addressing gaps education leaves behind
           </motion.h3>
-          <p className="text-[17px] leading-[1.75] text-slate-700 mb-6 max-w-2xl">
+          <p className="text-base sm:text-lg md:text-xl leading-[1.75] text-slate-700 mb-6 max-w-2xl">
             Many learners begin education but lack continuity, guidance, and
             institutional support. Short-term interventions often fail to
             create lasting impact.
           </p>
-          <p className="text-[16px] text-slate-600 max-w-2xl">
+          <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl">
             Sohum Trust exists to build long-term educational ecosystems that
             support learners across academic, professional, and cultural stages.
           </p>
@@ -643,7 +643,7 @@ export default function Home() {
               {item.title}
             </h4>
 
-            <p className="text-[16px] leading-[1.7] text-white/90 max-w-md">
+            <p className="text-base sm:text-lg leading-[1.7] text-white/90 max-w-md">
               {item.desc}
             </p>
           </div>
@@ -667,7 +667,7 @@ export default function Home() {
         Education that continues,<br />not ends
       </h2>
 
-      <p className="text-[15px] leading-[1.7] text-slate-600 max-w-md">
+      <p className="text-sm sm:text-base leading-[1.7] text-slate-600 max-w-md">
         Sohum Trust builds learning ecosystems that support students across
         stages — academically, professionally, and culturally.
       </p>
@@ -709,7 +709,7 @@ export default function Home() {
             <h3 className="font-heading text-base font-semibold text-[#431407] mb-1">
               {item.title}
             </h3>
-            <p className="text-[14px] leading-[1.6] text-slate-600">
+            <p className="text-xs sm:text-sm leading-[1.6] text-slate-600">
               {item.desc}
             </p>
           </div>
@@ -766,7 +766,7 @@ export default function Home() {
                 <h3 className="font-heading text-2xl font-bold text-[#431407] mb-4">
                   {activeValue.title}
                 </h3>
-                <p className="text-[15px] leading-[1.7] text-slate-600">
+                <p className="text-sm sm:text-base leading-[1.7] text-slate-600">
                   {activeValue.description}
                 </p>
               </div>
