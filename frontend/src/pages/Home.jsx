@@ -452,17 +452,96 @@ export default function Home() {
 
       </div>
     </section>
+
+      {/* ================= FEATURED VIDEO ================= */}
+      <section className="py-12 sm:py-16 md:py-28 bg-gradient-to-b from-white via-orange-50/30 to-white relative overflow-hidden">
+        {/* Decorative background elements - hidden on mobile for performance */}
+        <motion.div 
+          className="hidden sm:block absolute top-20 right-10 w-64 sm:w-80 h-64 sm:h-80 bg-gradient-to-br from-[#ea580c]/15 to-[#EC167F]/15 rounded-full blur-3xl"
+          animate={{ scale: [1, 1.15, 1], opacity: [0.3, 0.5, 0.3] }}
+          transition={{ duration: 6, repeat: Infinity }}
+        />
+        <motion.div 
+          className="hidden sm:block absolute bottom-10 left-10 w-64 sm:w-72 h-64 sm:h-72 bg-gradient-to-tr from-[#f59e0b]/10 to-transparent rounded-full blur-3xl"
+          animate={{ scale: [1.1, 1, 1.1], opacity: [0.2, 0.4, 0.2] }}
+          transition={{ duration: 7, repeat: Infinity }}
+        />
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+          {/* Header */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10 sm:mb-12 md:mb-16"
+          >
+            <motion.div 
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold tracking-widest uppercase mb-3 sm:mb-4 bg-gradient-to-r from-[#ea580c] to-[#EC167F] text-white shadow-lg"
+            >
+              Our Story
+            </motion.div>
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-6 bg-gradient-to-r from-[#431407] to-[#6B2710] bg-clip-text text-transparent">
+              About Sohum Trust
+            </h2>
+            <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              Discover our mission, vision, and the impact we're creating in education and community development.
+            </p>
+          </motion.div>
+
+          {/* Video Container */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="relative group"
+          >
+            <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-[#ea580c]/20 to-[#EC167F]/20 rounded-2xl sm:rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500 opacity-0 group-hover:opacity-100"></div>
+            
+            <div className="relative bg-white rounded-2xl sm:rounded-3xl shadow-[0_15px_40px_-10px_rgba(67,20,7,0.15)] sm:shadow-[0_20px_60px_-15px_rgba(67,20,7,0.15)] overflow-hidden border border-white/80 hover:shadow-[0_20px_60px_-10px_rgba(67,20,7,0.2)] sm:hover:shadow-[0_25px_80px_-15px_rgba(67,20,7,0.2)] transition-all duration-500">
+              {/* Video Player */}
+              <div className="aspect-video bg-black flex items-center justify-center relative overflow-hidden">
+                <video
+                  controls
+                  className="w-full h-full object-cover"
+                  poster="/video-poster.jpg"
+                  controlsList="nodownload"
+                >
+                  <source src="/sohum-trust.mp4" type="video/mp4" />
+                  <p className="text-white text-center">
+                    Your browser does not support the video tag. Please update your browser.
+                  </p>
+                </video>
+              </div>
+
+              {/* Video Info */}
+              <div className="p-4 sm:p-6 md:p-8 lg:p-10 bg-gradient-to-br from-white to-orange-50/30">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#431407] mb-2 sm:mb-3">
+                  Transforming Lives Through Education
+                </h3>
+                <p className="text-slate-600 leading-relaxed text-xs sm:text-sm md:text-base">
+                  At Sohum Trust, we believe in empowering students from Tier-2 and Tier-3 communities by providing quality education, mentorship, and institutional support. Watch how our initiatives are creating lasting impact in students' lives.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ================= WHY WE EXIST ================= */}
       <motion.section
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="max-w-7xl mx-auto px-6 py-32 grid md:grid-cols-2 gap-20 items-center relative"
+        className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 md:py-32 grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-20 items-center relative"
       >
-        {/* Decorative background elements */}
+        {/* Decorative background elements - hidden on mobile for performance */}
         <motion.div 
-          className="absolute top-10 right-10 w-64 h-64 bg-gradient-to-br from-[#ea580c]/10 to-[#EC167F]/10 rounded-full blur-3xl"
+          className="hidden sm:block absolute top-10 right-10 w-56 sm:w-64 h-56 sm:h-64 bg-gradient-to-br from-[#ea580c]/10 to-[#EC167F]/10 rounded-full blur-3xl"
           animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 5, repeat: Infinity }}
         />
@@ -561,21 +640,21 @@ export default function Home() {
 </section>
 
 {/* ================= WHO WE SERVE ================= */}
-<section className="bg-gradient-to-b from-white via-blue-50/30 to-white py-32 relative overflow-hidden">
+<section className="bg-gradient-to-b from-white via-blue-50/30 to-white py-16 sm:py-24 md:py-32 relative overflow-hidden">
   <motion.div 
-    className="absolute bottom-20 left-20 w-72 h-72 bg-gradient-to-br from-blue-300/20 to-indigo-300/20 rounded-full blur-3xl"
+    className="hidden sm:block absolute bottom-20 left-20 w-64 sm:w-72 h-64 sm:h-72 bg-gradient-to-br from-blue-300/20 to-indigo-300/20 rounded-full blur-3xl"
     animate={{ scale: [1, 1.2, 1], x: [-20, 20, -20] }}
     transition={{ duration: 8, repeat: Infinity }}
   />
-  <div className="max-w-7xl mx-auto px-6 relative z-10">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
 
     {/* Heading */}
-    <div className="text-center mb-20">
+    <div className="text-center mb-12 sm:mb-16 md:mb-20">
       <motion.h2 
         initial={{ scale: 0 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}
-        className="tracking-[0.3em] text-xs font-semibold bg-gradient-to-r from-[#ea580c] to-[#EC167F] bg-clip-text text-transparent mb-4 uppercase"
+        className="tracking-[0.3em] text-xs font-semibold bg-gradient-to-r from-[#ea580c] to-[#EC167F] bg-clip-text text-transparent mb-3 sm:mb-4 uppercase"
       >
         WHO WE SERVE
       </motion.h2>
@@ -583,14 +662,14 @@ export default function Home() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="font-heading text-5xl font-bold bg-gradient-to-r from-[#431407] to-[#6B2710] bg-clip-text text-transparent"
+        className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#431407] to-[#6B2710] bg-clip-text text-transparent"
       >
         Supporting learners at every stage
       </motion.h3>
     </div>
 
     {/* Cards Grid */}
-    <div className="grid md:grid-cols-2 gap-10">
+    <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
 
       {[
         {
@@ -721,8 +800,8 @@ export default function Home() {
 </section>
 
       {/* ================= VALUES IN ACTION ================= */}
-      <section className="py-32 max-w-7xl mx-auto px-6">
-        <h2 className="text-center tracking-[0.3em] text-xs font-semibold text-[#ea580c] mb-14">
+      <section className="py-16 sm:py-24 md:py-32 max-w-7xl mx-auto px-4 sm:px-6">
+        <h2 className="text-center tracking-[0.3em] text-xs font-semibold text-[#ea580c] mb-10 sm:mb-12 md:mb-14">
           VALUES IN ACTION
         </h2>
 
@@ -867,10 +946,10 @@ export default function Home() {
 </section>
 
       {/* ================= CTA ================= */}
-      <section className="relative py-16 bg-gradient-to-br from-[#EC167F] via-[#ea580c] to-[#F5A044] text-white text-center overflow-hidden">
-        {/* Animated background patterns */}
+      <section className="relative py-12 sm:py-16 md:py-24 bg-gradient-to-br from-[#EC167F] via-[#ea580c] to-[#F5A044] text-white text-center overflow-hidden">
+        {/* Animated background patterns - hidden on mobile for performance */}
         <motion.div 
-          className="absolute inset-0 opacity-20"
+          className="hidden sm:block absolute inset-0 opacity-20"
           style={{
             backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
             backgroundSize: '30px 30px'
@@ -879,11 +958,11 @@ export default function Home() {
           transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
         />
         
-        {/* Floating orbs */}
+        {/* Floating orbs - hidden on mobile for performance */}
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-24 h-24 bg-white/10 rounded-full blur-2xl"
+            className="hidden sm:block absolute w-20 sm:w-24 h-20 sm:h-24 bg-white/10 rounded-full blur-2xl"
             style={{ left: `${15 + i * 15}%`, top: `${20 + (i % 3) * 25}%` }}
             animate={{ y: [0, -40, 0], x: [0, 30, 0], scale: [1, 1.3, 1] }}
             transition={{ duration: 6 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.5 }}
@@ -897,17 +976,17 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-heading text-4xl md:text-6xl font-bold mb-8 drop-shadow-lg">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-6 sm:mb-8 drop-shadow-lg">
               Transform Lives Through Quality Education
             </h2>
-            <p className="max-w-2xl mx-auto mb-12 text-xl text-white/95 font-medium">
+            <p className="max-w-2xl mx-auto mb-8 sm:mb-10 md:mb-12 text-base sm:text-lg md:text-xl text-white/95 font-medium px-4">
               Discover how you can support students, empower teachers, and build educational ecosystems that last
             </p>
-            <div className="flex justify-center gap-6 flex-wrap">
+            <div className="flex justify-center gap-3 sm:gap-6 flex-wrap px-4">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
                   to="/about"
-                  className="inline-block bg-white text-[#EC167F] px-12 py-5 rounded-full font-bold shadow-2xl hover:shadow-3xl transition-all"
+                  className="inline-block bg-white text-[#EC167F] px-8 sm:px-12 py-3 sm:py-5 rounded-full font-bold text-sm sm:text-base shadow-2xl hover:shadow-3xl transition-all"
                 >
                   Learn About Us
                 </Link>
@@ -915,7 +994,7 @@ export default function Home() {
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
                   to="/get-involved"
-                  className="inline-block border-2 border-white px-12 py-5 rounded-full font-bold hover:bg-white hover:text-[#EC167F] transition-all"
+                  className="inline-block border-2 border-white px-8 sm:px-12 py-3 sm:py-5 rounded-full font-bold text-sm sm:text-base hover:bg-white hover:text-[#EC167F] transition-all"
                 >
                   Support the Mission
                 </Link>
