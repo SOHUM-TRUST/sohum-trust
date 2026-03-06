@@ -14,7 +14,18 @@ const GALLERY_IMAGES = [
   { id: 3, image: '/gallery3.png' },
   { id: 4, image: '/gallery4.png' },
   { id: 5, image: '/gallery5.png' },
-  { id: 6, image: '/children3.png' },
+  { id: 6, image: '/gallery6.png' },
+  { id: 7, image: '/gallery7.png' },
+  { id: 8, image: '/gallery8.png' },
+  { id: 9, image: '/gallery9.png' },
+  { id: 10, image: '/gallery10.png' },
+  { id: 11, image: '/gallery11.png' },
+  { id: 12, image: '/gallery12.png' },
+  { id: 13, image: '/gallery13.png' },
+  { id: 14, image: '/gallery14.png' },
+  { id: 15, image: '/children1.png' },
+  { id: 16, image: '/children2.png' },
+  { id: 17, image: '/children3.png' },
 ];
 
 
