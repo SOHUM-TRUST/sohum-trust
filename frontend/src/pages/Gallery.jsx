@@ -26,6 +26,7 @@ const GALLERY_IMAGES = [
   { id: 18, image: '/SLN_1860.JPG' },
   { id: 19, image: '/SLN_1873.JPG' },
   { id: 20, image: '/1.jpg' },
+  { id: 19, image: '/SLN_1864.JPG' },
   { id: 21, image: '/2.jpg' },
   { id: 14, image: '/gallery14.png' },
   { id: 15, image: '/children1.png' },
